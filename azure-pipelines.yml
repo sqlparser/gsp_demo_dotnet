@@ -8,3 +8,8 @@ steps:
 - powershell: |
     dotnet --info
   displayName: 'Dotnet installs'
+
+- task: MSBuild@1
+  displayName: 'Build solution'
+  inputs:
+    solution: src/demos/build.proj
