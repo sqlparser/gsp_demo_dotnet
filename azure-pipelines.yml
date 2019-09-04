@@ -10,6 +10,6 @@ steps:
   displayName: 'Dotnet installs'
 
 - task: MSBuild@1
-  displayName: 'Build solution'
+  displayName: 'Build solution for demos'
   inputs:
     solution: src/demos/build.proj
