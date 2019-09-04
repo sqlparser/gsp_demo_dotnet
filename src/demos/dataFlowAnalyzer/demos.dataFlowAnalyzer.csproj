@@ -95,7 +95,7 @@
     <When Condition=" '$(UseGSPLib)'=='True' ">
       <ItemGroup>
         <Reference Include="gudusoft.gsqlparser">
-          <HintPath>..\..\..\lib\gudusoft.gsqlparser.dll</HintPath>
+          <HintPath>..\..\..\lib\net45\gudusoft.gsqlparser.dll</HintPath>
         </Reference>
       </ItemGroup>
     </When>
