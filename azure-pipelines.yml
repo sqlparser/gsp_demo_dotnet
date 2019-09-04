@@ -1,0 +1,10 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-2019'
+
+steps:
+- powershell: |
+    dotnet --info
+  displayName: 'Dotnet installs'
