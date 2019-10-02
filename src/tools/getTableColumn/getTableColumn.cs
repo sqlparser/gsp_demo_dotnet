@@ -87,9 +87,10 @@ namespace gudusoft.gsqlparser.tools.getTableColumn
         {
             IList<string> argList = new List<string>(args);
 
-            if (args.Length < 1 || argList.IndexOf("/d") == -1)
+            if (args.Length < 1 || (argList.IndexOf("/d") == -1 && argList.IndexOf("/f") == -1))
             {
-                Console.WriteLine("Usage: getTableColumn [/d <path_to_directory_includes_sql_files>] [/o <path_to_directory_table_columns_result>] [/t <database type>]");
+                Console.WriteLine("Usage: getTableColumn [/f <path_of_sql_file>] [/d <path_to_directory_includes_sql_files>] [/o <path_to_directory_table_columns_result>] [/t <database type>]");
+                Console.WriteLine("/f: specify the single sql file to analyze table columns.");
                 Console.WriteLine("/d: specify the sql directory path to analyze table columns.");
                 Console.WriteLine("/o: Option, write the output result to the specified directory.");
                 Console.WriteLine("/t: Option, set the database type. Support oracle, mysql, mssql, db2, netezza, teradata, informix, sybase, postgresql, hive, greenplum and redshift, the default type is oracle");
@@ -97,7 +98,18 @@ namespace gudusoft.gsqlparser.tools.getTableColumn
             }
 
             FileInfo sqlFiles = null;
+            FileInfo sqlFile = null;
             FileInfo outputDir = null;
+
+            if (argList.IndexOf("/f") != -1 && argList.Count > argList.IndexOf("/f") + 1)
+            {
+                sqlFile = new FileInfo(args[argList.IndexOf("/f") + 1]);
+                if (sqlFile.Attributes.HasFlag(FileAttributes.Directory))
+                {
+                    Console.WriteLine(sqlFiles + " is not a valid file.");
+                    return;
+                }
+            }
 
             if (argList.IndexOf("/d") != -1 && argList.Count > argList.IndexOf("/d") + 1)
             {
@@ -122,15 +134,32 @@ namespace gudusoft.gsqlparser.tools.getTableColumn
             string outputFile = null;
             string errorFile = null;
 
-            if (outputDir != null)
+            if (sqlFiles != null)
             {
-                outputFile = outputDir.FullName + "\\tableColumns.txt";
-                errorFile = outputDir.FullName + "\\error.txt";
+                if (outputDir != null)
+                {
+                    outputFile = outputDir.FullName + "\\tableColumns.txt";
+                    errorFile = outputDir.FullName + "\\error.txt";
+                }
+                else
+                {
+                    outputFile = ".\\tableColumns.txt";
+                    errorFile = ".\\error.txt";
+                }
             }
-            else
+            else if (sqlFile != null)
             {
-                outputFile = ".\\tableColumns.txt";
-                errorFile = ".\\error.txt";
+                String fileName = sqlFile.FullName;
+                int index = fileName.LastIndexOf('.');
+                if (index != -1)
+                {
+                    outputFile = fileName.Substring(0, index) + ".out";
+                }
+                else
+                {
+                    outputFile += ".out";
+                }
+                errorFile = outputFile;
             }
 
             System.IO.FileStream writer = null;
@@ -154,7 +183,14 @@ namespace gudusoft.gsqlparser.tools.getTableColumn
             StringBuilder errorBuffer = new StringBuilder();
 
             List<FileInfo> files = new List<FileInfo>();
-            getFiles(sqlFiles, files);
+            if (sqlFiles != null)
+            {
+                getFiles(sqlFiles, files);
+            }
+            else if (sqlFile != null)
+            {
+                files.Add(sqlFile);
+            }
 
             bool isOver = false;
 
