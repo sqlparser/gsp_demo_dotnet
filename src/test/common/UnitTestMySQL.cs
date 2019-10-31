@@ -76,6 +76,20 @@ namespace gudusoft.gsqlparser.test
         }
 
         [TestMethod]
+        public void TestTablePartition()
+        {
+            parser.sqltext = "select count(*) from users_range_key partition(p0)";
+            int ret = parser.parse();
+            Assert.IsTrue(ret == 0, parser.Errormessage);
+            TSelectSqlStatement selectSqlStatement = (TSelectSqlStatement)parser.sqlstatements.get(0);
+            TTable table = selectSqlStatement.tables.getTable(0);
+            TPartitionExtensionClause partition = table.PartitionExtensionClause;
+            //Console.WriteLine(partition.PartitionNames.getObjectName(0));
+            Assert.IsTrue(partition.PartitionNames.getObjectName(0).ToString().Equals("p0"));
+
+        }
+
+        [TestMethod]
         public void TestMySQLFiles()
         {
             String[] allfiles = System.IO.Directory.GetFiles(UnitTestCommon.BASE_SQL_DIR() + @"mysql\", "*.sql", System.IO.SearchOption.AllDirectories);
@@ -616,6 +630,8 @@ namespace gudusoft.gsqlparser.test
             sqlparser.sqltext = "DROP TABLE schema_n.table_n";
             Assert.IsTrue(sqlparser.parse() == 0);
             TDropTableSqlStatement dropTableSqlStatement = (TDropTableSqlStatement)sqlparser.sqlstatements.get(0);
+            TTable firstTable = dropTableSqlStatement.tables[0];
+            Assert.IsTrue(firstTable.EffectType == ETableEffectType.tetDrop);
             Assert.IsTrue(string.Equals( dropTableSqlStatement.TableNameList.getObjectName(0).SchemaString,"schema_n", StringComparison.CurrentCultureIgnoreCase));
             Assert.IsTrue(string.Equals(dropTableSqlStatement.TableNameList.getObjectName(0).ObjectString,"table_n", StringComparison.CurrentCultureIgnoreCase));
             Assert.IsTrue(string.Equals(dropTableSqlStatement.TableNameList.getObjectName(0).ToString(),"schema_n.table_n", StringComparison.CurrentCultureIgnoreCase));

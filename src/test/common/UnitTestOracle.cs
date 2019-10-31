@@ -67,6 +67,31 @@ namespace gudusoft.gsqlparser.test
         //
         #endregion
 
+
+
+        [TestMethod]
+        public void testOracleGetRawstatement()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvoracle);
+            sqlparser.sqltext = @"
+                                    CREATE TABLE myTable
+                                    (
+                                      Col1 int
+                                    )
+
+                                    INSERT INTO myTable (Col1)
+                                    SELECT Something
+                                      FROM Somewhere;
+
+                                    SELECT Col1
+                                      FROM myTable
+                                    ";
+            
+            Assert.IsTrue(sqlparser.parse() == 0);
+            Assert.IsTrue(sqlparser.sqlstatements.size() == 3);
+
+        }
+
         [TestMethod]
         public void TestQuery()
         {

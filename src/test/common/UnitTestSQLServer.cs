@@ -14,6 +14,21 @@ namespace gudusoft.gsqlparser.test
     [TestClass]
     public class UnitTestSQLServer
     {
+
+        [TestMethod]
+        public void testDropTable()
+        {
+
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmssql);
+            sqlparser.sqltext = "DROP table emp";
+            Assert.IsTrue(sqlparser.parse() == 0);
+
+            TDropTableSqlStatement stmt = (TDropTableSqlStatement)sqlparser.sqlstatements.get(0);
+            Assert.IsTrue(stmt.TargetTable.EffectType == ETableEffectType.tetDrop);
+            //Console.WriteLine(stmt.TargetTable.EffectType.ToString());
+        }
+
+
         [TestMethod]
         public void TestQuery()
         {
@@ -104,7 +119,9 @@ namespace gudusoft.gsqlparser.test
             Assert.IsTrue(sqlparser.parse() == 0);
 
             TAlterTableStatement alterTableStatement = (TAlterTableStatement)sqlparser.sqlstatements.get(0);
-
+            TTable targetTable = alterTableStatement.TargetTable;
+            //Console.WriteLine(targetTable.EffectType.ToString());
+            Assert.IsTrue(targetTable.EffectType == ETableEffectType.tetAlter);
             Assert.IsTrue(alterTableStatement.AlterTableOptionList.size() == 1);
             TAlterTableOption ao = alterTableStatement.AlterTableOptionList.getAlterTableOption(0);
             Assert.IsTrue(ao.OptionType == EAlterTableOptionType.AddConstraint);
@@ -512,6 +529,7 @@ namespace gudusoft.gsqlparser.test
             Assert.IsTrue(stmt.Options[0].SequenceOptionType == ESequenceOptionType.startWith);
             Assert.IsTrue(stmt.Options[0].OptionValue.ToString().Equals("1", StringComparison.CurrentCultureIgnoreCase));
         }
+
         [TestMethod]
         public void testDrop()
         {

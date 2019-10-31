@@ -9,8 +9,8 @@ namespace gudusoft.gsqlparser.test
     public class UnitTestCommon
     {
         public static string BASE_SQL_DIR() {
-                string SQLFilesDir =        @"../../../../../../../gsp_sqlfiles/TestCases/";
-                string netcoreSQLFilesDir = @"../../../../../../../../gsp_sqlfiles/TestCases/";
+                string SQLFilesDir =        @"../../../../../../gsp_sqlfiles/TestCases/";
+                string netcoreSQLFilesDir = @"../../../../../../../gsp_sqlfiles/TestCases/";
                 if (Directory.Exists(SQLFilesDir))
                 {
                     return SQLFilesDir;

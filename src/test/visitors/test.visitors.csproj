@@ -59,7 +59,7 @@
     <Compile Include="testXmlVisitor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\gsp_dotnet\gudusoft\gsqlparser\gsqlparser.csproj">
+    <ProjectReference Include="..\..\..\..\gsp_dotnet_azure\gudusoft\gsqlparser\gsqlparser.csproj">
       <Project>{145e8732-c089-4eb2-9f83-95a692c03fc9}</Project>
       <Name>gsqlparser</Name>
     </ProjectReference>
