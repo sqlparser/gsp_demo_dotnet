@@ -15,6 +15,63 @@ namespace gudusoft.gsqlparser.test.scriptWriter
     public class testScriptGenerator
     {
         [TestMethod]
+        public virtual void testOracleCreateIndexBitmap()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvoracle);
+            sqlparser.sqltext = @"CREATE BITMAP INDEX myIndex ON myTable (col)";
+
+            sqlparser.parse();
+            // Console.Out.WriteLine(formatSql(EDbVendor.dbvmysql,sqlparser.sqlstatements.get(0).ToScript()));
+            Assert.IsTrue(verifyScript(EDbVendor.dbvmysql, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
+        [TestMethod]
+        public virtual void testSQLServerTableIndex()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmssql);
+            sqlparser.sqltext = @"SELECT SomeCol FROM SomeTable WITH ( INDEX (1) )";
+
+            sqlparser.parse();
+            // Console.Out.WriteLine(formatSql(EDbVendor.dbvmysql,sqlparser.sqlstatements.get(0).ToScript()));
+            Assert.IsTrue(verifyScript(EDbVendor.dbvmysql, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
+        [TestMethod]
+        public virtual void testMySQLIndexhint()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmysql);
+            sqlparser.sqltext = @"select count(*) from hints_test force index(idx_2) order by col2";
+
+            sqlparser.parse();
+            // Console.Out.WriteLine(formatSql(EDbVendor.dbvmysql,sqlparser.sqlstatements.get(0).ToScript()));
+            Assert.IsTrue(verifyScript(EDbVendor.dbvmysql, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
+
+        [TestMethod]
+        public virtual void testMySQLDistinctRow()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmysql);
+            sqlparser.sqltext = @"select distinctrow * from t5";
+
+            sqlparser.parse();
+            // Console.Out.WriteLine(formatSql(EDbVendor.dbvmysql,sqlparser.sqlstatements.get(0).ToScript()));
+            Assert.IsTrue(verifyScript(EDbVendor.dbvmysql, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
+        [TestMethod]
+        public virtual void testMySQLOrderByLimit()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmysql);
+            sqlparser.sqltext = @"DELETE FROM somelog WHERE user = 'jcole' 
+                                    ORDER BY timestamp_column LIMIT 1";
+
+            sqlparser.parse();
+            // Console.Out.WriteLine(formatSql(EDbVendor.dbvmysql,sqlparser.sqlstatements.get(0).ToScript()));
+            Assert.IsTrue(verifyScript(EDbVendor.dbvmysql, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
+        [TestMethod]
         public virtual void testMySQLUpdateJoins()
         {
             TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmysql);

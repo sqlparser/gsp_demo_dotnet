@@ -194,7 +194,7 @@ namespace gudusoft.gsqlparser.demos.gettablecolumns
                         TResultColumn resultcolumn = update.ResultColumnList.getResultColumn(i);
                         if (resultcolumn.startToken.posinlist <= column.startToken.posinlist && resultcolumn.endToken.posinlist >= column.endToken.posinlist)
                         {
-                            update.ResultColumnList.removeElementAt(i);
+                            update.ResultColumnList.removeResultColumn(i);
                             break;
                         }
                     }
@@ -263,7 +263,7 @@ namespace gudusoft.gsqlparser.demos.gettablecolumns
                         case EExpressionType.simple_object_name_t:
                             if (column.startToken == expression.startToken && column.endToken == expression.endToken)
                             {
-                                stmt.ResultColumnList.removeElementAt(i);
+                                stmt.ResultColumnList.removeResultColumn(i);
                                 return;
                             }
                             break;
@@ -289,12 +289,12 @@ namespace gudusoft.gsqlparser.demos.gettablecolumns
                                 TMultiTarget target = insert.Values[j];
                                 if (target.ColumnList != null && target.ColumnList.Count == insert.ColumnList.Count)
                                 {
-                                    target.ColumnList.removeElementAt(i);
+                                    target.ColumnList.removeResultColumn(i);
                                 }
                             }
                         }
 
-                        insert.ColumnList.removeElementAt(i);
+                        insert.ColumnList.removeObjectName(i);
                         return;
                     }
                 }
@@ -333,7 +333,7 @@ namespace gudusoft.gsqlparser.demos.gettablecolumns
                 TOrderByItem item = orderBy.Items.getOrderByItem(i);
                 if (item.startToken.posinlist <= column.startToken.posinlist && item.endToken.posinlist >= column.endToken.posinlist)
                 {
-                    orderBy.Items.removeElementAt(i);
+                    orderBy.Items.removeOrderByItem(i);
                     break;
                 }
             }
@@ -363,7 +363,7 @@ namespace gudusoft.gsqlparser.demos.gettablecolumns
                 TGroupByItem item = groupBy.Items.getGroupByItem(i);
                 if (item.startToken.posinlist <= column.startToken.posinlist && item.endToken.posinlist >= column.endToken.posinlist)
                 {
-                    groupBy.Items.removeElementAt(i);
+                    groupBy.Items.removeGroupByItem(i);
                     break;
                 }
             }

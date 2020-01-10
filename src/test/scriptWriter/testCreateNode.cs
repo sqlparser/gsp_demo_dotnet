@@ -685,7 +685,7 @@ namespace gudusoft.gsqlparser.test.scriptWriter
             createIndex.ColumnNameList = items;
 
             string createIndexQuery = "CREATE UNIQUE INDEX AK_UnitMeasure_Name\n" + "    ON Production.UnitMeasure (Name)";
-            //		System.out.print(scriptGenerator.generateScript( createIndex, true ));
+           // Console.WriteLine(createIndex.ToScript());
 
             Assert.IsTrue(testScriptGenerator.verifyScript(EDbVendor.dbvmssql, createIndex.ToScript(), createIndexQuery));
 
@@ -1074,12 +1074,12 @@ namespace gudusoft.gsqlparser.test.scriptWriter
             TOrderBy orderBy = new TOrderBy();
             select.OrderbyClause = orderBy;
             TOrderByItem orderByItem = new TOrderByItem();
-            orderBy.Items.addElement(orderByItem);
+            orderBy.Items.addOrderByItem(orderByItem);
             orderByItem.SortKey = OracleParser.parseExpression("column1");
             orderByItem.SortOrder = ESortType.desc;
 
             TOrderByItem orderByItem2 = new TOrderByItem();
-            orderBy.Items.addElement(orderByItem2);
+            orderBy.Items.addOrderByItem(orderByItem2);
             orderByItem2.SortKey = OracleParser.parseExpression("column3");
             orderByItem2.SortOrder = ESortType.asc;
 

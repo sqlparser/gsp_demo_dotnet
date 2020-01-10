@@ -20,9 +20,9 @@ namespace gudusoft.gsqlparser.test.scriptWriter
             parser.sqltext = "select t1.f1, t2.f2 as f2 from table1 t1 left join table2 t2 on t1.f1 = t2.f2 ";
             Assert.IsTrue(parser.parse() == 0);
             TSelectSqlStatement select = (TSelectSqlStatement)parser.sqlstatements.get(0);
-
-            select.ResultColumnList.removeElementAt(1);
-            select.ResultColumnList.removeElementAt(0);
+            
+            select.ResultColumnList.removeResultColumn(1);
+            select.ResultColumnList.removeResultColumn(0);
 
             TResultColumn resultColumn1 = new TResultColumn();
             resultColumn1.Expr = parser.parseExpression("t1.f3");
@@ -54,7 +54,7 @@ namespace gudusoft.gsqlparser.test.scriptWriter
             Assert.IsTrue(parser.parse() == 0);
             TSelectSqlStatement select = (TSelectSqlStatement)parser.sqlstatements.get(0);
 
-            select.joins.removeElementAt(1);
+            select.joins.removeJoin(1);
 
             TJoin join = new TJoin();
             select.joins.addJoin(join);
@@ -100,7 +100,7 @@ namespace gudusoft.gsqlparser.test.scriptWriter
             Assert.IsTrue(parser.parse() == 0);
             TSelectSqlStatement select = (TSelectSqlStatement)parser.sqlstatements.get(0);
             TResultColumnList columns = select.ResultColumnList;
-            columns.removeElementAt(1);
+            columns.removeResultColumn(1);
             TResultColumn resultColumn = new TResultColumn();
             resultColumn.Expr = parser.parseExpression("x");
             columns.addResultColumn(resultColumn);
@@ -149,7 +149,7 @@ namespace gudusoft.gsqlparser.test.scriptWriter
             Assert.IsTrue(parser.parse() == 0);
             TSelectSqlStatement select = (TSelectSqlStatement)parser.sqlstatements.get(0);
             TJoinList joinList = select.joins;
-            joinList.removeElementAt(0);
+            joinList.removeJoin(0);
             select.WhereClause = null;
 
             // System.out.println(scriptGenerator.generateScript(select, true));
@@ -170,7 +170,7 @@ namespace gudusoft.gsqlparser.test.scriptWriter
             TSelectSqlStatement select = (TSelectSqlStatement)parser.sqlstatements.get(0);
             TJoinList joinList = select.joins;
             // let's remove t2 and where clause
-            joinList.removeElementAt(1);
+            joinList.removeJoin(1);
 
             TJoinItem joinItem = new TJoinItem();
             joinList.getJoin(0).JoinItems.addJoinItem(joinItem);
@@ -408,7 +408,7 @@ namespace gudusoft.gsqlparser.test.scriptWriter
             TOrderBy orderBy = new TOrderBy();
             select.OrderbyClause = orderBy;
             TOrderByItem orderByItem = new TOrderByItem();
-            orderBy.Items.addElement(orderByItem);
+            orderBy.Items.addOrderByItem(orderByItem);
             orderByItem.SortKey = parser.parseExpression("a");
             orderByItem.SortOrder = ESortType.desc;
 
@@ -427,7 +427,7 @@ namespace gudusoft.gsqlparser.test.scriptWriter
             orderBy = new TOrderBy();
             select.OrderbyClause = orderBy;
             orderByItem = new TOrderByItem();
-            orderBy.Items.addElement(orderByItem);
+            orderBy.Items.addOrderByItem(orderByItem);
             orderByItem.SortKey = parser.parseExpression("a");
             orderByItem.SortOrder = ESortType.desc;
 
@@ -447,7 +447,7 @@ namespace gudusoft.gsqlparser.test.scriptWriter
             orderBy = new TOrderBy();
             select.OrderbyClause = orderBy;
             orderByItem = new TOrderByItem();
-            orderBy.Items.addElement(orderByItem);
+            orderBy.Items.addOrderByItem(orderByItem);
             orderByItem.SortKey = parser.parseExpression("a");
             orderByItem.SortOrder = ESortType.asc;
 
@@ -467,7 +467,7 @@ namespace gudusoft.gsqlparser.test.scriptWriter
             select = (TSelectSqlStatement)parser.sqlstatements.get(0);
 
             orderByItem = new TOrderByItem();
-            orderBy.Items.addElement(orderByItem);
+            orderBy.Items.addOrderByItem(orderByItem);
             orderByItem.SortKey = parser.parseExpression("a");
             orderByItem.SortOrder = ESortType.asc;
             select.OrderbyClause.Items.addOrderByItem(orderByItem);
@@ -495,7 +495,7 @@ namespace gudusoft.gsqlparser.test.scriptWriter
             orderBy = new TOrderBy();
             select.OrderbyClause = orderBy;
             orderByItem = new TOrderByItem();
-            orderBy.Items.addElement(orderByItem);
+            orderBy.Items.addOrderByItem(orderByItem);
             orderByItem.SortKey = parser.parseExpression("a");
             orderByItem.SortOrder = ESortType.desc;
 
@@ -519,7 +519,7 @@ namespace gudusoft.gsqlparser.test.scriptWriter
             parser.sqltext = "SELECT * FROM TABLE_X order by a,b";
             Assert.IsTrue(parser.parse() == 0);
             TSelectSqlStatement select = (TSelectSqlStatement)parser.sqlstatements.get(0);
-            select.OrderbyClause.Items.removeElementAt(1);
+            select.OrderbyClause.Items.removeOrderByItem(1);
             Assert.IsTrue(testScriptGenerator.verifyScript(EDbVendor.dbvoracle
                 , select.ToScript()
                 , "SELECT   *\n" +
@@ -542,16 +542,16 @@ namespace gudusoft.gsqlparser.test.scriptWriter
             parser.sqltext = "SELECT * FROM TABLE_X order by a";
             Assert.IsTrue(parser.parse() == 0);
             TSelectSqlStatement select = (TSelectSqlStatement)parser.sqlstatements.get(0);
-            select.OrderbyClause.Items.removeElementAt(0);
+            select.OrderbyClause.Items.removeOrderByItem(0);
             TOrderBy orderBy = select.OrderbyClause;
 
             TOrderByItem orderByItem = new TOrderByItem();
-            orderBy.Items.addElement(orderByItem);
+            orderBy.Items.addOrderByItem(orderByItem);
             orderByItem.SortKey = parser.parseExpression("b");
             orderByItem.SortOrder = ESortType.asc;
 
             orderByItem = new TOrderByItem();
-            orderBy.Items.addElement(orderByItem);
+            orderBy.Items.addOrderByItem(orderByItem);
             orderByItem.SortKey = parser.parseExpression("a1");
             orderByItem.SortOrder = ESortType.desc;
 
@@ -576,7 +576,7 @@ namespace gudusoft.gsqlparser.test.scriptWriter
 
             TUpdateSqlStatement updateSqlStatement = (TUpdateSqlStatement)parser.sqlstatements.get(0);
             TResultColumnList setClauses = updateSqlStatement.ResultColumnList;
-            setClauses.removeElementAt(0);
+            setClauses.removeResultColumn(0);
             // System.out.println(scriptGenerator.generateScript(updateSqlStatement, true));
             Assert.IsTrue(testScriptGenerator.verifyScript(EDbVendor.dbvoracle
                 , updateSqlStatement.ToScript()
@@ -724,7 +724,7 @@ namespace gudusoft.gsqlparser.test.scriptWriter
             TConstraint constraint = alterTableOption.ConstraintList.getConstraint(0);
             Assert.IsTrue(constraint.Constraint_type == EConstraintType.foreign_key);
 
-            constraint.ReferencedColumnList.insertElementAt(parser.parseObjectName("cel_newid"), 0);
+            constraint.ReferencedColumnList.insertObjectNameAt(parser.parseObjectName("cel_newid"), 0);
             Assert.IsTrue(testScriptGenerator.verifyScript(EDbVendor.dbvoracle
                 , at.ToScript()
                 , "ALTER TABLE p_cap \n" +
@@ -929,7 +929,7 @@ namespace gudusoft.gsqlparser.test.scriptWriter
             // remove into clause
             select.IntoClause = null;
             // remove * in the select list
-            select.ResultColumnList.removeElementAt(0);
+            select.ResultColumnList.removeResultColumn(0);
 
             // add a new select list item
             TResultColumn resultColumn = new TResultColumn();

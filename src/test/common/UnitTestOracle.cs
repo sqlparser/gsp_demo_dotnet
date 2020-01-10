@@ -1124,5 +1124,46 @@ namespace gudusoft.gsqlparser.test
             Assert.IsTrue(block.EndLabelName.ToString().Equals("process_data", StringComparison.CurrentCultureIgnoreCase));
         }
 
+        [TestMethod]
+        public void testOracleJoinOuterApply()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvoracle);
+            sqlparser.sqltext = "SELECT *  FROM Table1    OUTER APPLY Table2      LEFT OUTER JOIN Table3        ON Table3.SomeColumn = 1";
+            Assert.IsTrue(sqlparser.parse() == 0);
+
+            TSelectSqlStatement select = (TSelectSqlStatement)sqlparser.sqlstatements.get(0);
+            TJoin join = select.joins.getJoin(0);
+            Assert.IsTrue(join.JoinItems.Count == 2);
+            Assert.IsTrue(join.Table.ToString().Equals("Table1", StringComparison.CurrentCultureIgnoreCase));
+            TJoinItem joinItem0 = join.JoinItems.getJoinItem(0);
+            Assert.IsTrue(joinItem0.JoinType == EJoinType.outerapply);
+            //Console.WriteLine(joinItem0.ToString());
+             TJoinItem joinItem1 = join.JoinItems.getJoinItem(1);
+            // Console.WriteLine(joinItem1.JoinType);
+            Assert.IsTrue(joinItem1.JoinType == EJoinType.leftouter);
+            Assert.IsTrue(joinItem1.OnCondition.ToString().Equals("Table3.SomeColumn = 1", StringComparison.CurrentCultureIgnoreCase));
+        }
+
+        [TestMethod]
+        public void testOracleCTEInFrom()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvoracle);
+            sqlparser.sqltext = @"SELECT CteColAliasAlias
+ FROM
+  (
+    WITH MySubQueryCte AS
+    (
+      SELECT CteCol CteColAlias
+        FROM CteTable
+    )
+    SELECT CteColAlias CteColAliasAlias
+      FROM MySubQueryCte
+  ) CteSubquery";
+            Assert.IsTrue(sqlparser.parse() == 0);
+
+            TSelectSqlStatement select = (TSelectSqlStatement)sqlparser.sqlstatements.get(0);
+            TJoin join = select.joins.getJoin(0);
+            Console.WriteLine(join.Table.ToString());
+        }
     }
 }
