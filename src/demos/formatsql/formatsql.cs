@@ -114,6 +114,8 @@ namespace gudusoft.gsqlparser.demos.formatsql
                 Console.WriteLine(e.ToString());
                 Console.Write(e.StackTrace);
             }
+
+            //Console.ReadLine();
         }
 
         static void pp(EDbVendor dbVendor, string inputsql)
@@ -136,6 +138,7 @@ namespace gudusoft.gsqlparser.demos.formatsql
             if (ret == 0)
             {
                 GFmtOpt option = GFmtOptFactory.newInstance();
+                
                 string result = FormatterFactory.pp(parser, option);
                 Console.WriteLine(result);
             }

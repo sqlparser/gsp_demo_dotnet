@@ -15,6 +15,53 @@ namespace gudusoft.gsqlparser.test.scriptWriter
     public class testScriptGenerator
     {
         [TestMethod]
+        public void castMoneyDatatype()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmssql);
+            sqlparser.sqltext = "select CAST(SUM(bv.VALUE / Split.NUMBER) as money) 'Allocated Value'";
+            sqlparser.parse();
+            Assert.IsTrue(verifyScript(EDbVendor.dbvmysql, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
+        [TestMethod]
+        public void ReplaceIntoSetWhere()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmysql);
+            sqlparser.sqltext = "replace into t1(name, population)select name, population from t2 where id = 2;";
+            sqlparser.parse();
+            Assert.IsTrue(verifyScript(EDbVendor.dbvmysql, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
+        [TestMethod]
+        public void ReplaceIntoSet()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmysql);
+            sqlparser.sqltext = "replace into T1 set id=4, name='zhongshan', population=1800";
+            sqlparser.parse();
+            Assert.IsTrue(verifyScript(EDbVendor.dbvmysql, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
+        [TestMethod]
+        public void BugIsolationClause()
+        {
+            TGSqlParser sqlParser = new TGSqlParser(EDbVendor.dbvdb2);
+            sqlParser.sqltext = "select * from MyTable with ur;";
+            Assert.AreEqual(0, sqlParser.parse(), "could not parse statement");
+            string sql = sqlParser.sqlstatements.ToScript();
+            Assert.IsTrue(sql.Contains("with ur"), "isolation clause missing");
+        }
+
+        [TestMethod]
+        public void BugFetchClause()
+        {
+            TGSqlParser sqlParser = new TGSqlParser(EDbVendor.dbvdb2);
+            sqlParser.sqltext = "select * from MyTable fetch first 100 rows only;";
+            Assert.AreEqual(0, sqlParser.parse(), "could not parse statement");
+            string sql = sqlParser.sqlstatements.ToScript();
+            Assert.IsTrue(sql.Contains("first 100"), "fetch clause missing");
+        }
+
+        [TestMethod]
         public virtual void testOracleCreateIndexBitmap()
         {
             TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvoracle);

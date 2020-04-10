@@ -228,5 +228,27 @@ namespace gudusoft.gsqlparser.test
             //Console.WriteLine(select.ToString());
         }
 
+        [TestMethod]
+        public void BugDropEffect()
+        {
+            TGSqlParser sqlParser = new TGSqlParser(EDbVendor.dbvdb2);
+            sqlParser.sqltext = "drop table MyTable;";
+            Assert.AreEqual(0, sqlParser.parse(), "could not parse statement");
+            Assert.AreEqual(sqlParser.sqlstatements[0].tables.Count, 1, "no tables detected");
+            Assert.AreEqual(sqlParser.sqlstatements[0].tables[0].Name, "MyTable", "table name mismatch");
+            Assert.AreEqual(sqlParser.sqlstatements[0].tables[0].EffectType, ETableEffectType.tetDrop, "effect type is not DROP");
+        }
+
+        [TestMethod]
+        public void BugTruncateEffect()
+        {
+            TGSqlParser sqlParser = new TGSqlParser(EDbVendor.dbvdb2);
+            sqlParser.sqltext = "truncate table MySchema.MyTable immediate;";
+            Assert.AreEqual(0, sqlParser.parse(), "could not parse statement"); // fails but DB2 accepts the statement
+            Assert.AreEqual(sqlParser.sqlstatements[0].tables.Count, 1, "no tables detected");
+            Assert.AreEqual(sqlParser.sqlstatements[0].tables[0].Name, "MyTable", "table name mismatch");
+            Assert.AreEqual(sqlParser.sqlstatements[0].tables[0].EffectType, ETableEffectType.tetTruncate, "effect type is not truncate");
+        }
+
     }
 }

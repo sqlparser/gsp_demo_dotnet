@@ -42,8 +42,8 @@ namespace gudusoft.gsqlparser.demos.removeCondition
 			remove(sqlparser, conditionMap);
 		}
 
-		private string leftParenthese = null;
-		private string rightParenthese = null;
+		private string leftParenthesis = null;
+		private string rightParenthesis = null;
 
 		public removeCondition(string sql, EDbVendor vendor, LinkedHashMap<string, string> conditionMap)
 		{
@@ -52,15 +52,15 @@ namespace gudusoft.gsqlparser.demos.removeCondition
 			int index = sql.IndexOf(noquoteString, StringComparison.Ordinal);
 			if (index > 0)
 			{
-				leftParenthese = sql.Substring(0, index);
-				rightParenthese = sql.Substring(index + noquoteString.Length);
+				leftParenthesis = sql.Substring(0, index);
+				rightParenthesis = sql.Substring(index + noquoteString.Length);
 			}
 			sqlparser.sqltext = noquoteString;
 			remove(sqlparser, conditionMap);
 
-			if (!string.ReferenceEquals(leftParenthese, null) && !string.ReferenceEquals(rightParenthese, null))
+			if (!string.ReferenceEquals(leftParenthesis, null) && !string.ReferenceEquals(rightParenthesis, null))
 			{
-				result = (leftParenthese + result + rightParenthese);
+				result = (leftParenthesis + result + rightParenthesis);
 			}
 		}
 
