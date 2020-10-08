@@ -92,6 +92,7 @@ namespace gudusoft.gsqlparser.test
 
         }
 
+
         [TestMethod]
         public void TestQuery()
         {
@@ -370,6 +371,12 @@ namespace gudusoft.gsqlparser.test
             Assert.IsTrue(sqlparser.parse() == 0);
             TMergeSqlStatement mergeStmt = (TMergeSqlStatement)sqlparser.sqlstatements.get(0);
             Assert.IsTrue(string.Equals(mergeStmt.OracleHint, "/*+ FULL(t4) */", StringComparison.CurrentCultureIgnoreCase));
+
+
+            sqlparser.sqltext = "SELECT /*+ A(B) */ e.last_name FROM scott.employees";
+            Assert.IsTrue(sqlparser.parse() == 0);
+            TSelectSqlStatement selectStmt = (TSelectSqlStatement)sqlparser.sqlstatements.get(0);
+            Assert.IsTrue(string.Equals(selectStmt.OracleHint, "/*+ A(B) */", StringComparison.CurrentCultureIgnoreCase));
         }
 
 

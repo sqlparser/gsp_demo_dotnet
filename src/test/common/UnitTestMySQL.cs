@@ -1291,5 +1291,19 @@ namespace gudusoft.gsqlparser.test
             Assert.IsTrue(alterTableOption.ReferencedColumnList.getObjectName(0).ToString().Equals("`MasterId`", StringComparison.CurrentCultureIgnoreCase));
         }
 
+
+        [TestMethod]
+        public void testMySQLHint()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmysql);
+            sqlparser.sqltext = @"SELECT /*+ A(B) */ e.last_name FROM scott.employees";
+
+            Assert.IsTrue(sqlparser.parse() == 0);
+
+            TSelectSqlStatement select = (TSelectSqlStatement)sqlparser.sqlstatements.get(0);
+            Assert.IsTrue(select.Hint.Equals("/*+ A(B) */", StringComparison.CurrentCultureIgnoreCase));
+
+        }
+
     }
 }
