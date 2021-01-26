@@ -113,7 +113,10 @@ namespace gudusoft.gsqlparser.demos.columnImpact
                 }
                 else if (lcexpr.ExpressionType == EExpressionType.between_t)
                 {
-                    columns.Add(impact.attrToColumn(lcexpr.BetweenOperand, -1, stmt, expr, collectExpr, clauseType, parentAlias));
+                    if (lcexpr.BetweenOperand != null)
+                    {
+                        lcexpr.BetweenOperand.inOrderTraverse(this);
+                    }
                 }
                 else if (lcexpr.ExpressionType == EExpressionType.function_t)
                 {
