@@ -14,13 +14,188 @@ namespace gudusoft.gsqlparser.test.scriptWriter
     [TestClass]
     public class testScriptGenerator
     {
+
+        [TestMethod]
+        public void testJoinHint()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmssql);
+            sqlparser.sqltext = @"SELECT SomeColumns
+   FROM SomeTable
+     INNER LOOP JOIN SomeOtherTable
+       ON 1 = 1";
+            sqlparser.parse();
+            Assert.IsTrue(verifyScript(EDbVendor.dbvmssql, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
+        [TestMethod]
+        public void testNullsFirst()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvoracle);
+            sqlparser.sqltext = @"select emp_id, emp_name from t1 order by emp_id nulls last";
+            sqlparser.parse();
+            Assert.IsTrue(verifyScript(EDbVendor.dbvoracle, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
+
+        [TestMethod]
+        public void testMySQLdate_sub()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmysql);
+            sqlparser.sqltext = @"select * from emp_small where hire_date< date_sub(sysdate(),interval 2 day)+1;";
+            sqlparser.parse();
+            Assert.IsTrue(verifyScript(EDbVendor.dbvmysql, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
+        [TestMethod]
+        public void testMySQLgroup_concat()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmysql);
+            sqlparser.sqltext = @"select group_concat(distinct emp_id separator ',') from emp_small";
+            sqlparser.parse();
+            Assert.IsTrue(verifyScript(EDbVendor.dbvmysql, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
+        [TestMethod]
+        public void testCreateTableGlobalTemp()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvoracle);
+            sqlparser.sqltext = @"CREATE GLOBAL TEMPORARY TABLE myTable (Col1 int)";
+            sqlparser.parse();
+            Assert.IsTrue(verifyScript(EDbVendor.dbvoracle, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
+        [TestMethod]
+        public void testCreateProcedureBeginEnd()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmssql);
+            sqlparser.sqltext = @"CREATE PROCEDURE myProc AS BEGIN select 1 test; END";
+            sqlparser.parse();
+            Assert.IsTrue(verifyScript(EDbVendor.dbvmssql, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
+        [TestMethod]
+        public void testCreateFunctionSemiColon()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmssql);
+            sqlparser.sqltext = @"CREATE FUNCTION myFunc
+(
+  @i_test bit
+)
+RETURNS bit
+AS
+BEGIN
+  RETURN @i_test;
+END;";
+            sqlparser.parse();
+            Assert.IsTrue(verifyScript(EDbVendor.dbvmssql, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
+        [TestMethod]
+        public void testMultiset()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvoracle);
+            sqlparser.sqltext = @"SELECT SomeTable.SomeColumn
+  FROM SomeTable
+    CROSS JOIN TABLE(CAST(MULTISET(SELECT level
+                                        FROM dual
+                                        CONNECT BY level <= LENGTH(REGEXP_REPLACE(SomeTable.SomeColumn, '[^|]+')) + 1)
+                        AS sys.OdciNumberList)) levels";
+            sqlparser.parse();
+            Assert.IsTrue(verifyScript(EDbVendor.dbvoracle, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
+
+        [TestMethod]
+        public void testTranslateFunction()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvoracle);
+            sqlparser.sqltext = @"WITH RecentNdcs AS
+(
+  SELECT RX_NDC_STATUS.NDC_ID,
+         MAX( RX_NDC_STATUS.CONTACT_DATE_REAL ) MostRecentContact
+     FROM RX_NDC_STATUS
+     GROUP BY RX_NDC_STATUS.NDC_ID
+),
+RecentMeds AS
+(
+  SELECT DISTINCT MEDICATION_ID
+    FROM RecentNdcs
+      INNER JOIN RX_NDC_STATUS
+        ON RX_NDC_STATUS.NDC_ID = RecentNdcs.NDC_ID
+          AND RX_NDC_STATUS.CONTACT_DATE_REAL = RecentNdcs.MostRecentContact
+)
+SELECT DISTINCT CAST( RX_NDC.NDC_ID AS varchar(18) ) STRINGBASEID,
+                CAST( RX_NDC_STATUS.MEDICATION_ID AS varchar(18) ) MEDICATIONID,
+                CAST( RX_NDC.NDC_CODE AS varchar(300) ) CODE,
+                CASE WHEN TRIM( TRANSLATE( TRANSLATE( TRIM( RX_NDC.RAW_11_DIGIT_NDC ), ' ', 'X' ), '1234567890', ' ' ) ) IS NULL AND LENGTH( TRIM( RX_NDC.RAW_11_DIGIT_NDC ) ) BETWEEN 1 AND 18 THEN CAST( RX_NDC.RAW_11_DIGIT_NDC AS numeric(18,0) )
+                     ELSE -1 END RAWNUMERICCODE,
+                CAST( CASE WHEN RX_NDC_STATUS.IS_BRAND_NDC_YN = 'Y' THEN 1
+                           ELSE 0 END AS integer ) ISBRAND,
+                CAST( CASE WHEN RX_NDC_STATUS.IS_BRAND_NDC_YN <> 'Y' THEN NULL
+                           WHEN COALESCE( RecentRxDspnsNdcMeds.MEDICATION_ID, RecentDispProductNdcMeds.MEDICATION_ID ) IS NOT NULL THEN 1
+                           ELSE 0 END AS integer ) HASGENERICALTERNATIVE
+  FROM RX_NDC
+    INNER JOIN RecentNdcs
+      ON RX_NDC.NDC_ID = RecentNdcs.NDC_ID
+    INNER JOIN RX_NDC_STATUS
+      ON RX_NDC_STATUS.NDC_ID = RecentNdcs.NDC_ID
+        AND RX_NDC_STATUS.CONTACT_DATE_REAL = RecentNdcs.MostRecentContact
+    LEFT OUTER JOIN RX_MED_ONE
+      ON RX_NDC_STATUS.MEDICATION_ID = RX_MED_ONE.MEDICATION_ID
+    LEFT OUTER JOIN RecentMeds RecentDispProductNdcMeds
+      ON RX_MED_ONE.DISP_PRODUCT = RecentDispProductNdcMeds.MEDICATION_ID
+    LEFT OUTER JOIN RX_MED_THREE
+      ON RX_NDC_STATUS.MEDICATION_ID = RX_MED_THREE.MEDICATION_ID
+    LEFT OUTER JOIN RecentMeds RecentRxDspnsNdcMeds
+      ON RX_MED_THREE.RX_DSPNS_PRD_MED_ID = RecentRxDspnsNdcMeds.MEDICATION_ID
+  WHERE RX_NDC_STATUS.MEDICATION_ID IS NOT NULL";
+            sqlparser.parse();
+            Assert.IsTrue(verifyScript(EDbVendor.dbvoracle, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
+        [TestMethod]
+        public void testRowList2()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmssql);
+            sqlparser.sqltext = @"SELECT Changes.DOCUMENT_ID,
+       DOCS_RCVD_VTLS.CONTACT_DATE_REAL,
+       DOCS_RCVD_VTLS.LINE,
+       CAST( Changes.DOCUMENT_ID AS varchar(18) ) + '|' + CAST( CAST( DOCS_RCVD_VTLS.CONTACT_DATE_REAL AS numeric(7,2) ) AS varchar(9) ) + '|' + CAST( DOCS_RCVD_VTLS.LINE AS varchar(11) ) + '|' + CAST( VITALTYPE.VITALTYPE AS varchar(11) ) ID
+  FROM Changes
+    INNER JOIN DOCS_RCVD_VTLS
+      ON Changes.DOCUMENT_ID = DOCS_RCVD_VTLS.DOCUMENT_ID
+    CROSS JOIN ( VALUES ( 'HEIGHT' ), ( 'WEIGHT' ), ( 'CIRCUMF' ), ( 'PULSE' ), ( 'SYSTOLIC' ), ( 'DIASTOLIC' ), ( 'BMI' ), ( 'TEMP' ), ( 'RESP' ), ( 'SPO2' ) ) VITALTYPE ( VITALTYPE )
+  WHERE NOT EXISTS ( SELECT 1 FROM DOCS_RCVD
+                              WHERE Changes.DOCUMENT_ID = DOCS_RCVD.DOCUMENT_ID
+                                AND DOCS_RCVD.TYPE_C = 51 )";
+            sqlparser.parse();
+            Assert.IsTrue(verifyScript(EDbVendor.dbvmssql, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
+        [TestMethod]
+        public void testRowList()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmssql);
+            sqlparser.sqltext = @"SELECT SomeValues.SomeColumn
+  FROM SomeTable
+    CROSS JOIN
+    (
+      VALUES
+        ( 'A' ),
+        ( 'B' ),
+        ( 'C' )
+    ) SomeValues ( SomeColumn );";
+            sqlparser.parse();
+            Assert.IsTrue(verifyScript(EDbVendor.dbvmssql, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
         [TestMethod]
         public void castMoneyDatatype()
         {
             TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvmssql);
             sqlparser.sqltext = "select CAST(SUM(bv.VALUE / Split.NUMBER) as money) 'Allocated Value'";
             sqlparser.parse();
-            Assert.IsTrue(verifyScript(EDbVendor.dbvmysql, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+            Assert.IsTrue(verifyScript(EDbVendor.dbvmssql, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
         }
 
         [TestMethod]
@@ -880,6 +1055,8 @@ FOR DaysToManufacture IN ([0], [1], [2], [3], [4])
             TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvoracle);
             sqlparser.sqltext = "select t1.f1\n" + "from my.table1 t1\n" + " join my.table2 t2 on t1.f1 = t2.f1\n" + " left outer join my.table3 t3 on t2.f1 = t3.f1";
             sqlparser.parse();
+           // Console.WriteLine(sqlparser.sqlstatements.get(0).ToString());
+           // Console.WriteLine(sqlparser.sqlstatements.get(0).ToScript());
             Assert.IsTrue(verifyScript(EDbVendor.dbvoracle, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
         }
 

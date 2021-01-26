@@ -755,7 +755,7 @@ namespace gudusoft.gsqlparser.test.scriptWriter
 
             string createProcedureQuery = "CREATE PROCEDURE evaluate(my_empno NUMBER) \r\n" + "AUTHID CURRENT_USER AS \r\n" + "my_ename VARCHAR2 (15); \r\n" + "BEGIN \r\n" + "SELECT ename INTO my_ename FROM emp WHERE empno = my_empno;\r\n" + "END ;";
 
-            Assert.IsTrue(testScriptGenerator.verifyScript(EDbVendor.dbvmssql, createProcedure.ToScript(), createProcedureQuery));
+            Assert.IsTrue(testScriptGenerator.verifyScript(EDbVendor.dbvoracle, createProcedure.ToScript(), createProcedureQuery));
 
         }
 

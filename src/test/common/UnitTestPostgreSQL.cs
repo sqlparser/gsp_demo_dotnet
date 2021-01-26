@@ -119,5 +119,6 @@ namespace gudusoft.gsqlparser.test
             Assert.IsTrue(createSchemaSqlStatement.SchemaName.ToString().Equals("\"test\"", StringComparison.CurrentCultureIgnoreCase));
         }
 
+
     }
 }
