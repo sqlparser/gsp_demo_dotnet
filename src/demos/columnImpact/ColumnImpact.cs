@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -109,11 +109,11 @@ namespace gudusoft.gsqlparser.demos.columnImpact
                 TExpression lcexpr = (TExpression)pNode;
                 if (lcexpr.ExpressionType == EExpressionType.simple_object_name_t)
                 {
-                    columns.Add(impact.attrToColumn(lcexpr, stmt, expr, collectExpr, clauseType, parentAlias));
+                    columns.Add(impact.attrToColumn(lcexpr, -1, stmt, expr, collectExpr, clauseType, parentAlias));
                 }
                 else if (lcexpr.ExpressionType == EExpressionType.between_t)
                 {
-                    columns.Add(impact.attrToColumn(lcexpr.BetweenOperand, stmt, expr, collectExpr, clauseType, parentAlias));
+                    columns.Add(impact.attrToColumn(lcexpr.BetweenOperand, -1, stmt, expr, collectExpr, clauseType, parentAlias));
                 }
                 else if (lcexpr.ExpressionType == EExpressionType.function_t)
                 {
@@ -326,6 +326,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
             public IList<string> tableFullNames = new List<string>();
             public ClauseType clauseType;
             public string alias;
+            public int columnIndex;
 
             internal TColumn(ColumnImpact impact)
             {
@@ -384,6 +385,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
                 this.clause = clause;
                 this.location = location;
                 columnObject = new TColumn(outerInstance);
+                columnObject.columnIndex = -1;
                 columnObject.columnName = "*";
                 columnObject.viewName = viewName;
                 updateColumnTableFullName(table, columnObject);
@@ -520,7 +522,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
             {
                 impact = new ColumnImpact(sqltext, vendor, simply, isXML, isColumnLevel, traceView, null);
             }
-            
+
             impact.CollectColumnInfo = false;
             impact.impactSQL();
             Console.Write(impact.ImpactResult);
@@ -544,9 +546,9 @@ namespace gudusoft.gsqlparser.demos.columnImpact
             }
         } // main
 
-        internal virtual TColumn attrToColumn(TExpression lcexpr, TCustomSqlStatement stmt, TExpression expr, bool collectExpr, ClauseType clause, TAlias parentAlias)
+        internal virtual TColumn attrToColumn(TExpression lcexpr, int columnIndex, TCustomSqlStatement stmt, TExpression expr, bool collectExpr, ClauseType clause, TAlias parentAlias)
         {
-            TColumn column = attrToColumn(lcexpr, stmt, clause, parentAlias);
+            TColumn column = attrToColumn(lcexpr, columnIndex, stmt, clause, parentAlias);
             if (column == null)
             {
                 return null;
@@ -702,7 +704,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
             sqlparser.sqltext = sql;
         }
 
-        private TColumn attrToColumn(TExpression attr, TCustomSqlStatement stmt, ClauseType clauseType, TAlias parentAlias)
+        private TColumn attrToColumn(TExpression attr, int columnIndex, TCustomSqlStatement stmt, ClauseType clauseType, TAlias parentAlias)
         {
 
             if (sqlparser.DbVendor == EDbVendor.dbvteradata)
@@ -710,12 +712,12 @@ namespace gudusoft.gsqlparser.demos.columnImpact
                 if (clauseType == ClauseType.select && parentAlias != null)
                 {
                     string columnName = removeQuote(attr.ObjectOperand.endToken.ToString());
-                    TResultColumn resultColumn = getResultColumnByAlias(stmt, columnName);
-                    if (resultColumn != null)
+                    KeyValuePair<TResultColumn, int> resultColumn = getResultColumnByAlias(stmt, columnName);
+                    if (resultColumn.Key != null)
                     {
-                        if (resultColumn.AliasClause != null && !parentAlias.alias.Equals(resultColumn.ColumnAlias, StringComparison.OrdinalIgnoreCase))
+                        if (resultColumn.Key.AliasClause != null && !parentAlias.alias.Equals(resultColumn.Key.ColumnAlias, StringComparison.OrdinalIgnoreCase))
                         {
-                            linkFieldToTables(parentAlias, resultColumn, stmt, 0);
+                            linkFieldToTables(parentAlias, resultColumn.Key, resultColumn.Value, stmt, 0);
                         }
                         return null;
                     }
@@ -723,6 +725,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
             }
 
             TColumn column = new TColumn(this);
+            column.columnIndex = columnIndex;
             column.clauseType = clauseType;
             if (!string.ReferenceEquals(viewName, null))
             {
@@ -751,6 +754,36 @@ namespace gudusoft.gsqlparser.demos.columnImpact
             if (attr.ToString().IndexOf(".", StringComparison.Ordinal) > 0)
             {
                 column.columnPrex = removeQuote(attr.ToString().Substring(0, attr.ToString().LastIndexOf(".", StringComparison.Ordinal)));
+
+                if (attr.ObjectOperand != null && attr.ObjectOperand.SourceTable != null)
+                {
+                    TTable sourceTable = attr.ObjectOperand.SourceTable;
+                    if (sourceTable.Subquery != null)
+                    {
+                        if (sourceTable.AliasName != null)
+                        {
+                            if (!column.tableNames.Contains(sourceTable.AliasName))
+                            {
+                                column.tableNames.Add(sourceTable.AliasName);
+                            }
+                            if (!column.tableFullNames.Contains(sourceTable.AliasName))
+                            {
+                                column.tableFullNames.Add(sourceTable.AliasName);
+                            }
+                        }
+                    }
+                    else if (sourceTable.TableName != null)
+                    {
+                        if (!column.tableNames.Contains(sourceTable.TableName.ToString()))
+                        {
+                            column.tableNames.Add(sourceTable.TableName.ToString());
+                        }
+                        if (!column.tableFullNames.Contains(sourceTable.TableName.ToString()))
+                        {
+                            column.tableFullNames.Add(sourceTable.TableName.ToString());
+                        }
+                    }
+                }
 
                 string tableName = removeQuote(column.columnPrex);
                 if (tableName.IndexOf(".", StringComparison.Ordinal) > 0)
@@ -789,7 +822,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
             return column;
         }
 
-        private TResultColumn getResultColumnByAlias(TCustomSqlStatement stmt, string columnName)
+        private KeyValuePair<TResultColumn, int> getResultColumnByAlias(TCustomSqlStatement stmt, string columnName)
         {
             TResultColumnList columns = stmt.ResultColumnList;
             if (columns != null)
@@ -799,11 +832,11 @@ namespace gudusoft.gsqlparser.demos.columnImpact
                     TResultColumn column = columns.getResultColumn(i);
                     if (column.AliasClause != null && columnName.Equals(column.AliasClause.ToString(), StringComparison.OrdinalIgnoreCase))
                     {
-                        return column;
+                        return new KeyValuePair<TResultColumn, int>(column, i);
                     }
                 }
             }
-            return null;
+            return new KeyValuePair<TResultColumn, int>(null, -1);
         }
 
         private string buildString(string @string, int level)
@@ -862,7 +895,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
             return columns;
         }
 
-        private bool findColumnInSubQuery(TSelectSqlStatement select, string columnName, int level, Tuple<long, long> originLocation)
+        private bool findColumnInSubQuery(TSelectSqlStatement select, string columnName, int columnIndex, int level, Tuple<long, long> originLocation)
         {
             bool ret = false;
             if (accessMap.ContainsKey(columnName) && accessMap[columnName] != null && accessMap[columnName].ContainsKey(select))
@@ -879,8 +912,8 @@ namespace gudusoft.gsqlparser.demos.columnImpact
             }
             if (select.SetOperator != TSelectSqlStatement.setOperator_none)
             {
-                bool left = findColumnInSubQuery(select.LeftStmt, columnName, level, originLocation);
-                bool right = findColumnInSubQuery(select.RightStmt, columnName, level, originLocation);
+                bool left = findColumnInSubQuery(select.LeftStmt, columnName, columnIndex, level, originLocation);
+                bool right = findColumnInSubQuery(select.RightStmt, columnName, columnIndex, level, originLocation);
                 ret = left && right;
             }
             else if (select.ResultColumnList != null)
@@ -904,7 +937,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
                         {
                             if (field.Expr.ExpressionType == EExpressionType.simple_object_name_t)
                             {
-                                TColumn column = attrToColumn(field.Expr, select, ClauseType.select, null);
+                                TColumn column = attrToColumn(field.Expr, i, select, ClauseType.select, null);
                                 if (!string.ReferenceEquals(columnName, null) && columnName.Equals(column.columnName, StringComparison.OrdinalIgnoreCase))
                                 {
                                     columnField = field;
@@ -931,14 +964,14 @@ namespace gudusoft.gsqlparser.demos.columnImpact
                             {
                                 buffer.Append(buildString(" ", level) + "--> " + field.AliasClause.ToString() + "(alias)\r\n");
                             }
-                            linkFieldToTables(null, field, select, level);
+                            linkFieldToTables(null, field, i, select, level);
                         }
                     }
                     else
                     {
                         if (field.Expr.ExpressionType == EExpressionType.simple_object_name_t)
                         {
-                            TColumn column = attrToColumn(field.Expr, select, ClauseType.select, null);
+                            TColumn column = attrToColumn(field.Expr, i, select, ClauseType.select, null);
                             ret = "*".Equals(columnName) || (!string.ReferenceEquals(columnName, null) && columnName.Equals(column.columnName, StringComparison.OrdinalIgnoreCase));
                             if (ret || "*".Equals(column.columnName))
                             {
@@ -953,7 +986,28 @@ namespace gudusoft.gsqlparser.demos.columnImpact
                         break;
                     }
                 }
+
+                if (!ret && columnIndex != -1 && select.ResultColumnList.size() > columnIndex)
+                {
+                    ret = true;
+                    TResultColumn field = select.ResultColumnList.getResultColumn(columnIndex);
+                    if (field.AliasClause != null)
+                    {
+                        if (!simply)
+                        {
+                            buffer.Append(buildString(" ", level) + "--> " + field.AliasClause.ToString() + "(alias)\r\n");
+                        }
+                        linkFieldToTables(null, field, columnIndex, select, level);
+                    }
+                    else
+                    {
+                        TColumn column = attrToColumn(field.Expr, columnIndex, select, ClauseType.select, null);
+                        findColumnInTables(column, select, level, column.columnName, originLocation);
+                    }
+                }
             }
+
+
 
             LinkedHashMap<TCustomSqlStatement, bool> stmts = accessMap[columnName];
             if (stmts != null)
@@ -1034,7 +1088,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
                         {
                             buffer.Append(buildString(" ", level) + "--> WITH CTE\r\n");
                         }
-                        ret = findColumnInSubQuery((TSelectSqlStatement)cteMap[getTableName(lzTable)], column.columnName, level, column.location);
+                        ret = findColumnInSubQuery((TSelectSqlStatement)cteMap[getTableName(lzTable)], column.columnName, column.columnIndex, level, column.location);
                     }
                     else
                     {
@@ -1100,7 +1154,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
                                 {
                                     buffer.Append(buildString(" ", level) + "--> WITH CTE\r\n");
                                 }
-                                ret = findColumnInSubQuery((TSelectSqlStatement)cteMap[getTableName(lzTable)], column.columnName, level, column.location);
+                                ret = findColumnInSubQuery((TSelectSqlStatement)cteMap[getTableName(lzTable)], column.columnName, column.columnIndex, level, column.location);
                             }
                             else
                             {
@@ -1148,13 +1202,13 @@ namespace gudusoft.gsqlparser.demos.columnImpact
 
                             if (string.ReferenceEquals(name, null))
                             {
-                                ret = findColumnInSubQuery(selectStat, column.columnName, level, column.location);
+                                ret = findColumnInSubQuery(selectStat, column.columnName, column.columnIndex, level + 1, column.location);
                                 break;
                             }
 
                             if (lzTable.AliasClause != null && getTableAliasName(lzTable).Equals(name, StringComparison.OrdinalIgnoreCase))
                             {
-                                ret = findColumnInSubQuery(selectStat, column.columnName, level, column.location);
+                                ret = findColumnInSubQuery(selectStat, column.columnName, column.columnIndex, level + 1, column.location);
                                 break;
                             }
 
@@ -1165,7 +1219,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
                                 {
                                     if (getTableAliasName(selectStat.tables.getTable(j)).Equals(name, StringComparison.OrdinalIgnoreCase))
                                     {
-                                        ret = findColumnInSubQuery(selectStat, column.columnName, level, column.location);
+                                        ret = findColumnInSubQuery(selectStat, column.columnName, column.columnIndex, level + 1, column.location);
                                         flag = true;
                                         break;
                                     }
@@ -1174,7 +1228,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
                                 {
                                     if (selectStat.tables.getTable(j).TableName.ToString().Equals(name, StringComparison.OrdinalIgnoreCase))
                                     {
-                                        ret = findColumnInSubQuery(selectStat, column.columnName, level, column.location);
+                                        ret = findColumnInSubQuery(selectStat, column.columnName, column.columnIndex, level + 1, column.location);
                                         flag = true;
                                         break;
                                     }
@@ -2055,7 +2109,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
                 {
                     for (int i = 0; i < select.ResultColumnList.size(); i++)
                     {
-                        linkFieldToTables(null, select.ResultColumnList.getResultColumn(i), select, baseLevel);
+                        linkFieldToTables(null, select.ResultColumnList.getResultColumn(i), i, select, baseLevel);
                     }
                 }
             }
@@ -2074,7 +2128,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
                 {
                     for (int i = 0; i < select.ResultColumnList.size(); i++)
                     {
-                        linkFieldToTables(null, select.ResultColumnList.getResultColumn(i), select, baseLevel);
+                        linkFieldToTables(null, select.ResultColumnList.getResultColumn(i), i, select, baseLevel);
                     }
                 }
             }
@@ -2094,7 +2148,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
                 {
                     for (int i = 0; i < select.ResultColumnList.size(); i++)
                     {
-                        linkFieldToTables(null, select.ResultColumnList.getResultColumn(i), select, 0);
+                        linkFieldToTables(null, select.ResultColumnList.getResultColumn(i), i, select, 0);
                     }
                 }
             }
@@ -2111,7 +2165,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
             {
                 for (int i = 0; i < select.ResultColumnList.size(); i++)
                 {
-                    linkFieldToTables(null, select.ResultColumnList.getResultColumn(i), select, 0);
+                    linkFieldToTables(null, select.ResultColumnList.getResultColumn(i), i, select, 0);
                 }
             }
             else if (select.Statements != null)
@@ -2148,7 +2202,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
             return false;
         }
 
-        private bool linkFieldToTables(TAlias parentAlias, TResultColumn field, TCustomSqlStatement select, int level)
+        private bool linkFieldToTables(TAlias parentAlias, TResultColumn field, int columnIndex, TCustomSqlStatement select, int level)
         {
             if (level == 0)
             {
@@ -2159,7 +2213,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
             switch (field.Expr.ExpressionType)
             {
                 case EExpressionType.simple_object_name_t:
-                    TColumn column = attrToColumn(field.Expr, select, ClauseType.select, parentAlias);
+                    TColumn column = attrToColumn(field.Expr, columnIndex, select, ClauseType.select, parentAlias);
                     bool isPseudocolumn = select.dbvendor == EDbVendor.dbvoracle && this.isPseudocolumn(column.columnName);
                     if (level == 0 || parentAlias != null)
                     {
@@ -2244,7 +2298,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
                     getSelectSqlStatements(stmt, stmtList);
                     for (int i = 0; i < stmtList.Count; i++)
                     {
-                        linkFieldToTables(alias1, stmtList[i].ResultColumnList.getResultColumn(0), stmtList[i], level - 1 < 0 ? 0 : level - 1);
+                        linkFieldToTables(alias1, stmtList[i].ResultColumnList.getResultColumn(0), 0, stmtList[i], level - 1 < 0 ? 0 : level - 1);
                     }
                     break;
                 default:
@@ -2297,6 +2351,7 @@ namespace gudusoft.gsqlparser.demos.columnImpact
                     if (columns.Count == 0 && traceView)
                     {
                         TColumn nullColumn = new TColumn(this);
+                        nullColumn.columnIndex = -1;
                         nullColumn.expression = field.Expr.ToString();
                         nullColumn.viewName = this.viewName;
                         TTableList tables = select.tables;
