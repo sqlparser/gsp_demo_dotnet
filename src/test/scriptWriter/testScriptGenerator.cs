@@ -988,6 +988,15 @@ FOR DaysToManufacture IN ([0], [1], [2], [3], [4])
             Assert.IsTrue(verifyScript(EDbVendor.dbvoracle, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
         }
 
+        [TestMethod]
+        public virtual void testCTEBrackets()
+        {
+            TGSqlParser sqlparser = new TGSqlParser(EDbVendor.dbvsnowflake);
+            sqlparser.sqltext = "WITH cte AS (SELECT abc FROM farAwayPlace) SELECT abc FROM d.s.tb";
+            sqlparser.parse();
+            Assert.IsTrue(verifyScript(EDbVendor.dbvsnowflake, sqlparser.sqlstatements.get(0).ToString(), sqlparser.sqlstatements.get(0).ToScript()));
+        }
+
 
         [TestMethod]
         public virtual void testSet2()
