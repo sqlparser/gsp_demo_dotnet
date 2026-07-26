@@ -1,0 +1,33 @@
+<Project>
+  <!--
+    Repo-wide MSBuild defaults. Every .csproj here inherits this file.
+
+    These demos consume the published gudusoft.gsqlparser package from
+    nuget.org, so this repo builds on its own: clone it and `dotnet run`, with
+    no checkout of the library sources.
+
+    GspVersion is the single place to bump the library. Every project
+    references it as Version="$(GspVersion)".
+
+    GOTCHA if you add a multi-targeting project: the singular TargetFramework
+    below wins over a plural TargetFrameworks while it is non-empty, so a
+    project that wants several TFMs must also reset the singular one to empty.
+    See src/demos/dlineageCommon/demos.dlineageCommon.csproj.
+  -->
+  <PropertyGroup>
+    <GspVersion>4.1.0.7</GspVersion>
+
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Copyright>Copyright © 2016-2026 Gudu Software Limited</Copyright>
+    <Company>Gudu Software Limited</Company>
+    <Deterministic>true</Deterministic>
+
+    <!-- The demos are ported from Java and trip a lot of stylistic analysers
+         (lower-case type names, obsolete-member use). They are sample code, not
+         a product surface; keep the build readable. -->
+    <NoWarn>$(NoWarn);CS8981;CS0618;CA2022;CS9266;CS9258</NoWarn>
+  </PropertyGroup>
+</Project>

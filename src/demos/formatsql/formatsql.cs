@@ -1,249 +1,118 @@
-﻿using gudusoft.gsqlparser.demos.util;
-using gudusoft.gsqlparser;
-using gudusoft.gsqlparser.pp.output;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
-using gudusoft.gsqlparser.demos.formatsql.util;
+using gudusoft.gsqlparser;
 using gudusoft.gsqlparser.pp.para;
 using gudusoft.gsqlparser.pp.stmtformatter;
-using System.Threading;
-using System.Drawing;
-using gudusoft.gsqlparser.demos.formatsql.output.html;
+using gudusoft.gsqlparser.demos.util;
 
 namespace gudusoft.gsqlparser.demos.formatsql
 {
-    class formatsql
+    // CLI-only SQL formatter. Reads a .sql file (or a built-in sample) and emits
+    // the reformatted SQL on stdout. HTML/RTF output and custom color schemes
+    // were intentionally removed when migrating to net10.0 because they pulled
+    // in System.Drawing + WPF which don't exist cross-platform. For rich output,
+    // pipe this demo's stdout through an external highlighter.
+    internal static class FormatSql
     {
-        static void Main(string[] args)
+        private const string SampleSql =
+            "SELECT e.last_name AS name, " +
+            "e.commission_pct comm, " +
+            "e.salary * 12 \"Annual Salary\" " +
+            "FROM scott.employees AS e " +
+            "WHERE e.salary > 1000 or 1=1 " +
+            "ORDER BY e.first_name, e.last_name;";
+
+        private static int Main(string[] args)
         {
             if (args.Length == 0)
             {
-                Console.WriteLine("Usage: formatsql [/f <script file>] [/t <database type>] [/o <output file path>] [/p] [/h] [/r] [/c]");
-                Console.WriteLine("/f: Option, specify the sql script file path.");
-                Console.WriteLine("/t: Option, set the database type. Support oracle, mysql, mssql and db2, the default type is oracle.");
-                Console.WriteLine("/o: Option, write the output stream to the specified file.");
-                Console.WriteLine("/p: Option, format sql as plain style.");
-                Console.WriteLine("/h: Option, format sql as HTML style.");
-                Console.WriteLine("/r: Option, format sql as RTF style.");
-                Console.WriteLine("/c: option, use the custom format color and font setting.");
-                Console.ReadLine();
-                return;
+                PrintUsage();
+                return 0;
             }
 
-            string sqltext = @"SELECT e.last_name AS name,
-                                e.commission_pct comm,
-                                e.salary * 12 ""Annual Salary""
-                                FROM scott.employees AS e
-                                WHERE e.salary > 1000 or 1=1
-                                ORDER BY
-                                e.first_name,
-                                e.last_name;";
             EDbVendor vendor = Common.GetEDbVendor(args);
 
-            List<string> argList = new List<string>(args);
-            int index = argList.IndexOf("/f");
+            var argList = new List<string>(args);
 
-            FileInfo file = null;
-            if (index != -1 && args.Length > index + 1)
-            {
-                file = new FileInfo(args[index + 1]);
-            }
+            string? inputFile = GetOptionValue(argList, "/f");
+            string? outputFile = GetOptionValue(argList, "/o");
 
-            string outputFile = null;
-
-            index = argList.IndexOf("/o");
-
-            if (index != -1 && args.Length > index + 1)
-            {
-                outputFile = args[index + 1];
-            }
-
-            System.IO.StreamWriter writer = null;
-            if (!string.ReferenceEquals(outputFile, null))
+            TextWriter? writer = null;
+            if (outputFile is not null)
             {
                 try
                 {
                     writer = new StreamWriter(outputFile);
                     Console.SetOut(writer);
                 }
-                catch (FileNotFoundException e)
+                catch (Exception e)
                 {
-                    Console.WriteLine(e.ToString());
-                    Console.Write(e.StackTrace);
-                }
-            }
-
-            bool html = argList.IndexOf("/h") != -1;
-            bool rtf = argList.IndexOf("/r") != -1;
-            bool custom = argList.IndexOf("/c") != -1;
-
-            if (html || rtf)
-            {
-                if (file != null)
-                {
-                    ppInHtml(vendor, file, rtf, custom);
-                }
-                else
-                {
-                    ppInHtml(vendor, sqltext, rtf, custom);
-                }
-            }
-            else
-            {
-                if (file != null)
-                {
-                    pp(vendor, file);
-                }
-                else
-                {
-                    pp(vendor, sqltext);
+                    Console.Error.WriteLine("Could not open output file: " + e.Message);
+                    return 2;
                 }
             }
 
             try
             {
-                if (writer != null)
-                {
-                    writer.Close();
-                }
+                int exit = inputFile is null
+                    ? FormatInline(vendor, SampleSql)
+                    : FormatFile(vendor, inputFile);
+                return exit;
             }
-            catch (IOException e)
+            finally
             {
-                Console.WriteLine(e.ToString());
-                Console.Write(e.StackTrace);
+                writer?.Flush();
+                writer?.Close();
             }
-
-            //Console.ReadLine();
         }
 
-        static void pp(EDbVendor dbVendor, string inputsql)
+        private static void PrintUsage()
         {
-            TGSqlParser parser = new TGSqlParser(dbVendor);
-            parser.sqltext = inputsql;
-            outputPlainFormat(parser);
+            Console.WriteLine("Usage: formatsql [/f <script file>] [/t <database type>] [/o <output file path>]");
+            Console.WriteLine("  /f  Optional. Path to a SQL script file. Omit to format a built-in sample.");
+            Console.WriteLine("  /t  Optional. Database vendor: oracle, mysql, mssql, db2, postgresql, ...");
+            Console.WriteLine("      Default is oracle. See Common.GetEDbVendor for the full list.");
+            Console.WriteLine("  /o  Optional. Write formatted output to this file instead of stdout.");
         }
 
-        static void pp(EDbVendor dbVendor, FileInfo sqlfile)
+        private static string? GetOptionValue(List<string> argList, string option)
         {
-            TGSqlParser parser = new TGSqlParser(dbVendor);
-            parser.sqlfilename = sqlfile.FullName;
-            outputPlainFormat(parser);
+            int i = argList.IndexOf(option);
+            if (i == -1 || i + 1 >= argList.Count) return null;
+            return argList[i + 1];
         }
 
-        static void outputPlainFormat(TGSqlParser parser)
+        private static int FormatInline(EDbVendor vendor, string sql)
+        {
+            var parser = new TGSqlParser(vendor) { sqltext = sql };
+            return EmitPlainFormat(parser);
+        }
+
+        private static int FormatFile(EDbVendor vendor, string path)
+        {
+            if (!File.Exists(path))
+            {
+                Console.Error.WriteLine("Input file not found: " + path);
+                return 2;
+            }
+            var parser = new TGSqlParser(vendor) { sqlfilename = new FileInfo(path).FullName };
+            return EmitPlainFormat(parser);
+        }
+
+        private static int EmitPlainFormat(TGSqlParser parser)
         {
             int ret = parser.parse();
-            if (ret == 0)
+            if (ret != 0)
             {
-                GFmtOpt option = GFmtOptFactory.newInstance();
-                
-                string result = FormatterFactory.pp(parser, option);
-                Console.WriteLine(result);
+                Console.Error.WriteLine(parser.Errormessage);
+                return ret;
             }
-            else
-            {
-                Console.WriteLine(parser.Errormessage);
-            }
-        }
 
-        static void ppInHtml(EDbVendor dbVendor, string inputsql, bool rtf, bool custom)
-        {
-            TGSqlParser parser = new TGSqlParser(dbVendor);
-            parser.sqltext = inputsql;
-            outputHtmlFormat(parser, rtf, custom);
-        }
-
-        static void ppInHtml(EDbVendor dbVendor, FileInfo sqlfile, bool rtf, bool custom)
-        {
-            TGSqlParser parser = new TGSqlParser(dbVendor);
-            parser.sqlfilename = sqlfile.FullName;
-            outputHtmlFormat(parser, rtf, custom);
-        }
-
-        static void outputHtmlFormat(TGSqlParser parser, bool rtf, bool custom)
-        {
-            outputHtmlFormat(parser, null, rtf, custom);
-        }
-
-        static void outputHtmlFormat(TGSqlParser parser, GFmtOpt formatOption, bool rtf, bool custom)
-        {
-            int ret = parser.parse();
-            if (ret == 0)
-            {
-                if (formatOption != null)
-                {
-                    formatOption.outputFmt = GOutputFmt.ofhtml;
-                }
-                else
-                {
-                    formatOption = GFmtOptFactory.newInstance();
-                    formatOption.outputFmt = GOutputFmt.ofhtml;
-                }
-
-                if (custom)
-                {
-                    OutputConfig outputConfig = OutputConfigFactory.getOutputConfig(formatOption,
-                            parser.DbVendor);
-                    if (outputConfig is HtmlOutputConfig)
-                    {
-                        customOutputConfig((HtmlOutputConfig)outputConfig);
-                    }
-                    FormatterFactory.OutputConfig = outputConfig;
-                }
-                else {
-                    FormatterFactory.OutputConfig = new HtmlOutputConfig(formatOption, parser.DbVendor);
-                }
-
-                string result = FormatterFactory.pp(parser, formatOption);
-                if (rtf)
-                {
-                    StringBuilder buffer = new StringBuilder(result.Replace("</br>", "<br>"));
-                    ParameterizedThreadStart ps = new ParameterizedThreadStart(convertHtmlToRtf);
-                    Thread t = new Thread(ps);
-                    t.IsBackground = true;
-                    t.SetApartmentState(ApartmentState.STA);
-                    t.Start(buffer);
-                    t.Join();
-                    result = buffer.ToString();
-                }
-                Console.WriteLine(result);
-            }
-            else
-            {
-                Console.WriteLine(parser.Errormessage);
-            }
-        }
-
-        static void customOutputConfig(HtmlOutputConfig outputConfig)
-        {
-            outputConfig.GlobalFontSize = 12;
-            outputConfig.GlobalFontName = "Courier New";
-            outputConfig.addHighlightingElementRender(HighlightingElement.sfkStandardkeyword,
-                    new HtmlHighlightingElementRender(HighlightingElement.sfkStandardkeyword,
-                            Color.FromArgb(127, 0, 85),
-                            new Font("Courier New", 12, FontStyle.Bold)));
-            outputConfig.addHighlightingElementRender(HighlightingElement.sfkIdentifer,
-                    new HtmlHighlightingElementRender(HighlightingElement.sfkIdentifer,
-                            Color.Black,
-                            new Font("Courier New", 12, FontStyle.Regular)));
-            outputConfig.addHighlightingElementRender(HighlightingElement.sfkSQString,
-                    new HtmlHighlightingElementRender(HighlightingElement.sfkSQString,
-                            Color.Blue,
-                            new Font("Courier New", 12, FontStyle.Regular)));
-            outputConfig.addHighlightingElementRender(HighlightingElement.sfkSymbol,
-                    new HtmlHighlightingElementRender(HighlightingElement.sfkSymbol,
-                            Color.Red,
-                            new Font("Courier New", 12, FontStyle.Regular)));
-        }
-
-        static void convertHtmlToRtf(object arg)
-        {
-            StringBuilder buffer = (StringBuilder)arg;
-            string rtf = HtmlToRtfConverter.ConvertHtmlToRtf(buffer.ToString());
-            buffer.Clear();
-            buffer.Append(rtf);
+            GFmtOpt option = GFmtOptFactory.newInstance();
+            string result = FormatterFactory.pp(parser, option);
+            Console.WriteLine(result);
+            return 0;
         }
     }
 }

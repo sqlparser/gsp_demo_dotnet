@@ -2,14 +2,15 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net10.0</TargetFramework>
-    <RootNamespace>tableColumnRename</RootNamespace>
-    <AssemblyName>tableColumnRename</AssemblyName>
+    <RootNamespace>extractTableColumns</RootNamespace>
+    <AssemblyName>extractTableColumns</AssemblyName>
     <LangVersion>latest</LangVersion>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="gudusoft.gsqlparser" Version="$(GspVersion)" />
+    <ProjectReference Include="..\dlineageCommon\demos.dlineageCommon.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,25 @@
+<Solution>
+  <Folder Name="/lib/">
+    <Project Path="dlineageCommon/demos.dlineageCommon.csproj" />
+  </Folder>
+  <Folder Name="/demos/">
+    <Project Path="analyzesp/demos.analyzesp.csproj" />
+    <Project Path="checksyntax/demos.checksyntax.csproj" />
+    <Project Path="columnImpact/demos.columnImpact.csproj" />
+    <Project Path="convertJoin/demos.convertJoin.csproj" />
+    <Project Path="dataFlowAnalyzer/demos.dataFlowAnalyzer.csproj" />
+    <Project Path="dlineage/demos.dlineage.csproj" />
+    <Project Path="dlineageRelation/demos.dlineageRelation.csproj" />
+    <Project Path="expressionTraverser/demos.expressionTraverser.csproj" />
+    <Project Path="extractTableColumns/demos.extractTableColumns.csproj" />
+    <Project Path="formatsql/demos.formatsql.csproj" />
+    <Project Path="gettablecolumns/demos.gettablecolumns.csproj" />
+    <Project Path="joinRelationAnalyze/demos.joinRelationAnalyze.csproj" />
+    <Project Path="listGSPInfo/demos.listGSPInfo.csproj" />
+    <Project Path="removeColumn/demos.removeColumn.csproj" />
+    <Project Path="removeCondition/demos.removeCondition.csproj" />
+    <Project Path="removevars/demos.removevars.csproj" />
+    <Project Path="tableColumnRename/demos.tableColumnRename.csproj" />
+    <Project Path="visitors/demos.toXML.csproj" />
+  </Folder>
+</Solution>

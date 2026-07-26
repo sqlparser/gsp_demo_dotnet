@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>visitors</RootNamespace>
+    <AssemblyName>test.visitors</AssemblyName>
+    <IsPackable>false</IsPackable>
+    <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="gudusoft.gsqlparser" Version="$(GspVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\src\demos\lib\xmlVisitor.cs" Link="xmlVisitor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="MSTest.TestAdapter"     Version="3.6.0" />
+    <PackageReference Include="MSTest.TestFramework"   Version="3.6.0" />
+  </ItemGroup>
+</Project>
