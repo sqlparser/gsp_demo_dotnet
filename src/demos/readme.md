@@ -78,6 +78,7 @@ Run `./build.sh list` to see this table in the terminal.
 | **dataFlowAnalyzer** | Analyze data flow in SQL |
 | **convertJoin** | Convert between old-style (+) and ANSI JOIN syntax |
 | **joinRelationAnalyze** | Analyze join relationships |
+| **extractTableColumns** | Extract table/column pairs, including through subqueries |
 | **expressionTraverser** | Walk the expression AST with a visitor |
 | **visitors** | Visitor pattern demo / XML export of the AST |
 | **analyzesp** | Analyze stored procedures |
@@ -102,7 +103,6 @@ along with its version and whether it is the trial or full edition.
 demos/
   demos.slnx              Solution file — covers all demos
   build.sh                Convenience build/run script
-  build.proj              Legacy MSBuild build file (kept for reference)
   readme.md               This file
   lib/                    Shared demo helper code (xmlVisitor etc.)
   util/                   Shared utility code (common.cs, etc.)
@@ -168,8 +168,11 @@ dotnet run --project checksyntax\demos.checksyntax.csproj -c Release -- /t mssql
 
 ### Open in Visual Studio
 
-Open `demos.slnx` directly in Visual Studio 2022 (17.12+) or later. The `.slnx`
-format is supported natively — right-click any demo project in Solution Explorer
+Open `demos.slnx` directly in Visual Studio 2026 (18.0+), which is the first
+release that supports `net10.0` projects. Visual Studio 2022 (17.14) can open
+the `.slnx` format but cannot build these projects, because .NET 10 targeting
+is not available there — use the `dotnet` CLI commands above instead.
+Right-click any demo project in Solution Explorer
 and choose **Set as Startup Project**, then press **F5** to run it. To pass
 command-line arguments (e.g. `/t oracle /f ...`), go to
 **Project > Properties > Debug > Command line arguments**.
@@ -190,8 +193,11 @@ You can also build and run demos from the repository root using the full
 solution:
 
 ```bash
-# From the repo root (gsp_dotnet/)
-dotnet build gsp_dotnet.slnx -c Release
-dotnet run --project gsp_demo_dotnet/src/demos/formatsql/demos.formatsql.csproj \
+# From the repo root (gsp_demo_dotnet/)
+dotnet build gsp_demo_dotnet.slnx -c Release
+dotnet run --project src/demos/formatsql/demos.formatsql.csproj \
   -c Release -- /t oracle /f path/to/query.sql
 ```
+
+The root solution additionally covers the `tests/` projects, so
+`dotnet test gsp_demo_dotnet.slnx -c Release` runs the test suites too.

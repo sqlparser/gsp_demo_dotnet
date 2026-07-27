@@ -19,24 +19,11 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 SLNX="$SCRIPT_DIR/demos.slnx"
 
-# All database dialect flags — enables every supported vendor in the parser.
-INCLUDE_FLAGS=(
-  /p:includeDB2=true
-  /p:includeGreenplum=true
-  /p:includeHive=true
-  /p:includeImpala=true
-  /p:includeInformix=true
-  /p:includeMdx=true
-  /p:includeMssql=true
-  /p:includeMySQL=true
-  /p:includeNetezza=true
-  /p:includeOracle=true
-  /p:includePostgreSQL=true
-  /p:includeRedshift=true
-  /p:includeSnowflake=true
-  /p:includeSybase=true
-  /p:includeTeradata=true
-)
+# Note: the supported SQL dialects are baked into the gudusoft.gsqlparser
+# package resolved from nuget.org (all 15 are enabled there). Earlier versions
+# of this script passed /p:includeOracle=true and friends; those properties did
+# nothing once the demos stopped building the parser from source. Run the
+# listGSPInfo demo to print what your resolved package actually supports.
 
 # Map of demo name -> csproj path (relative to SCRIPT_DIR)
 declare -A DEMOS=(
@@ -48,6 +35,7 @@ declare -A DEMOS=(
   [dlineage]="dlineage/demos.dlineage.csproj"
   [dlineageRelation]="dlineageRelation/demos.dlineageRelation.csproj"
   [expressionTraverser]="expressionTraverser/demos.expressionTraverser.csproj"
+  [extractTableColumns]="extractTableColumns/demos.extractTableColumns.csproj"
   [formatsql]="formatsql/demos.formatsql.csproj"
   [gettablecolumns]="gettablecolumns/demos.gettablecolumns.csproj"
   [joinRelationAnalyze]="joinRelationAnalyze/demos.joinRelationAnalyze.csproj"
@@ -88,6 +76,7 @@ list_demos() {
   printf "  %-25s %s\n" "dlineage"           "Data lineage analysis"
   printf "  %-25s %s\n" "dlineageRelation"   "Data lineage relation analysis"
   printf "  %-25s %s\n" "expressionTraverser" "Traverse SQL expressions"
+  printf "  %-25s %s\n" "extractTableColumns" "Extract table/column pairs via subqueries"
   printf "  %-25s %s\n" "formatsql"          "Format / pretty-print SQL"
   printf "  %-25s %s\n" "gettablecolumns"    "Extract table and column names"
   printf "  %-25s %s\n" "joinRelationAnalyze" "Analyze join relations"
@@ -113,14 +102,14 @@ resolve_csproj() {
 
 build_all() {
   echo "Building all demos..."
-  dotnet build "$SLNX" -c Release "${INCLUDE_FLAGS[@]}"
+  dotnet build "$SLNX" -c Release
 }
 
 build_one() {
   local csproj
   csproj="$(resolve_csproj "$1")"
   echo "Building $1..."
-  dotnet build "$csproj" -c Release "${INCLUDE_FLAGS[@]}"
+  dotnet build "$csproj" -c Release
 }
 
 run_one() {
@@ -128,7 +117,7 @@ run_one() {
   shift
   local csproj
   csproj="$(resolve_csproj "$name")"
-  dotnet run --project "$csproj" -c Release "${INCLUDE_FLAGS[@]}" -- "$@"
+  dotnet run --project "$csproj" -c Release -- "$@"
 }
 
 clean_all() {
