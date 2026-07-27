@@ -4,7 +4,7 @@ Cross-cutting helpers shared by most demos. Not a standalone executable.
 
 | File | Purpose |
 |------|---------|
-| `common.cs` | `Common.GetEDbVendor(args)` — parses `/t <vendor>` from the command-line and maps it to an `EDbVendor` (oracle, mssql, mysql, db2, postgresql, teradata, sybase, informix, netezza, hive, greenplum, redshift, mdx). Default is `oracle`. |
+| `common.cs` | `Common.GetEDbVendor(args)` — parses `/t <vendor>` from the command-line and maps it to an `EDbVendor`. Covers all 15 dialects: oracle, mssql, mysql, db2, postgresql, teradata, sybase, informix, netezza, hive, greenplum, redshift, snowflake, impala, mdx. Default is `oracle`. |
 | `StringUtil.cs` | Small string helpers (ref-quality Java-port leftovers). |
 | `Arrays.cs` | `Arrays.asList(...)`-style helpers. |
 | `LinkedHashMap.cs` | Insertion-ordered dictionary (port of Java's `LinkedHashMap`). Used when the analysis output needs to preserve the order in which columns/tables were encountered. |
@@ -12,9 +12,14 @@ Cross-cutting helpers shared by most demos. Not a standalone executable.
 
 ## Build
 
-This directory has no csproj of its own — the `.cs` files are included
-into each demo csproj via `<Compile Include="..\util\*.cs" />`. Build the
-consuming demo to pull them in.
+This directory is a class library, `demos.util.csproj`. Demos consume it
+with a `<ProjectReference>`; it used to be source-copied into each demo
+via `<Compile Include="..\util\*.cs" />`, which meant adding a helper here
+required editing every consumer.
+
+It multi-targets `net10.0;netstandard2.0` because `demos.dlineageCommon`
+is netstandard2.0-capable and references it. A net10.0-only library here
+would silently break that project's netstandard2.0 target.
 
 ## Build your own
 

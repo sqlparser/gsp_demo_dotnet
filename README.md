@@ -109,8 +109,10 @@ Db: 14/17, dbvdb2,dbvgreenplum,dbvhive,dbvimpala,dbvinformix,dbvmysql,dbvmssql,.
 | **tableColumnRename** | Rename table/column references in SQL |
 | **listGSPInfo** | Print parser version, edition and compiled-in dialects |
 
-`dlineageCommon` is a shared library used by `dlineage` and `dlineageRelation`,
-not a demo in its own right.
+Three projects in the solution are libraries, not demos: `dlineageCommon`
+(shared by `dlineage` and `dlineageRelation`), `demos.lib` (the reusable
+analysers under `src/demos/lib/`) and `demos.util` (command-line and
+collection helpers under `src/demos/util/`).
 
 ## Trial limit
 
@@ -140,10 +142,11 @@ Change it there and rebuild.
 ## Layout
 
 ```
-gsp_demo_dotnet.slnx      Solution covering all 21 projects
+gsp_demo_dotnet.slnx      Solution covering all 23 projects
 Directory.Build.props     Shared settings; GspVersion lives here
 src/demos/                One directory per demo
-  lib/  util/             Shared helper code used by several demos
+  lib/                    Shared analysers (demos.lib)
+  util/                   Shared helpers (demos.util)
   dlineageCommon/         Shared library for the lineage demos
 tests/                    MSTest suites over the demo code
 ```

@@ -6,17 +6,17 @@ Reusable classes used by more than one demo. Not a standalone executable.
 |------|------------------|---------|
 | `TGetTableColumn.cs` | Full "walk every table + every column + classify by clause" analyser, driven by flags (`showSummary`, `showDetail`, `showTreeStructure`, `showBySQLClause`, `showJoin`, `showColumnLocation`, …). Accepts an optional `IMetaDatabase` to validate column existence during `*`-expansion. | `gettablecolumns/` |
 | `columnInClause.cs` | Helper for turning a `TObjectName.Location` (an `ESqlClause` value) into a human-readable clause label. | `gettablecolumns/` |
-| `xmlVisitor.cs` | A full `TParseTreeVisitor` that serialises every GSP AST node type to XML. ~80 node types covered. Produces output that can be viewed with the `tree-view.xsl` stylesheet shipped in `../visitors/`. | `visitors/`, tests in `gsp_demo_dotnet/tests/visitors/` |
+| `xmlVisitor.cs` | A full `TParseTreeVisitor` that serialises every GSP AST node type to XML. ~80 node types covered. Produces output that can be viewed with the `tree-view.xsl` stylesheet shipped in `../visitors/`. | `visitors/`, `tests/visitors/` |
+| `joinRelationAnalyze.cs` | Join-relation analyser (`JoinCondition`, `joinConditonsInExpr`). Called by `TGetTableColumn` when `showJoin` is set. Lives here rather than in `gettablecolumns/` — see the comment at the top of the file for why it keeps that namespace. | `TGetTableColumn.cs` |
 
 ## Build
 
-This directory has no csproj of its own — the `.cs` files are included
-directly (via `<Compile Include="..\lib\*.cs" />`) by the demo csprojs
-that need them. Just build the consuming demo:
+This directory is a class library, `demos.lib.csproj`, referenced by the
+demos and tests that need it. It targets `net10.0` only — unlike
+`demos.util`, nothing netstandard2.0 consumes it.
 
 ```bash
-dotnet build ../gettablecolumns/demos.gettablecolumns.csproj -c Release
-dotnet build ../visitors/demos.toXML.csproj -c Release
+dotnet build demos.lib.csproj -c Release
 ```
 
 ## Build your own
