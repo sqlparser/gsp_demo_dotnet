@@ -75,6 +75,14 @@ namespace gudusoft.gsqlparser.demos.util
                 {
                     dbVendor = EDbVendor.dbvmdx;
                 }
+                else if (args[index + 1].Equals("snowflake", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    dbVendor = EDbVendor.dbvsnowflake;
+                }
+                else if (args[index + 1].Equals("impala", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    dbVendor = EDbVendor.dbvimpala;
+                }
             }
 
             return dbVendor;

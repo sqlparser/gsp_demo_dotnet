@@ -96,7 +96,7 @@ namespace gudusoft.gsqlparser.demos.gettablecolumns
             Console.WriteLine("/d: Option, specify the sql directory path to analyze table columns.");
             Console.WriteLine("/f: Option, specify the sql file path to analyze table columns.");
             Console.WriteLine("/o: Option, write the output result to the specified path.");
-            Console.WriteLine("/t: option, set the database type. Support oracle, mysql, mssql, db2, netezza, teradata, informix, sybase, postgresql, hive, greenplum and redshift, the default type is oracle");
+            Console.WriteLine("/t: option, set the database type. Support oracle, mysql, mssql, db2, netezza, teradata, informix, sybase, postgresql, hive, greenplum, redshift, snowflake, impala and mdx, the default type is oracle");
             Console.WriteLine("/showSummary: default show option, display the summary information.");
             Console.WriteLine("/showDetail: show option, display the detail information.");
             Console.WriteLine("/showTreeStructure: show option, display the information as a tree structure.");
