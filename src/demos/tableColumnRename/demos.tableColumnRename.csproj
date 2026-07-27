@@ -5,7 +5,6 @@
     <RootNamespace>tableColumnRename</RootNamespace>
     <AssemblyName>tableColumnRename</AssemblyName>
     <LangVersion>latest</LangVersion>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>

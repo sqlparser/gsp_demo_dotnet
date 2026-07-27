@@ -20,14 +20,29 @@
     <TargetFramework>net10.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>disable</Nullable>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Deterministic>true</Deterministic>
+
+    <!-- Assembly metadata. The SDK generates the [assembly: ...] attributes from
+         these properties, so there are no hand-written AssemblyInfo.cs files.
+         Version drives AssemblyVersion, FileVersion and InformationalVersion at
+         once; demo binaries deliberately carry the parser version they were
+         built against, so a stray dll can be traced back to a GSP release. -->
     <Copyright>Copyright © 2016-2026 Gudu Software Limited</Copyright>
     <Company>Gudu Software Limited</Company>
-    <Deterministic>true</Deterministic>
+    <Product>General SQL Parser .NET Demos</Product>
+    <Version>$(GspVersion)</Version>
 
     <!-- The demos are ported from Java and trip a lot of stylistic analysers
          (lower-case type names, obsolete-member use). They are sample code, not
          a product surface; keep the build readable. -->
     <NoWarn>$(NoWarn);CS8981;CS0618;CA2022;CS9266;CS9258</NoWarn>
   </PropertyGroup>
+
+  <!-- Carried over from the deleted AssemblyInfo.cs files. The SDK does not
+       emit this one, and without it every public type is COM-visible. -->
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.InteropServices.ComVisibleAttribute">
+      <_Parameter1>false</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
 </Project>

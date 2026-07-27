@@ -5,7 +5,6 @@
     <RootNamespace>removeColumn</RootNamespace>
     <AssemblyName>removeColumn</AssemblyName>
     <LangVersion>latest</LangVersion>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>

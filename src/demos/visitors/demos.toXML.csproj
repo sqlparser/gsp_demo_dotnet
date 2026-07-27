@@ -5,7 +5,6 @@
     <RootNamespace>visitors</RootNamespace>
     <AssemblyName>toXML</AssemblyName>
     <LangVersion>latest</LangVersion>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>

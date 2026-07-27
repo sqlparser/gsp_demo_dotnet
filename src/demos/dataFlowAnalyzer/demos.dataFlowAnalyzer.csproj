@@ -5,7 +5,6 @@
     <RootNamespace>dataFlowAnalyzer</RootNamespace>
     <AssemblyName>dataFlowAnalyzer</AssemblyName>
     <LangVersion>latest</LangVersion>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>

@@ -5,7 +5,6 @@
     <RootNamespace>removevars</RootNamespace>
     <AssemblyName>removevars</AssemblyName>
     <LangVersion>latest</LangVersion>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>

@@ -5,7 +5,6 @@
     <RootNamespace>columnImpact</RootNamespace>
     <AssemblyName>columnImpact</AssemblyName>
     <LangVersion>latest</LangVersion>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>

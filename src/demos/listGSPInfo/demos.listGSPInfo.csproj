@@ -5,7 +5,6 @@
     <RootNamespace>listGSPInfo</RootNamespace>
     <AssemblyName>listGSPInfo</AssemblyName>
     <LangVersion>latest</LangVersion>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
