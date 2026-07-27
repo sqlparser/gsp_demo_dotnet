@@ -5361,10 +5361,8 @@ namespace gudusoft.gsqlparser.demos.lib
                 XElement e_name_segment = new XElement(defaultNamespace + "name_segment");
                 e_parent.Add(e_name_segment);
                 e_name_segment.Add(new XAttribute("value", segment.Name));
-                if (segment.Quoting != null)
-                {
-                    e_name_segment.Add(new XAttribute("quoting", Enum.GetName(typeof(EMdxQuoting), segment.Quoting)));
-                }
+                // Quoting is a non-nullable enum, so it always has a value.
+                e_name_segment.Add(new XAttribute("quoting", Enum.GetName(typeof(EMdxQuoting), segment.Quoting)));
             }
 
             if (segment.KeyParts != null)

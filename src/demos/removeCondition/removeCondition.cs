@@ -21,7 +21,7 @@ namespace gudusoft.gsqlparser.demos.removeCondition
 			LinkedHashMap<string, string> conditionMap = new LinkedHashMap<string, string>();
 			conditionMap["Institute"] = "ShanXi University";
 			conditionMap["Fund"] = "Eclipse.org";
-            removeCondition remove = new removeCondition(new FileInfo("C:\\1.txt"), EDbVendor.dbvoracle, conditionMap);
+			removeCondition remove = new removeCondition(sql, EDbVendor.dbvoracle, conditionMap);
 
 			Console.WriteLine(remove.RemoveResult);
         }
