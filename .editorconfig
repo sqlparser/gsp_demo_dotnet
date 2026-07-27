@@ -1,0 +1,57 @@
+root = true
+
+# Baseline conventions for this repository.
+#
+# Deliberately minimal. Most of this code was auto-translated from Java and does
+# not follow .NET naming conventions (lower-case type names, Java-style helpers).
+# Style rules below are set to `suggestion` so an IDE hints at them without
+# turning the existing tree into a wall of warnings, and EnforceCodeStyleInBuild
+# is left off so `dotnet build` stays clean. Formatting of existing files has not
+# been rewritten; these settings apply as files are touched.
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{yml,yaml,json}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.sh]
+end_of_line = lf
+
+[*.{csproj,props,targets,slnx,config,xml,xsl}]
+indent_size = 2
+
+[*.cs]
+# using directives
+dotnet_sort_system_directives_first = true
+dotnet_separate_import_directive_groups = false
+csharp_using_directive_placement = outside_namespace:suggestion
+
+# language preferences
+csharp_prefer_braces = true:suggestion
+csharp_style_namespace_declarations = block_scoped:suggestion
+dotnet_style_predefined_type_for_locals_parameters_members = true:suggestion
+dotnet_style_predefined_type_for_member_access = true:suggestion
+dotnet_style_object_initializer = true:suggestion
+dotnet_style_collection_initializer = true:suggestion
+dotnet_style_null_propagation = true:suggestion
+dotnet_style_coalesce_expression = true:suggestion
+
+# naming: types and public members are PascalCase (advisory — much of the
+# ported code predates this and is exempted by the suggestion severity)
+dotnet_naming_rule.types_should_be_pascal_case.severity = suggestion
+dotnet_naming_rule.types_should_be_pascal_case.symbols = type_symbols
+dotnet_naming_rule.types_should_be_pascal_case.style = pascal_case_style
+
+dotnet_naming_symbols.type_symbols.applicable_kinds = class,struct,interface,enum
+dotnet_naming_symbols.type_symbols.applicable_accessibilities = public
+
+dotnet_naming_style.pascal_case_style.capitalization = pascal_case

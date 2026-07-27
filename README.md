@@ -1,5 +1,9 @@
 # General SQL Parser .NET — Demos
 
+[![build](https://github.com/sqlparser/gsp_demo_dotnet/actions/workflows/ci.yml/badge.svg)](https://github.com/sqlparser/gsp_demo_dotnet/actions/workflows/ci.yml)
+[![NuGet](https://img.shields.io/nuget/v/gudusoft.gsqlparser.svg)](https://www.nuget.org/packages/gudusoft.gsqlparser)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 Eighteen runnable sample programs for [General SQL Parser](https://www.sqlparser.com)
 .NET: syntax checking, SQL formatting, column-level lineage, AST traversal and
 SQL rewriting, across 15 database dialects.

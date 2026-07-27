@@ -1,0 +1,44 @@
+name: build
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          global-json-file: global.json
+
+      # Restore, build and test as separate steps so a failure names the phase
+      # that broke. The demos resolve gudusoft.gsqlparser from nuget.org, so
+      # restore is the step that fails first if the package is unavailable.
+      - name: Restore
+        run: dotnet restore gsp_demo_dotnet.slnx
+
+      - name: Build
+        run: dotnet build gsp_demo_dotnet.slnx -c Release --no-restore
+
+      - name: Test
+        run: dotnet test gsp_demo_dotnet.slnx -c Release --no-build --no-restore
+
+      # Smoke-test one demo end to end: a green build does not prove the parser
+      # actually loads and runs at runtime.
+      - name: Smoke test (listGSPInfo)
+        run: dotnet run --project src/demos/listGSPInfo/demos.listGSPInfo.csproj -c Release --no-build --no-restore
