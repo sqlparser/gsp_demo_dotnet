@@ -93,7 +93,7 @@ namespace gudusoft.gsqlparser.demos.extractTableColumns
                 Console.WriteLine("/f: specify the single sql file to analyze table columns.");
                 Console.WriteLine("/d: specify the sql directory path to analyze table columns.");
                 Console.WriteLine("/o: Option, write the output result to the specified directory.");
-                Console.WriteLine("/t: Option, set the database type. Support oracle, mysql, mssql, db2, netezza, teradata, informix, sybase, postgresql, hive, greenplum and redshift, the default type is oracle");
+                Console.WriteLine("/t: Option, set the database type. Support oracle, mysql, mssql, db2, netezza, teradata, informix, sybase, postgresql, hive, greenplum, redshift, snowflake, impala and mdx, the default type is oracle");
                 return;
             }
 

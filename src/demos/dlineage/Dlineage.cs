@@ -21,7 +21,7 @@ namespace gudusoft.gsqlparser.demos.dlineage
                 Console.WriteLine("/f: Option, specify the sql file path to analyze dlineage.");
                 Console.WriteLine("/d: Option, specify the sql directory path to analyze dlineage.");
                 Console.WriteLine("/d: Option, forward analyze the specified table column.");
-                Console.WriteLine("/t: Option, set the database type. Support oracle, mysql, mssql, db2, netezza, teradata, informix, sybase, postgresql, hive, greenplum and redshift, the default type is oracle");
+                Console.WriteLine("/t: Option, set the database type. Support oracle, mysql, mssql, db2, netezza, teradata, informix, sybase, postgresql, hive, greenplum, redshift, snowflake, impala and mdx, the default type is oracle");
                 Console.WriteLine("/fo: Option, forward analyze the specified table column.");
                 Console.WriteLine("/b: Option, backward analyze the specified view column.");
                 Console.WriteLine("/ddl: Option, output the database DDL schema.");

@@ -368,7 +368,7 @@ namespace gudusoft.gsqlparser.demos.dlineage
                 Console.WriteLine("Usage: DlineageRelation [/f <path_to_sql_file>] [/d <path_to_directory_includes_sql_files>] [/t <database type>] [/o <output file path>]");
                 Console.WriteLine("/f: Option, specify the sql file path to analyze dlineage relation.");
                 Console.WriteLine("/d: Option, specify the sql directory path to analyze dlineage relation.");
-                Console.WriteLine("/t: Option, set the database type. Support oracle, mysql, mssql, db2, netezza, teradata, informix, sybase, postgresql, hive, greenplum and redshift, the default type is oracle");
+                Console.WriteLine("/t: Option, set the database type. Support oracle, mysql, mssql, db2, netezza, teradata, informix, sybase, postgresql, hive, greenplum, redshift, snowflake, impala and mdx, the default type is oracle");
                 Console.WriteLine("/o: Option, write the output stream to the specified file.");
                 Console.WriteLine("/log: Option, generate a dlineage.log file to log information.");
                 return;
