@@ -3,6 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
+// Lives in lib/ because TGetTableColumn calls it, but keeps its original
+// gettablecolumns namespace on purpose. The types below include TColumn and
+// TTable; moving them into gudusoft.gsqlparser.demos.lib would put them in the
+// same namespace as xmlVisitor, where a bare TTable currently resolves to
+// gudusoft.gsqlparser.nodes.TTable via a using directive. Same-namespace types
+// win over using-imported ones, so the rename would silently rebind those
+// references. The demo that used to host this file does not reference it.
 namespace gudusoft.gsqlparser.demos.gettablecolumns
 {
     using gudusoft.gsqlparser;
