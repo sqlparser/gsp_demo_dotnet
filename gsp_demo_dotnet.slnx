@@ -12,11 +12,13 @@
   <Project Path="src/demos/formatsql/demos.formatsql.csproj" />
   <Project Path="src/demos/gettablecolumns/demos.gettablecolumns.csproj" />
   <Project Path="src/demos/joinRelationAnalyze/demos.joinRelationAnalyze.csproj" />
+  <Project Path="src/demos/lib/demos.lib.csproj" />
   <Project Path="src/demos/listGSPInfo/demos.listGSPInfo.csproj" />
   <Project Path="src/demos/removeColumn/demos.removeColumn.csproj" />
   <Project Path="src/demos/removeCondition/demos.removeCondition.csproj" />
   <Project Path="src/demos/removevars/demos.removevars.csproj" />
   <Project Path="src/demos/tableColumnRename/demos.tableColumnRename.csproj" />
+  <Project Path="src/demos/util/demos.util.csproj" />
   <Project Path="src/demos/visitors/demos.toXML.csproj" />
   <Project Path="tests/gettablecolumns/test.gettablecolumns.csproj" />
   <Project Path="tests/visitors/test.visitors.csproj" />

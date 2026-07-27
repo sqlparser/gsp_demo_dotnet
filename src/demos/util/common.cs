@@ -16,7 +16,7 @@ namespace gudusoft.gsqlparser.demos.util
             return GetEDbVendor(args, dbVendor);
         }
 
-        internal static EDbVendor GetEDbVendor(string[] args, EDbVendor defaultVendor)
+        public static EDbVendor GetEDbVendor(string[] args, EDbVendor defaultVendor)
         {
             List<string> argList = new List<string>(args);
             int index = argList.IndexOf("/t");

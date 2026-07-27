@@ -1,6 +1,8 @@
 <Solution>
   <Folder Name="/lib/">
     <Project Path="dlineageCommon/demos.dlineageCommon.csproj" />
+    <Project Path="lib/demos.lib.csproj" />
+    <Project Path="util/demos.util.csproj" />
   </Folder>
   <Folder Name="/demos/">
     <Project Path="analyzesp/demos.analyzesp.csproj" />

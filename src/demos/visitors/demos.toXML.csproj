@@ -9,10 +9,8 @@
 
   <ItemGroup>
     <PackageReference Include="gudusoft.gsqlparser" Version="$(GspVersion)" />
+    <ProjectReference Include="..\lib\demos.lib.csproj" />
+    <ProjectReference Include="..\util\demos.util.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Include="..\lib\xmlVisitor.cs" Link="xmlVisitor.cs" />
-    <Compile Include="..\util\common.cs" Link="common.cs" />
-  </ItemGroup>
 </Project>

@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- Shared helpers for the demos. Multi-targets because
+         demos.dlineageCommon is itself netstandard2.0-capable and references
+         this project; a net10.0-only library would break that.
+         Clearing the singular TargetFramework inherited from
+         Directory.Build.props is required for TargetFrameworks to take effect;
+         see the note in that file. -->
+    <TargetFramework></TargetFramework>
+    <TargetFrameworks>net10.0;netstandard2.0</TargetFrameworks>
+    <OutputType>Library</OutputType>
+    <RootNamespace>gudusoft.gsqlparser.demos.util</RootNamespace>
+    <AssemblyName>demos.util</AssemblyName>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="gudusoft.gsqlparser" Version="$(GspVersion)" />
+  </ItemGroup>
+</Project>
