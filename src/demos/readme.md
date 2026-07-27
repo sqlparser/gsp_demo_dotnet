@@ -104,8 +104,8 @@ demos/
   demos.slnx              Solution file — covers all demos
   build.sh                Convenience build/run script
   readme.md               This file
-  lib/                    Shared demo helper code (xmlVisitor etc.)
-  util/                   Shared utility code (common.cs, etc.)
+  lib/                    Shared analysers, a class library (demos.lib)
+  util/                   Shared helpers, a class library (demos.util)
   checksyntax/            Each demo is a standalone console app
   formatsql/
   ...
