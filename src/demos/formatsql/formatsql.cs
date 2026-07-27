@@ -1,3 +1,8 @@
+// This demo was written fresh for net10.0 rather than ported from Java, so it
+// uses nullable reference annotations. The repo-wide default is Nullable=disable
+// (the ported code predates the feature), hence the opt-in here.
+#nullable enable
+
 using System;
 using System.Collections.Generic;
 using System.IO;
