@@ -5,7 +5,6 @@
     <RootNamespace>gettablecolumns</RootNamespace>
     <AssemblyName>gettablecolumns</AssemblyName>
     <LangVersion>latest</LangVersion>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>

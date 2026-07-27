@@ -5,7 +5,6 @@
     <RootNamespace>extractTableColumns</RootNamespace>
     <AssemblyName>extractTableColumns</AssemblyName>
     <LangVersion>latest</LangVersion>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>

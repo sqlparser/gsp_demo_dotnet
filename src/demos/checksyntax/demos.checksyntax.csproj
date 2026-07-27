@@ -5,7 +5,6 @@
     <RootNamespace>checksyntax</RootNamespace>
     <AssemblyName>checksyntax</AssemblyName>
     <LangVersion>latest</LangVersion>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>

@@ -5,7 +5,6 @@
     <RootNamespace>analyzesp</RootNamespace>
     <AssemblyName>analyzesp</AssemblyName>
     <LangVersion>latest</LangVersion>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>

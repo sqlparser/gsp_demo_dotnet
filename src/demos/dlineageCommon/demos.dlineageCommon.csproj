@@ -10,7 +10,6 @@
     <RootNamespace>demos.dlineageCommon</RootNamespace>
     <AssemblyName>demos.dlineageCommon</AssemblyName>
     <LangVersion>latest</LangVersion>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>

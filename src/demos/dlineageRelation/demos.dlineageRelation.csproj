@@ -5,7 +5,6 @@
     <RootNamespace>dlineageRelation</RootNamespace>
     <AssemblyName>dlineageRelation</AssemblyName>
     <LangVersion>latest</LangVersion>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
