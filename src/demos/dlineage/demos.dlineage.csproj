@@ -15,17 +15,4 @@
   <ItemGroup>
     <Compile Include="..\util\common.cs" Link="common.cs" />
   </ItemGroup>
-
-  <!-- Exclude stale duplicates that were refactored into dlineageCommon/ but
-       whose historical copies were never deleted from this directory.
-       DlineageRelation.cs lives in ..\dlineageRelation\ (its own demo).
-       StringHelperClass.cs is a leftover helper not referenced by Dlineage.cs. -->
-  <ItemGroup>
-    <Compile Remove="columnImpact\**\*.cs" />
-    <Compile Remove="metadata\**\*.cs" />
-    <Compile Remove="model\**\*.cs" />
-    <Compile Remove="util\**\*.cs" />
-    <Compile Remove="DlineageRelation.cs" />
-    <Compile Remove="StringHelperClass.cs" />
-  </ItemGroup>
 </Project>
