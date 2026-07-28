@@ -42,32 +42,38 @@ cd gsp_demo_dotnet
 dotnet build gsp_demo_dotnet.slnx -c Release
 ```
 
-Check whether some SQL parses:
+Check whether some SQL parses. `samples/` has ready-made files for every
+dialect below, so there is nothing to write first:
 
 ```bash
-echo 'SELECT a.id, b.name FROM ta a JOIN tb b ON a.id = b.id WHERE a.x > 1;' > q.sql
-dotnet run --project src/demos/checksyntax/demos.checksyntax.csproj -c Release -- /f q.sql /t oracle
+dotnet run --project src/demos/checksyntax/demos.checksyntax.csproj -c Release -- /f samples/mssql-report.sql /t mssql
 ```
 
 ```text
-versionId:4.1.0.7, releaseDate:2026-7-26, datebase:dbvoracle
+versionId:4.1.0.7, releaseDate:2026-7-26, datebase:dbvmssql
 Success!
 ```
 
-Reformat it:
+Convert Oracle's proprietary `(+)` outer joins to ANSI:
 
 ```bash
-dotnet run --project src/demos/formatsql/demos.formatsql.csproj -c Release -- /f q.sql /t oracle
+dotnet run --project src/demos/convertJoin/demos.convertJoin.csproj -c Release -- /f samples/oracle-outer-join.sql /t oracle
 ```
 
 ```text
-SELECT a.ID,
-       b.NAME
-FROM   ta a
-       JOIN tb b
-       ON a.ID = b.ID
-WHERE  a.x > 1;
+SQL in ANSI joins
+SELECT   e.employee_id,
+         e.last_name,
+         d.department_name,
+         l.city
+FROM     employees e
+         LEFT OUTER JOIN departments d
+         ON e.department_id = d.department_id
+         LEFT OUTER JOIN locations l
+         ON d.location_id = l.location_id
 ```
+
+See [`samples/README.md`](samples/README.md) for what each file exercises.
 
 Most demos take `/f <file>` for input and `/t <vendor>` for the dialect. Valid
 vendors: `oracle`, `mssql`, `mysql`, `postgresql`, `db2`, `sybase`, `teradata`,
@@ -148,6 +154,7 @@ src/demos/                One directory per demo
   lib/                    Shared analysers (demos.lib)
   util/                   Shared helpers (demos.util)
   dlineageCommon/         Shared library for the lineage demos
+samples/                  SQL files to run the demos against
 tests/                    MSTest suites over the demo code
 ```
 
