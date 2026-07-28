@@ -9,7 +9,7 @@ namespace gudusoft.gsqlparser.demos.dlineage.metadata
     using table = gudusoft.gsqlparser.demos.dlineage.model.ddl.schema.table;
     using ColumnMetaData = gudusoft.gsqlparser.demos.dlineage.model.metadata.ColumnMetaData;
     using TableMetaData = gudusoft.gsqlparser.demos.dlineage.model.metadata.TableMetaData;
-    using demos.util;
+    using global::gudusoft.gsqlparser.demos.util;
     using System.IO;
     using System.Text;
     using System.Xml.Serialization;

@@ -4,7 +4,7 @@ namespace gudusoft.gsqlparser.demos.visitors
 {
     using System.IO;
     using gudusoft.gsqlparser;
-    using lib;
+    using global::gudusoft.gsqlparser.demos.lib;
     using global::gudusoft.gsqlparser.demos.util;
     using System.Collections.Generic;
 

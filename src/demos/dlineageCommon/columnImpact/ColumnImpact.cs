@@ -68,7 +68,7 @@ namespace gudusoft.gsqlparser.demos.dlineage.columnImpact
     using table = gudusoft.gsqlparser.demos.dlineage.model.xml.table;
     using targetColumn = gudusoft.gsqlparser.demos.dlineage.model.xml.targetColumn;
     using SQLUtil = gudusoft.gsqlparser.demos.dlineage.util.SQLUtil;
-    using demos.util;
+    using global::gudusoft.gsqlparser.demos.util;
     using gudusoft.gsqlparser.nodes;
     using System.Text.RegularExpressions;
     using System.Xml.Linq;
