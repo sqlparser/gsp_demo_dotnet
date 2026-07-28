@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace gudusoft.gsqlparser.demos.gettablecolumns
+namespace gudusoft.gsqlparser.demos.removeColumn
 {
 
     using EDbVendor = gudusoft.gsqlparser.EDbVendor;

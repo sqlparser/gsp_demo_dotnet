@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace gudusoft.gsqlparser.demos.dlineage
+namespace gudusoft.gsqlparser.demos.dlineageRelation
 {
     using Document = System.Xml.Linq.XDocument;
     using Element = System.Xml.Linq.XElement;
@@ -10,6 +10,12 @@ namespace gudusoft.gsqlparser.demos.dlineage
     using System.Xml.Linq;
     using System.IO;
     using gudusoft.gsqlparser.demos.util;
+
+    // DlineageCommon and the shared lineage model live in the dlineageCommon
+
+    // library, which keeps the demos.dlineage namespace.
+
+    using gudusoft.gsqlparser.demos.dlineage;
 
     using gudusoft.gsqlparser.demos.dlineage.model.xml;
     using gudusoft.gsqlparser.demos.dlineage.model.ddl.schema;
@@ -263,7 +269,7 @@ namespace gudusoft.gsqlparser.demos.dlineage
                 database db = dlineage.DataMetaInfos[i];
                 for (int j = 0; j < db.tables.Length; j++)
                 {
-                    model.ddl.schema.table currentTable = db.tables[j];
+                    gudusoft.gsqlparser.demos.dlineage.model.ddl.schema.table currentTable = db.tables[j];
                     if (currentTable.columns == null || currentTable.columns.Length == 0)
                     {
                         continue;
