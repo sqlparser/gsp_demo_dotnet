@@ -37,18 +37,22 @@ dotnet run --project src/demos/columnImpact/demos.columnImpact.csproj -c Release
 # Column-level summary
 dotnet run --project src/demos/columnImpact/demos.columnImpact.csproj -c Release -- \
   /f samples/oracle-lineage.sql /t oracle /s /c
+
+# Trace through views: every view column back to its source columns
+dotnet run --project src/demos/columnImpact/demos.columnImpact.csproj -c Release -- \
+  /f samples/oracle-lineage.sql /t oracle /v
 ```
 
-### Known limitation: `/v`
+`/v` reports one row per view column, naming the table column it derives from and
+the expression that produced it:
 
-`/v` traces impact through views, but it currently throws
-`KeyNotFoundException` on scripts that contain a `CREATE VIEW` — which is the
-only kind of script the flag is meaningful for. It is left undocumented as a
-runnable example here for that reason. `ColumnImpact.cs` reads a key out of a
-`LinkedHashMap` and then tests the result for null, which is Java `Map.get`
-semantics; the C# indexer throws instead of returning null. Tracked in #21.
+```text
+rt=col  view=v_employee_costs  column=base_salary  source=EMPLOYEES.SALARY  expression=
+rt=col  view=v_employee_costs  column=total_cost   source=EMPLOYEES.SALARY  expression=e.salary * (1 + NVL(e.commission_pct, 0))
+```
 
-The other flags are unaffected.
+`expression=` is empty for columns selected straight through without a
+calculation, as `base_salary` is above.
 
 ### Arguments
 

@@ -1742,8 +1742,10 @@ namespace gudusoft.gsqlparser.demos.columnImpact
                             {
                                 string temp = bufferMap[iter.Current];
                                 buffer.Append(temp);
-                                string expr = exprMap[temp.ToUpper()];
-                                if (string.ReferenceEquals(expr, null))
+                                // bufferMap holds every column, exprMap only those
+                                // with a non-empty expression, so a miss here is
+                                // normal and means "no expression".
+                                if (!exprMap.TryGetValue(temp.ToUpper(), out string expr))
                                 {
                                     expr = "";
                                 }
