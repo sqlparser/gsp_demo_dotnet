@@ -1,6 +1,7 @@
 # General SQL Parser .NET — Demos
 
 [![build](https://github.com/sqlparser/gsp_demo_dotnet/actions/workflows/ci.yml/badge.svg)](https://github.com/sqlparser/gsp_demo_dotnet/actions/workflows/ci.yml)
+[![nightly](https://github.com/sqlparser/gsp_demo_dotnet/actions/workflows/nightly.yml/badge.svg)](https://github.com/sqlparser/gsp_demo_dotnet/actions/workflows/nightly.yml)
 [![NuGet](https://img.shields.io/nuget/v/gudusoft.gsqlparser.svg)](https://www.nuget.org/packages/gudusoft.gsqlparser)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -144,6 +145,21 @@ Every project takes its version from one property in `Directory.Build.props`:
 ```
 
 Change it there and rebuild.
+
+You do not have to guess whether a newer release is safe to move to. The
+**nightly** workflow resolves the latest stable `gudusoft.gsqlparser` from
+nuget.org, builds all demos against it, runs the tests, and parses every file in
+`samples/` with the dialect it is written in. It overrides `GspVersion` as an
+MSBuild property rather than editing the repository, so the pinned version is
+untouched either way.
+
+- Nightly green while it reports a newer version than the pin: bumping
+  `<GspVersion>` to that version is safe.
+- Nightly red while `build` is green: the new library release broke something,
+  not this repository.
+
+It also accepts a specific version through **Run workflow** if you want to test a
+release before it is the latest.
 
 ## Layout
 
