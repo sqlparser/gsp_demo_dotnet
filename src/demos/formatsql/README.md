@@ -13,18 +13,23 @@ emits a reformatted version on stdout.
 
 ## Build and run
 
+All commands are run from the repository root.
+
 ```bash
 # Build
-dotnet build demos.formatsql.csproj -c Release
+dotnet build src/demos/formatsql/demos.formatsql.csproj -c Release
 
 # Run against a SQL file (reformatted output goes to stdout)
-dotnet run --project demos.formatsql.csproj -c Release -- /t oracle /f query.sql
+dotnet run --project src/demos/formatsql/demos.formatsql.csproj -c Release -- \
+  /f samples/oracle-lineage.sql /t oracle
 
 # Write output to a file
-dotnet run --project demos.formatsql.csproj -c Release -- /t mssql /f query.sql /o formatted.sql
+dotnet run --project src/demos/formatsql/demos.formatsql.csproj -c Release -- \
+  /f samples/mssql-report.sql /t mssql /o formatted.sql
 
 # No file? Prints usage (omit /f to format the built-in sample).
-dotnet run --project demos.formatsql.csproj -c Release -- /f query.sql
+dotnet run --project src/demos/formatsql/demos.formatsql.csproj -c Release -- \
+  /f samples/oracle-outer-join.sql
 ```
 
 ### Arguments

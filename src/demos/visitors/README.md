@@ -24,14 +24,17 @@ explore the tree interactively.
 
 ## Build and run
 
+All commands are run from the repository root.
+
 ```bash
-dotnet build demos.toXML.csproj -c Release
+dotnet build src/demos/visitors/demos.toXML.csproj -c Release
 
 # Built-in Oracle sample -> XML printed to stdout
-dotnet run --project demos.toXML.csproj -c Release
+dotnet run --project src/demos/visitors/demos.toXML.csproj -c Release
 
 # Your SQL file -> writes <file>.xml beside the input
-dotnet run --project demos.toXML.csproj -c Release -- /t mssql /f query.sql
+dotnet run --project src/demos/visitors/demos.toXML.csproj -c Release -- \
+  /f samples/mssql-report.sql /t mssql
 ```
 
 ### Arguments

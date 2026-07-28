@@ -19,14 +19,18 @@ only emits the final table/column inventory, not the relationships.
 
 ## Build and run
 
+All commands are run from the repository root.
+
 ```bash
-dotnet build demos.extractTableColumns.csproj -c Release
+dotnet build src/demos/extractTableColumns/demos.extractTableColumns.csproj -c Release
 
 # One file — writes <file>.out beside it
-dotnet run --project demos.extractTableColumns.csproj -c Release -- /t oracle /f query.sql
+dotnet run --project src/demos/extractTableColumns/demos.extractTableColumns.csproj -c Release -- \
+  /f samples/postgresql-nested.sql /t postgresql
 
 # A directory — writes tableColumns.txt + error.txt into that dir (or /o <dir>)
-dotnet run --project demos.extractTableColumns.csproj -c Release -- /t mssql /d ./scripts /o ./out
+dotnet run --project src/demos/extractTableColumns/demos.extractTableColumns.csproj -c Release -- \
+  /d YOUR_SQL_DIRECTORY /t mssql /o ./out
 ```
 
 ### Arguments

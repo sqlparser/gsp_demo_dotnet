@@ -22,14 +22,18 @@ locations.
 
 ## Build and run
 
+All commands are run from the repository root.
+
 ```bash
-dotnet build demos.dataFlowAnalyzer.csproj -c Release
+dotnet build src/demos/dataFlowAnalyzer/demos.dataFlowAnalyzer.csproj -c Release
 
 # One file
-dotnet run --project demos.dataFlowAnalyzer.csproj -c Release -- /t oracle /f pipeline.sql
+dotnet run --project src/demos/dataFlowAnalyzer/demos.dataFlowAnalyzer.csproj -c Release -- \
+  /f samples/oracle-lineage.sql /t oracle
 
 # Directory of scripts, write result to file
-dotnet run --project demos.dataFlowAnalyzer.csproj -c Release -- /t mssql /d ./scripts /o dataflow.txt
+dotnet run --project src/demos/dataFlowAnalyzer/demos.dataFlowAnalyzer.csproj -c Release -- \
+  /d YOUR_SQL_DIRECTORY /t mssql /o dataflow.txt
 ```
 
 ### Arguments
@@ -47,7 +51,7 @@ dotnet run --project demos.dataFlowAnalyzer.csproj -c Release -- /t mssql /d ./s
 ```csharp
 using gudusoft.gsqlparser.demos.dataFlowAnalyzer;
 
-var analyzer = new DataFlowAnalyzer(new FileInfo("pipeline.sql"),
+var analyzer = new DataFlowAnalyzer(new FileInfo("samples/oracle-lineage.sql"),
                                     EDbVendor.dbvoracle);
 var errBuf = new StringBuilder();
 string report = analyzer.generateDataFlow(errBuf);

@@ -20,12 +20,14 @@ string literals or identically named columns of unrelated tables.
 
 ## Build and run
 
+All commands are run from the repository root.
+
 ```bash
-dotnet build demos.tableColumnRename.csproj -c Release
+dotnet build src/demos/tableColumnRename/demos.tableColumnRename.csproj -c Release
 
 # The demo's Main is a code sample: it runs a hard-wired MSSQL procedure
 # through the renamer and prints the result.
-dotnet run --project demos.tableColumnRename.csproj -c Release
+dotnet run --project src/demos/tableColumnRename/demos.tableColumnRename.csproj -c Release
 ```
 
 ## Core code pattern

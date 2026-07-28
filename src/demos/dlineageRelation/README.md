@@ -28,14 +28,18 @@ interactive tracing.
 
 ## Build and run
 
+All commands are run from the repository root.
+
 ```bash
-dotnet build demos.dlineageRelation.csproj -c Release
+dotnet build src/demos/dlineageRelation/demos.dlineageRelation.csproj -c Release
 
 # One file, output to stdout
-dotnet run --project demos.dlineageRelation.csproj -c Release -- /t oracle /f pipeline.sql
+dotnet run --project src/demos/dlineageRelation/demos.dlineageRelation.csproj -c Release -- \
+  /f samples/oracle-lineage.sql /t oracle
 
 # Whole directory, output to file
-dotnet run --project demos.dlineageRelation.csproj -c Release -- /t mssql /d ./scripts /o lineage.xml
+dotnet run --project src/demos/dlineageRelation/demos.dlineageRelation.csproj -c Release -- \
+  /d YOUR_SQL_DIRECTORY /t mssql /o lineage.xml
 ```
 
 ### Arguments
@@ -51,7 +55,7 @@ dotnet run --project demos.dlineageRelation.csproj -c Release -- /t mssql /d ./s
 ## Core code pattern
 
 ```csharp
-var dlineage = new DlineageCommon(new FileInfo("pipeline.sql"),
+var dlineage = new DlineageCommon(new FileInfo("samples/oracle-lineage.sql"),
                                   EDbVendor.dbvoracle, false, false);
 
 var errBuf  = new StringBuilder();

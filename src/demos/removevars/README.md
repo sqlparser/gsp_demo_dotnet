@@ -20,11 +20,13 @@ that uses different bind markers, or a rewriter that requires literals.
 
 ## Build and run
 
+All commands are run from the repository root.
+
 ```bash
-dotnet build demos.removevars.csproj -c Release
+dotnet build src/demos/removevars/demos.removevars.csproj -c Release
 
 # Rewrites the given file, prints the cleaned SQL to stdout (MSSQL vendor)
-dotnet run --project demos.removevars.csproj -c Release -- script.sql
+dotnet run --project src/demos/removevars/demos.removevars.csproj -c Release -- script.sql
 ```
 
 ### Arguments

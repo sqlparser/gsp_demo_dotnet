@@ -18,24 +18,37 @@ X, which downstream SELECT list items will change?".
 
 ## Build and run
 
+All commands are run from the repository root.
+
 ```bash
-dotnet build demos.columnImpact.csproj -c Release
+dotnet build src/demos/columnImpact/demos.columnImpact.csproj -c Release
 
 # Built-in Oracle sample, detailed output
-dotnet run --project demos.columnImpact.csproj -c Release -- /d
+dotnet run --project src/demos/columnImpact/demos.columnImpact.csproj -c Release -- /d
 
 # Your own file, simple output
-dotnet run --project demos.columnImpact.csproj -c Release -- /t mssql /f query.sql /s
+dotnet run --project src/demos/columnImpact/demos.columnImpact.csproj -c Release -- \
+  /f samples/oracle-lineage.sql /t oracle /s
 
 # XML output (machine-readable)
-dotnet run --project demos.columnImpact.csproj -c Release -- /t oracle /f query.sql /s /xml
+dotnet run --project src/demos/columnImpact/demos.columnImpact.csproj -c Release -- \
+  /f samples/oracle-lineage.sql /t oracle /s /xml
 
 # Column-level summary
-dotnet run --project demos.columnImpact.csproj -c Release -- /f query.sql /s /c
-
-# Trace through views (requires CREATE VIEW statements in the script)
-dotnet run --project demos.columnImpact.csproj -c Release -- /f query.sql /v
+dotnet run --project src/demos/columnImpact/demos.columnImpact.csproj -c Release -- \
+  /f samples/oracle-lineage.sql /t oracle /s /c
 ```
+
+### Known limitation: `/v`
+
+`/v` traces impact through views, but it currently throws
+`KeyNotFoundException` on scripts that contain a `CREATE VIEW` — which is the
+only kind of script the flag is meaningful for. It is left undocumented as a
+runnable example here for that reason. `ColumnImpact.cs` reads a key out of a
+`LinkedHashMap` and then tests the result for null, which is Java `Map.get`
+semantics; the C# indexer throws instead of returning null. Tracked in #21.
+
+The other flags are unaffected.
 
 ### Arguments
 

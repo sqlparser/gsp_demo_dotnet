@@ -16,7 +16,7 @@ demos and tests that need it. It targets `net10.0` only — unlike
 `demos.util`, nothing netstandard2.0 consumes it.
 
 ```bash
-dotnet build demos.lib.csproj -c Release
+dotnet build src/demos/lib/demos.lib.csproj -c Release
 ```
 
 ## Build your own

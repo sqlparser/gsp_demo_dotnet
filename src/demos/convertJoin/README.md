@@ -18,18 +18,21 @@ ANSI-standard `LEFT/RIGHT/INNER JOIN ... ON` form. Supports:
 
 ## Build and run
 
+All commands are run from the repository root.
+
 ```bash
-dotnet build demos.convertJoin.csproj -c Release
+dotnet build src/demos/convertJoin/demos.convertJoin.csproj -c Release
 
 # Built-in sample: four tables joined with (+), no file needed
-dotnet run --project demos.convertJoin.csproj -c Release -- /t oracle
+dotnet run --project src/demos/convertJoin/demos.convertJoin.csproj -c Release -- /t oracle
 
 # Or against a file. samples/ ships one written for this demo:
-dotnet run --project demos.convertJoin.csproj -c Release -- \
-  /t oracle /f ../../../samples/oracle-outer-join.sql
+dotnet run --project src/demos/convertJoin/demos.convertJoin.csproj -c Release -- \
+  /f samples/oracle-outer-join.sql /t oracle
 
-# Convert SQL Server *=/=* syntax
-dotnet run --project demos.convertJoin.csproj -c Release -- /t mssql /f your_query.sql
+# Convert SQL Server *=/=* syntax. No sample ships for this; use your own file.
+dotnet run --project src/demos/convertJoin/demos.convertJoin.csproj -c Release -- \
+  /f YOUR_QUERY.sql /t mssql
 ```
 
 Both Oracle commands print the original and the ANSI rewrite:
