@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace gudusoft.gsqlparser.demos.dlineage
+namespace gudusoft.gsqlparser.demos.dataFlowAnalyzer
 {
 
     using EDbVendor = gudusoft.gsqlparser.EDbVendor;
@@ -38,9 +38,9 @@ namespace gudusoft.gsqlparser.demos.dlineage
     using TUpdateSqlStatement = gudusoft.gsqlparser.stmt.TUpdateSqlStatement;
 
 
-    using DataFlow = gudusoft.gsqlparser.demos.dlineage.dataflow.model.xml.dataflow;
-    using gudusoft.gsqlparser.demos.dlineage.dataflow.model;
-    using gudusoft.gsqlparser.demos.dlineage.dataflow.model.xml;
+    using DataFlow = gudusoft.gsqlparser.demos.dataFlowAnalyzer.dataflow.model.xml.dataflow;
+    using gudusoft.gsqlparser.demos.dataFlowAnalyzer.dataflow.model;
+    using gudusoft.gsqlparser.demos.dataFlowAnalyzer.dataflow.model.xml;
     using SQLUtil = gudusoft.gsqlparser.demos.dlineage.util.SQLUtil;
     using System.IO;
 
@@ -50,7 +50,9 @@ namespace gudusoft.gsqlparser.demos.dlineage
 
     using System.Xml.Linq;
     using global::gudusoft.gsqlparser.demos.util;
-    using global::gudusoft.gsqlparser.dataFlowAnalyzer.dataflow.model.xml;
+    // The generic XML2Model<T> used to sit in its own
+    // gudusoft.gsqlparser.dataFlowAnalyzer.* namespace, imported here by a
+    // second directive. It now shares the model.xml namespace imported above.
     using gudusoft.gsqlparser.stmt;
     using gudusoft.gsqlparser.nodes;
     using gudusoft.gsqlparser.util;
