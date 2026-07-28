@@ -21,12 +21,36 @@ ANSI-standard `LEFT/RIGHT/INNER JOIN ... ON` form. Supports:
 ```bash
 dotnet build demos.convertJoin.csproj -c Release
 
-# Convert Oracle (+) syntax (built-in sample if no /f)
-dotnet run --project demos.convertJoin.csproj -c Release -- /t oracle /f legacy_query.sql
+# Built-in sample: four tables joined with (+), no file needed
+dotnet run --project demos.convertJoin.csproj -c Release -- /t oracle
+
+# Or against a file. samples/ ships one written for this demo:
+dotnet run --project demos.convertJoin.csproj -c Release -- \
+  /t oracle /f ../../../samples/oracle-outer-join.sql
 
 # Convert SQL Server *=/=* syntax
-dotnet run --project demos.convertJoin.csproj -c Release -- /t mssql /f legacy_query.sql
+dotnet run --project demos.convertJoin.csproj -c Release -- /t mssql /f your_query.sql
 ```
+
+Both Oracle commands print the original and the ANSI rewrite:
+
+```text
+SQL in ANSI joins
+SELECT *
+FROM   summit.mstr m
+       LEFT OUTER JOIN summit.alt_name altname
+       ON m.ID = altname.ID
+          AND altname.grad_name_ind = '*'
+       ...
+WHERE  m.ID = ?
+```
+
+Note that the `(+)` predicates move into the `ON` clauses while `m.ID = ?`, which
+is a genuine filter rather than a join, stays in the `WHERE`.
+
+Every table in the `FROM` clause must have a join condition. A table with none
+has no ANSI `JOIN` form to convert to, and the converter reports
+`This table has no join condition: <name>` rather than guessing at a cross join.
 
 ### Arguments
 

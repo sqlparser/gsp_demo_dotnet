@@ -43,14 +43,19 @@ namespace gudusoft.gsqlparser.demos.convertJoin
             }
             else
             {
+                // Every table in the FROM clause needs a join condition: the
+                // converter rejects one that has none, because an unjoined
+                // table has no ANSI JOIN form to convert to. deg is joined on
+                // m.id for that reason.
                 sqltext = "SELECT * \n" +
                      "FROM   summit.mstr m, \n" +
                      "       summit.alt_name altname, \n" +
-                     "       smmtccon.ccn_user ccu \n" +
+                     "       smmtccon.ccn_user ccu, \n" +
                      "       uhelp.deg_coll deg \n" +
                      "WHERE  m.id = ? \n" +
                      "       AND m.id = altname.id(+) \n" +
                      "       AND m.id = ccu.id(+) \n" +
+                     "       AND m.id = deg.id(+) \n" +
                      "       AND 'N' = ccu.admin(+) \n" +
                      "       AND altname.grad_name_ind(+) = '*'";
             }
