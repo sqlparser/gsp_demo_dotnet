@@ -16,17 +16,21 @@ ANSI joins, and nested subqueries.
 
 ## Build and run
 
+All commands are run from the repository root.
+
 ```bash
-dotnet build demos.joinRelationAnalyze.csproj -c Release
+dotnet build src/demos/joinRelationAnalyze/demos.joinRelationAnalyze.csproj -c Release
 
 # Built-in Oracle sample (implicit commas-plus-WHERE join)
-dotnet run --project demos.joinRelationAnalyze.csproj -c Release -- /t oracle
+dotnet run --project src/demos/joinRelationAnalyze/demos.joinRelationAnalyze.csproj -c Release -- /t oracle
 
 # Your own file
-dotnet run --project demos.joinRelationAnalyze.csproj -c Release -- /t mssql /f query.sql
+dotnet run --project src/demos/joinRelationAnalyze/demos.joinRelationAnalyze.csproj -c Release -- \
+  /f samples/oracle-outer-join.sql /t oracle
 
 # Write output to file
-dotnet run --project demos.joinRelationAnalyze.csproj -c Release -- /f query.sql /o joins.tsv
+dotnet run --project src/demos/joinRelationAnalyze/demos.joinRelationAnalyze.csproj -c Release -- \
+  /f samples/mssql-report.sql /t mssql /o joins.tsv
 ```
 
 ### Arguments

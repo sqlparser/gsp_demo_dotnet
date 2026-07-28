@@ -27,20 +27,26 @@ review spreadsheet or a compliance dashboard.
 
 ## Build and run
 
+All commands are run from the repository root.
+
 ```bash
-dotnet build demos.analyzesp.csproj -c Release
+dotnet build src/demos/analyzesp/demos.analyzesp.csproj -c Release
 
 # Relations only (default)
-dotnet run --project demos.analyzesp.csproj -c Release -- proc1.sql proc2.sql /t mssql
+dotnet run --project src/demos/analyzesp/demos.analyzesp.csproj -c Release -- \
+  samples/mssql-proc-refresh.sql samples/mssql-proc-rollup.sql
 
 # All three checks, tab-delimited, written to file
-dotnet run --project demos.analyzesp.csproj -c Release -- proc.sql /a /d $'\t' /o report.tsv
+dotnet run --project src/demos/analyzesp/demos.analyzesp.csproj -c Release -- \
+  samples/mssql-proc-refresh.sql /a /o report.tsv
 
 # Only built-in function audit
-dotnet run --project demos.analyzesp.csproj -c Release -- proc.sql /f
+dotnet run --project src/demos/analyzesp/demos.analyzesp.csproj -c Release -- \
+  samples/mssql-proc-refresh.sql /f
 
 # Only try/catch coverage
-dotnet run --project demos.analyzesp.csproj -c Release -- proc.sql /t  # /t here = try/catch (not vendor)
+dotnet run --project src/demos/analyzesp/demos.analyzesp.csproj -c Release -- \
+  samples/mssql-proc-refresh.sql samples/mssql-proc-rollup.sql /t  # /t here = try/catch (not vendor)
 ```
 
 ### Arguments
@@ -71,3 +77,9 @@ procedure has error handling, flag use of deprecated built-ins, or build
 a dependency matrix of which procs touch which tables. The code is
 demo-grade (positional args, hand-rolled CSV) but the analysis patterns
 translate directly.
+
+### One procedure per file
+
+`analyzesp` attributes its findings per input file, so two procedures in a single
+file are both credited to the last one. Pass each procedure as its own file, which
+is why `samples/` ships the pair above rather than one combined script.

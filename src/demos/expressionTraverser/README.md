@@ -21,14 +21,17 @@ This is the minimum viable example of custom AST traversal in GSP.
 
 ## Build and run
 
+All commands are run from the repository root.
+
 ```bash
-dotnet build demos.expressionTraverser.csproj -c Release
+dotnet build src/demos/expressionTraverser/demos.expressionTraverser.csproj -c Release
 
 # Built-in sample (Oracle, multi-operator WHERE clause)
-dotnet run --project demos.expressionTraverser.csproj -c Release
+dotnet run --project src/demos/expressionTraverser/demos.expressionTraverser.csproj -c Release
 
 # Your own file
-dotnet run --project demos.expressionTraverser.csproj -c Release -- /t mssql /f query.sql
+dotnet run --project src/demos/expressionTraverser/demos.expressionTraverser.csproj -c Release -- \
+  /f samples/postgresql-nested.sql /t postgresql
 ```
 
 ### Arguments

@@ -18,9 +18,11 @@ vendors.
 
 ## Build and run
 
+All commands are run from the repository root.
+
 ```bash
-dotnet build demos.listGSPInfo.csproj -c Release
-dotnet run --project demos.listGSPInfo.csproj -c Release
+dotnet build src/demos/listGSPInfo/demos.listGSPInfo.csproj -c Release
+dotnet run --project src/demos/listGSPInfo/demos.listGSPInfo.csproj -c Release
 ```
 
 No arguments.

@@ -20,13 +20,39 @@ most common post-parse workflows.
 
 ## Build and run
 
-```bash
-dotnet build demos.removeColumn.csproj -c Release
+All commands are run from the repository root.
 
-# Remove emp.sal and dept.dname from query.sql (Oracle)
-dotnet run --project demos.removeColumn.csproj -c Release -- \
-    "emp.sal,dept.dname" /f query.sql /t oracle
+```bash
+dotnet build src/demos/removeColumn/demos.removeColumn.csproj -c Release
+
+# Drop every predicate referencing employees.salary. The AND e.salary > 5000
+# filter disappears; the rest of the statement is regenerated unchanged.
+dotnet run --project src/demos/removeColumn/demos.removeColumn.csproj -c Release -- \
+    "employees.salary" /f samples/oracle-outer-join.sql /t oracle
 ```
+
+Columns are matched by **table name, not alias**: `employees.salary`, not
+`e.salary`. Pass several as one comma-separated argument.
+
+### Known limitation
+
+Removing a column that appears in a statement's select list is not implemented.
+The demo prints
+
+```text
+Not yet implements removing column from selectList
+```
+
+and leaves that column in place, while still processing the others. So
+
+```bash
+dotnet run --project src/demos/removeColumn/demos.removeColumn.csproj -c Release -- \
+    "employees.salary,departments.department_name" /f samples/oracle-outer-join.sql /t oracle
+```
+
+removes the `salary` predicate but keeps `department_name`, because the latter is
+selected rather than filtered on. The example above stays within what the demo
+actually implements.
 
 ### Arguments
 

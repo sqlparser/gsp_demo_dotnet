@@ -29,7 +29,7 @@ library that those demo csprojs reference via `<ProjectReference>`.
 ## Build
 
 ```bash
-dotnet build demos.dlineageCommon.csproj -c Release
+dotnet build src/demos/dlineageCommon/demos.dlineageCommon.csproj -c Release
 ```
 
 Consuming demos pick this up automatically via project references.

@@ -30,23 +30,30 @@ Output is XML describing:
 
 ## Build and run
 
+All commands are run from the repository root.
+
 ```bash
-dotnet build demos.dlineage.csproj -c Release
+dotnet build src/demos/dlineage/demos.dlineage.csproj -c Release
 
 # Full lineage XML for one file
-dotnet run --project demos.dlineage.csproj -c Release -- /t oracle /f pipeline.sql
+dotnet run --project src/demos/dlineage/demos.dlineage.csproj -c Release -- \
+  /f samples/oracle-lineage.sql /t oracle
 
 # Full lineage over a directory
-dotnet run --project demos.dlineage.csproj -c Release -- /t mssql /d ./scripts
+dotnet run --project src/demos/dlineage/demos.dlineage.csproj -c Release -- \
+  /d YOUR_SQL_DIRECTORY /t mssql
 
 # DDL schema only
-dotnet run --project demos.dlineage.csproj -c Release -- /f pipeline.sql /ddl
+dotnet run --project src/demos/dlineage/demos.dlineage.csproj -c Release -- \
+  /f samples/oracle-lineage.sql /t oracle /ddl
 
-# Forward-trace a source column: which downstream columns depend on emp.sal?
-dotnet run --project demos.dlineage.csproj -c Release -- /f pipeline.sql /fo emp.sal
+# Forward-trace a source column: which downstream columns depend on employees.salary?
+dotnet run --project src/demos/dlineage/demos.dlineage.csproj -c Release -- \
+  /f samples/oracle-lineage.sql /t oracle /fo employees.salary
 
-# Backward-trace a target column: where does view.report.total come from?
-dotnet run --project demos.dlineage.csproj -c Release -- /f pipeline.sql /b report.total
+# Backward-trace a target column: where does v_employee_costs.total_cost come from?
+dotnet run --project src/demos/dlineage/demos.dlineage.csproj -c Release -- \
+  /f samples/oracle-lineage.sql /t oracle /b v_employee_costs.total_cost
 ```
 
 ### Arguments
@@ -67,7 +74,7 @@ dotnet run --project demos.dlineage.csproj -c Release -- /f pipeline.sql /b repo
 ```csharp
 using gudusoft.gsqlparser.demos.dlineage;
 
-var dlineage = new DlineageCommon(new FileInfo("pipeline.sql"),
+var dlineage = new DlineageCommon(new FileInfo("samples/oracle-lineage.sql"),
                                   EDbVendor.dbvoracle,
                                   strict: false,
                                   showUIInfo: false);

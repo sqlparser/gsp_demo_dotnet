@@ -34,26 +34,34 @@ The heavy lifting lives in the shared library `../lib/TGetTableColumn.cs`.
 
 ## Build and run
 
+All commands are run from the repository root.
+
 ```bash
-dotnet build demos.gettablecolumns.csproj -c Release
+dotnet build src/demos/gettablecolumns/demos.gettablecolumns.csproj -c Release
 
 # Default (summary) output for a single file
-dotnet run --project demos.gettablecolumns.csproj -c Release -- /t oracle /f query.sql
+dotnet run --project src/demos/gettablecolumns/demos.gettablecolumns.csproj -c Release -- \
+  /f samples/oracle-lineage.sql /t oracle
 
 # All .sql files in a directory
-dotnet run --project demos.gettablecolumns.csproj -c Release -- /t mssql /d ./scripts
+dotnet run --project src/demos/gettablecolumns/demos.gettablecolumns.csproj -c Release -- \
+  /d YOUR_SQL_DIRECTORY /t mssql
 
 # Extra-verbose detail
-dotnet run --project demos.gettablecolumns.csproj -c Release -- /f query.sql /showDetail
+dotnet run --project src/demos/gettablecolumns/demos.gettablecolumns.csproj -c Release -- \
+  /f samples/mssql-report.sql /t mssql /showDetail
 
 # Show the AST as a tree
-dotnet run --project demos.gettablecolumns.csproj -c Release -- /f query.sql /showTreeStructure
+dotnet run --project src/demos/gettablecolumns/demos.gettablecolumns.csproj -c Release -- \
+  /f samples/mssql-report.sql /t mssql /showTreeStructure
 
 # Group columns by clause (SELECT / WHERE / JOIN …)
-dotnet run --project demos.gettablecolumns.csproj -c Release -- /f query.sql /showBySQLClause
+dotnet run --project src/demos/gettablecolumns/demos.gettablecolumns.csproj -c Release -- \
+  /f samples/mssql-report.sql /t mssql /showBySQLClause
 
 # Show just the join relationships
-dotnet run --project demos.gettablecolumns.csproj -c Release -- /f query.sql /showJoin
+dotnet run --project src/demos/gettablecolumns/demos.gettablecolumns.csproj -c Release -- \
+  /f samples/oracle-outer-join.sql /t oracle /showJoin
 ```
 
 ### Arguments
@@ -81,7 +89,7 @@ var getter = new TGetTableColumn(EDbVendor.dbvoracle)
     showJoin         = false,
     showColumnLocation = true,
 };
-getter.runFile(new FileInfo("query.sql"));
+getter.runFile(new FileInfo("samples/mssql-report.sql"));
 ```
 
 Or directly from your own walker:

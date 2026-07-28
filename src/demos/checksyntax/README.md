@@ -19,15 +19,18 @@ demo begins with the same three-line parse loop.
 
 ## Build and run
 
+All commands are run from the repository root.
+
 ```bash
 # Build from this directory
-dotnet build demos.checksyntax.csproj -c Release
+dotnet build src/demos/checksyntax/demos.checksyntax.csproj -c Release
 
 # Run with the built-in sample SQL (Oracle by default)
-dotnet run --project demos.checksyntax.csproj -c Release -- /t oracle
+dotnet run --project src/demos/checksyntax/demos.checksyntax.csproj -c Release -- /t oracle
 
 # Run against a SQL file of your own
-dotnet run --project demos.checksyntax.csproj -c Release -- /t mssql /f query.sql
+dotnet run --project src/demos/checksyntax/demos.checksyntax.csproj -c Release -- \
+  /f samples/mssql-report.sql /t mssql
 ```
 
 ### Arguments

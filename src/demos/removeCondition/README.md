@@ -21,8 +21,10 @@ conditions at runtime when the user leaves a form field blank.
 
 ## Build and run
 
+All commands are run from the repository root.
+
 ```bash
-dotnet build demos.removeCondition.csproj -c Release
+dotnet build src/demos/removeCondition/demos.removeCondition.csproj -c Release
 ```
 
 The demo's `Main` is hard-wired as an example — it opens `C:\1.txt` and

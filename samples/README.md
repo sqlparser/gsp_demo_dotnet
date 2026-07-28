@@ -15,6 +15,12 @@ Run from the repository root.
 | `mssql-report.sql` | mssql | `TOP`, a CTE, a windowed aggregate | `formatsql`, `gettablecolumns` |
 | `postgresql-nested.sql` | postgresql | `::` casts, correlated subquery, derived table | `extractTableColumns` — resolves columns through subqueries |
 | `snowflake-qualify.sql` | snowflake | `QUALIFY` filtering on a window function | `checksyntax` |
+| `mssql-proc-refresh.sql` | mssql | Stored procedure with `TRY`/`CATCH` | `analyzesp` |
+| `mssql-proc-rollup.sql` | mssql | Stored procedure that `EXEC`s the other, no `TRY`/`CATCH` | `analyzesp` |
+
+The two procedure files are a pair: `analyzesp` attributes findings per input
+file, so they are passed together to show a procedure-to-procedure call and the
+difference between covered and uncovered error handling.
 
 Each file repeats its own command in a header comment, so you can open one and
 copy the line rather than come back here.

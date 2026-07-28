@@ -2,6 +2,18 @@ bin/
 obj/
 TestResults/
 artifacts/
+
+# Output produced by running the demos as their READMEs document.
+# extractTableColumns writes <input>.out beside its input file; the /o examples
+# write these into the working directory. Running the docs should not leave the
+# tree dirty.
+*.out
+/formatted.sql
+/report.tsv
+/joins.tsv
+/lineage.xml
+/dataflow.txt
+/out/
 *.user
 .vs/
 .idea/
