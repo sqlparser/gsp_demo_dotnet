@@ -1,0 +1,165 @@
+name: nightly
+
+# The ci workflow builds against the GspVersion pinned in
+# Directory.Build.props. This one builds against whatever is newest on
+# nuget.org, so a parser release that breaks the demos is caught here rather
+# than by a user cloning the repo.
+#
+# It does not modify the repository. The version is supplied as an MSBuild
+# property override, because every project references the package as
+# Version="$(GspVersion)".
+
+on:
+  schedule:
+    # 03:00 UTC daily. NuGet publishes are indexed within minutes, so any hour
+    # is fine; this one avoids the top-of-day runner contention.
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+    inputs:
+      gsp_version:
+        description: 'Library version to test (blank = latest stable on nuget.org)'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  resolve:
+    name: resolve version
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.pick.outputs.version }}
+      pinned: ${{ steps.pick.outputs.pinned }}
+      drifted: ${{ steps.pick.outputs.drifted }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Resolve latest stable from nuget.org
+        id: pick
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          pinned=$(grep -oP '(?<=<GspVersion>)[^<]+' Directory.Build.props)
+          echo "pinned=$pinned" >> "$GITHUB_OUTPUT"
+
+          requested='${{ inputs.gsp_version }}'
+          if [ -n "$requested" ]; then
+            version="$requested"
+            echo "Using version requested via workflow_dispatch: $version"
+          else
+            # Discover the package base address from the service index rather
+            # than hardcoding it. Note the endpoint is v3-flatcontainer, not
+            # v3-flat-container; the wrong spelling returns a 404 whose body is
+            # BOM-prefixed XML, which fails as a confusing JSON parse error.
+            base=$(curl -sSf --max-time 60 https://api.nuget.org/v3/index.json \
+              | python3 -c "import json,sys;d=json.loads(sys.stdin.buffer.read().decode('utf-8-sig'));print(next(r['@id'] for r in d['resources'] if r['@type'].startswith('PackageBaseAddress')))")
+
+            version=$(curl -sSf --max-time 60 "${base}gudusoft.gsqlparser/index.json" \
+              | python3 -c "import json,sys;d=json.loads(sys.stdin.buffer.read().decode('utf-8-sig'));print([v for v in d['versions'] if '-' not in v][-1])")
+            echo "Latest stable on nuget.org: $version"
+          fi
+
+          if [ -z "$version" ]; then
+            echo "::error::Could not resolve a version to test."
+            exit 1
+          fi
+
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+          if [ "$version" = "$pinned" ]; then
+            echo "drifted=false" >> "$GITHUB_OUTPUT"
+            echo "### Testing \`gudusoft.gsqlparser\` $version (same as pinned)" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "drifted=true" >> "$GITHUB_OUTPUT"
+            {
+              echo "### Testing \`gudusoft.gsqlparser\` **$version**"
+              echo ""
+              echo "Directory.Build.props pins \`$pinned\`. A newer release is available."
+              echo "If this run is green, bumping \`<GspVersion>\` to \`$version\` is safe."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+  build:
+    name: ${{ matrix.os }} @ ${{ needs.resolve.outputs.version }}
+    needs: resolve
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    env:
+      GSP: ${{ needs.resolve.outputs.version }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          global-json-file: global.json
+
+      # --no-cache so a nightly always re-resolves from nuget.org instead of
+      # testing yesterday's copy of the package.
+      - name: Restore
+        run: dotnet restore gsp_demo_dotnet.slnx -p:GspVersion=$env:GSP --no-cache
+        shell: pwsh
+
+      - name: Build all demos
+        run: dotnet build gsp_demo_dotnet.slnx -c Release --no-restore -p:GspVersion=$env:GSP
+        shell: pwsh
+
+      - name: Run tests
+        run: dotnet test gsp_demo_dotnet.slnx -c Release --no-build --no-restore -p:GspVersion=$env:GSP
+        shell: pwsh
+
+      # Compiling against a new library proves nothing about whether it still
+      # behaves. Each sample is parsed with the dialect it is written in, so a
+      # grammar regression shows up as a failure here.
+      - name: Smoke-run demos against samples
+        shell: bash
+        run: |
+          set -uo pipefail
+          declare -A V=(
+            [oracle-outer-join.sql]=oracle
+            [oracle-lineage.sql]=oracle
+            [oracle-bind-variables.sql]=oracle
+            [mssql-report.sql]=mssql
+            [postgresql-nested.sql]=postgresql
+            [snowflake-qualify.sql]=snowflake
+          )
+          fail=0
+          for f in "${!V[@]}"; do
+            out=$(dotnet run --project src/demos/checksyntax/demos.checksyntax.csproj \
+                    -c Release --no-build -p:GspVersion="$GSP" -- \
+                    /f "samples/$f" /t "${V[$f]}" 2>&1 | tail -1)
+            if [ "$out" = "Success!" ]; then
+              echo "  ok    $f (${V[$f]})"
+            else
+              echo "  FAIL  $f (${V[$f]}): $out"
+              fail=1
+            fi
+          done
+
+          # A few demos that exercise different parts of the library.
+          for p in formatsql convertJoin gettablecolumns dlineage dataFlowAnalyzer; do
+            proj=$(ls src/demos/$p/*.csproj | head -1)
+            if dotnet run --project "$proj" -c Release --no-build -p:GspVersion="$GSP" -- \
+                 /f samples/oracle-lineage.sql /t oracle > /dev/null 2>&1; then
+              echo "  ok    $p"
+            else
+              echo "  FAIL  $p exited non-zero"
+              fail=1
+            fi
+          done
+
+          exit $fail
+
+      - name: Report
+        if: always()
+        shell: bash
+        run: |
+          if [ '${{ job.status }}' = 'success' ]; then
+            echo "- ${{ matrix.os }}: green against \`$GSP\`" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "- ${{ matrix.os }}: **failed** against \`$GSP\`" >> "$GITHUB_STEP_SUMMARY"
+          fi
