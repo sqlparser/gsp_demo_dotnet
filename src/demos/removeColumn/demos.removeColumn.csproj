@@ -2,7 +2,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net10.0</TargetFramework>
-    <RootNamespace>removeColumn</RootNamespace>
+    <RootNamespace>gudusoft.gsqlparser.demos.removeColumn</RootNamespace>
     <AssemblyName>removeColumn</AssemblyName>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
