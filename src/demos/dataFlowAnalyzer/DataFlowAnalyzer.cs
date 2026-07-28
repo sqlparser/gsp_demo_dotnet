@@ -49,8 +49,8 @@ namespace gudusoft.gsqlparser.demos.dlineage
     using Element = System.Xml.Linq.XElement;
 
     using System.Xml.Linq;
-    using demos.util;
-    using dataFlowAnalyzer.dataflow.model.xml;
+    using global::gudusoft.gsqlparser.demos.util;
+    using global::gudusoft.gsqlparser.dataFlowAnalyzer.dataflow.model.xml;
     using gudusoft.gsqlparser.stmt;
     using gudusoft.gsqlparser.nodes;
     using gudusoft.gsqlparser.util;
