@@ -36,6 +36,25 @@ namespace gudusoft.gsqlparser.demos.util
             return D.ContainsKey(k);
         }
 
+        /// <summary>
+        /// Safe lookup, for the common ported-from-Java pattern of reading a key
+        /// that may be absent. Java's Map.get returns null for a missing key,
+        /// but the indexer above follows Dictionary and throws
+        /// KeyNotFoundException, so a direct port of get() crashes instead of
+        /// yielding null. Use this where the key is not known to be present.
+        /// </summary>
+        public bool TryGetValue(T k, out U value)
+        {
+            if (D.TryGetValue(k, out LinkedListNode<Tuple<U, T>> node))
+            {
+                value = node.Value.Item1;
+                return true;
+            }
+
+            value = default(U);
+            return false;
+        }
+
         public bool Remove(T k) {
             if (D.ContainsKey(k))
             {
