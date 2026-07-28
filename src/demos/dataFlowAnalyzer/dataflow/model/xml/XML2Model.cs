@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace gudusoft.gsqlparser.dataFlowAnalyzer.dataflow.model.xml
+namespace gudusoft.gsqlparser.demos.dataFlowAnalyzer.dataflow.model.xml
 {
     public class XML2Model<T>
     {

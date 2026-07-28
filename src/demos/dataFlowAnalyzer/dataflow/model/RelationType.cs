@@ -1,4 +1,4 @@
-﻿namespace gudusoft.gsqlparser.demos.dlineage.dataflow.model
+﻿namespace gudusoft.gsqlparser.demos.dataFlowAnalyzer.dataflow.model
 {
 
 	public enum RelationType

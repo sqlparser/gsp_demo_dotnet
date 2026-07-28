@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace gudusoft.gsqlparser.demos.dlineage.dataflow.model.xml
+namespace gudusoft.gsqlparser.demos.dataFlowAnalyzer.dataflow.model.xml
 {
 
 	public class sourceColumn

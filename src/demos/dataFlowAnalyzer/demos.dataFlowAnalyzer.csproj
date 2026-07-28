@@ -2,7 +2,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net10.0</TargetFramework>
-    <RootNamespace>dataFlowAnalyzer</RootNamespace>
+    <RootNamespace>gudusoft.gsqlparser.demos.dataFlowAnalyzer</RootNamespace>
     <AssemblyName>dataFlowAnalyzer</AssemblyName>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>

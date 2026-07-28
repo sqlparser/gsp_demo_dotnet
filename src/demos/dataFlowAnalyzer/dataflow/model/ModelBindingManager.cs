@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace gudusoft.gsqlparser.demos.dlineage.dataflow.model
+namespace gudusoft.gsqlparser.demos.dataFlowAnalyzer.dataflow.model
 {
 
     using ESetOperatorType = gudusoft.gsqlparser.ESetOperatorType;

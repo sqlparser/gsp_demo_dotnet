@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace gudusoft.gsqlparser.demos.dlineage.dataflow.model.xml
+namespace gudusoft.gsqlparser.demos.dataFlowAnalyzer.dataflow.model.xml
 {
     using System;
     using System.Xml.Serialization;
