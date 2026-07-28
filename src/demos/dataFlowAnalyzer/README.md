@@ -45,7 +45,7 @@ dotnet run --project demos.dataFlowAnalyzer.csproj -c Release -- /t mssql /d ./s
 ## Core code pattern
 
 ```csharp
-using gudusoft.gsqlparser.demos.dlineage;
+using gudusoft.gsqlparser.demos.dataFlowAnalyzer;
 
 var analyzer = new DataFlowAnalyzer(new FileInfo("pipeline.sql"),
                                     EDbVendor.dbvoracle);
