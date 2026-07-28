@@ -164,6 +164,40 @@ Run the tests with:
 dotnet test gsp_demo_dotnet.slnx -c Release
 ```
 
+## If you copied this code before 28 July 2026
+
+Some namespaces were corrected so that each demo owns its own. If you pasted
+demo code into your own project and it stops compiling after pulling an update,
+this table is why. Only the `using` lines change: **no type was renamed, no
+behaviour changed, and no assembly name moved.**
+
+| Was | Now |
+|---|---|
+| `gudusoft.gsqlparser.demos.dlineage` (for `DataFlowAnalyzer`) | `gudusoft.gsqlparser.demos.dataFlowAnalyzer` |
+| `gudusoft.gsqlparser.demos.dlineage.dataflow.model` | `gudusoft.gsqlparser.demos.dataFlowAnalyzer.dataflow.model` |
+| `gudusoft.gsqlparser.demos.dlineage.dataflow.model.xml` | `gudusoft.gsqlparser.demos.dataFlowAnalyzer.dataflow.model.xml` |
+| `gudusoft.gsqlparser.dataFlowAnalyzer.dataflow.model.xml` | `gudusoft.gsqlparser.demos.dataFlowAnalyzer.dataflow.model.xml` |
+| `gudusoft.gsqlparser.demos.dlineage` (for `DlineageRelation`) | `gudusoft.gsqlparser.demos.dlineageRelation` |
+| `gudusoft.gsqlparser.demos.gettablecolumns` (for `removeColumn`) | `gudusoft.gsqlparser.demos.removeColumn` |
+
+`gudusoft.gsqlparser.demos.dlineage` still exists and still holds `Dlineage` and
+`DlineageCommon` plus the shared lineage model. It is the lineage library's
+namespace; only the types listed above moved out of it. Every other demo
+namespace, plus `demos.lib` and `demos.util`, is unchanged.
+
+Two smaller changes in the same period:
+
+- `Common.GetEDbVendor(string[], EDbVendor)` became `public` (it was `internal`,
+  which only worked while the file was compiled into each demo). Existing calls
+  keep working.
+- `/t snowflake` and `/t impala` now select those dialects. They previously fell
+  through to the oracle default without saying so, so a demo that appeared to
+  work on Snowflake SQL was parsing it as Oracle.
+
+If you are consuming the demos as source, updating the `using` lines is the
+whole migration. Nothing here is published as a NuGet package, so no binary
+compatibility is involved.
+
 ## Links
 
 - Product site: <https://www.sqlparser.com>
