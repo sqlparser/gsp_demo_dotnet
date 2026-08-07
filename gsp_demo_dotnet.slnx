@@ -21,6 +21,7 @@
   <Project Path="src/demos/tableColumnRename/demos.tableColumnRename.csproj" />
   <Project Path="src/demos/util/demos.util.csproj" />
   <Project Path="src/demos/visitors/demos.toXML.csproj" />
+  <Project Path="tests/checksyntax/test.checksyntax.csproj" />
   <Project Path="tests/gettablecolumns/test.gettablecolumns.csproj" />
   <Project Path="tests/modifySqlAst/test.modifySqlAst.csproj" />
   <Project Path="tests/visitors/test.visitors.csproj" />

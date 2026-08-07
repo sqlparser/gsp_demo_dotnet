@@ -1,65 +1,46 @@
-# checksyntax — Validate SQL syntax
+# Validate SQL syntax offline
 
-The simplest possible demonstration of the General SQL Parser: feed it a SQL
-script and find out whether the grammar is well-formed for a given database
-dialect. If it isn't, print the exact error location.
+Use this demo to check SQL inside a .NET application, command-line tool, IDE,
+CI job, or ingestion service before the text reaches a database. GSP selects a
+vendor grammar, parses the complete input in process, and returns either a
+statement count or an actionable parser diagnostic. No database connection,
+credentials, or database metadata are required.
 
-## What it shows
+`OfflineSyntaxCheck.Validate(...)` is the reusable application API. It creates
+a fresh `TGSqlParser` for every request and returns a `ValidationResult` instead
+of printing or exiting. `Main(...)` adds file loading, readable output, and exit
+codes suitable for automation:
 
-- Constructing `TGSqlParser` for a specific `EDbVendor`.
-- Feeding the parser either an in-memory string (`sqltext`) or a file
-  (`sqlfilename`).
-- Calling `parse()` and checking the return code (`0` == success).
-- Reading `Errormessage` when the parse fails.
-- Reading `TBaseType.versionId` / `TBaseType.releaseDate` for the library
-  build info.
+- `0`: the SQL is valid for the selected dialect;
+- `1`: the parser rejected the SQL;
+- `2`: the command arguments or input file are invalid.
 
-This is the starting point for *anything* you build on top of GSP: every other
-demo begins with the same three-line parse loop.
+## Run the built-in example
 
-## Build and run
-
-All commands are run from the repository root.
+From the repository root:
 
 ```bash
-# Build from this directory
-dotnet build src/demos/checksyntax/demos.checksyntax.csproj -c Release
+dotnet run --project src/demos/checksyntax/demos.checksyntax.csproj -c Release
+```
 
-# Run with the built-in sample SQL (Oracle by default)
-dotnet run --project src/demos/checksyntax/demos.checksyntax.csproj -c Release -- /t oracle
+The built-in Oracle query is accepted and the output confirms that validation
+used no database connection.
 
-# Run against a SQL file of your own
+## Validate checked-in SQL files
+
+```bash
 dotnet run --project src/demos/checksyntax/demos.checksyntax.csproj -c Release -- \
-  /f samples/mssql-report.sql /t mssql
+  /f samples/checksyntax/valid-mssql.sql /t mssql
 ```
 
-### Arguments
+Change `valid-mssql.sql` to `invalid-mssql.sql` to see the rejection path and
+the diagnostic returned by GSP. The process exits with code `1`, so the same
+command can gate a CI step or deployment script.
 
-| Flag | Description |
-|------|-------------|
-| `/t <vendor>` | SQL dialect: `oracle`, `mssql`, `mysql`, `db2`, `postgresql`, `hive`, `teradata`, `sybase`, `informix`, `netezza`, `greenplum`, `redshift`, `mdx`. Default `oracle`. |
-| `/f <path>` | Optional. Path to a SQL file. If omitted, a built-in Oracle sample is parsed. |
+## Integrate the validator
 
-## Core code pattern
-
-```csharp
-var sqlparser = new TGSqlParser(EDbVendor.dbvoracle);
-sqlparser.sqltext = "SELECT * FROM emp WHERE dept_id = 10";
-// or: sqlparser.sqlfilename = "/path/to/query.sql";
-
-int ret = sqlparser.parse();
-if (ret == 0)
-{
-    Console.WriteLine("Success!");
-}
-else
-{
-    Console.WriteLine("Syntax error: " + sqlparser.Errormessage);
-}
-```
-
-## Build your own
-
-Once `parse()` returns `0`, the parsed statement list is available at
-`sqlparser.sqlstatements` — every other demo in this folder is a different
-way of walking that list.
+Call `OfflineSyntaxCheck.Validate(sql, vendor)` from your request handler,
+editor service, text-to-SQL pipeline, migration scanner, or batch processor.
+An accepted result proves that the complete text conforms to the selected GSP
+grammar. It does not prove that referenced objects exist, that the caller is
+authorized, or that executing the query is safe.

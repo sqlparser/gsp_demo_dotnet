@@ -47,12 +47,16 @@ Check whether some SQL parses. `samples/` has ready-made files for every
 dialect below, so there is nothing to write first:
 
 ```bash
-dotnet run --project src/demos/checksyntax/demos.checksyntax.csproj -c Release -- /f samples/mssql-report.sql /t mssql
+dotnet run --project src/demos/checksyntax/demos.checksyntax.csproj -c Release -- /f samples/checksyntax/valid-mssql.sql /t mssql
 ```
 
 ```text
-versionId:4.1.0.7, releaseDate:2026-7-26, datebase:dbvmssql
-Success!
+Offline SQL syntax validation
+Input: .../samples/checksyntax/valid-mssql.sql
+Dialect: mssql
+Database connection used: no
+Result: ACCEPTED
+Statements parsed: 1
 ```
 
 Convert Oracle's proprietary `(+)` outer joins to ANSI:
@@ -97,7 +101,7 @@ Db: 14/17, dbvdb2,dbvgreenplum,dbvhive,dbvimpala,dbvinformix,dbvmysql,dbvmssql,.
 
 | Demo | What it does |
 |------|--------------|
-| **checksyntax** | Parse SQL and report syntax errors |
+| **checksyntax** | Validate SQL offline and return parser diagnostics without a database connection |
 | **formatsql** | Pretty-print / reformat SQL |
 | **gettablecolumns** | Extract table and column names from queries |
 | **extractTableColumns** | Extract table/column pairs, including through subqueries |
