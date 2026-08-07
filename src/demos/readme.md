@@ -82,6 +82,7 @@ Run `./build.sh list` to see this table in the terminal.
 | **expressionTraverser** | Walk the expression AST with a visitor |
 | **visitors** | Visitor pattern demo / XML export of the AST |
 | **analyzesp** | Analyze stored procedures |
+| **modifySqlAst** | Apply a SELECT policy, modify its AST, regenerate and revalidate SQL |
 | **removeColumn** | Rewrite SQL to remove specific columns |
 | **removeCondition** | Rewrite SQL to remove WHERE-clause conditions |
 | **removevars** | Strip bind variables from SQL |

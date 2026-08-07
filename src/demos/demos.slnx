@@ -18,6 +18,7 @@
     <Project Path="gettablecolumns/demos.gettablecolumns.csproj" />
     <Project Path="joinRelationAnalyze/demos.joinRelationAnalyze.csproj" />
     <Project Path="listGSPInfo/demos.listGSPInfo.csproj" />
+    <Project Path="modifySqlAst/demos.modifySqlAst.csproj" />
     <Project Path="removeColumn/demos.removeColumn.csproj" />
     <Project Path="removeCondition/demos.removeCondition.csproj" />
     <Project Path="removevars/demos.removevars.csproj" />

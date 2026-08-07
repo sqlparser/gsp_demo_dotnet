@@ -5,7 +5,7 @@
 [![NuGet](https://img.shields.io/nuget/v/gudusoft.gsqlparser.svg)](https://www.nuget.org/packages/gudusoft.gsqlparser)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-Eighteen runnable sample programs for [General SQL Parser](https://www.sqlparser.com)
+Nineteen runnable sample programs for [General SQL Parser](https://www.sqlparser.com)
 .NET: syntax checking, SQL formatting, column-level lineage, AST traversal and
 SQL rewriting, across 15 database dialects.
 
@@ -110,6 +110,7 @@ Db: 14/17, dbvdb2,dbvgreenplum,dbvhive,dbvimpala,dbvinformix,dbvmysql,dbvmssql,.
 | **expressionTraverser** | Walk the expression AST with a visitor |
 | **visitors** | Visitor pattern demo / XML export of the AST |
 | **analyzesp** | Analyze stored procedures |
+| **modifySqlAst** | Apply a SELECT policy, modify its AST, regenerate and revalidate SQL |
 | **removeColumn** | Rewrite SQL to remove specific columns |
 | **removeCondition** | Rewrite SQL to remove WHERE-clause conditions |
 | **removevars** | Strip bind variables from SQL |
@@ -164,7 +165,7 @@ release before it is the latest.
 ## Layout
 
 ```
-gsp_demo_dotnet.slnx      Solution covering all 23 projects
+gsp_demo_dotnet.slnx      Solution covering all 25 projects
 Directory.Build.props     Shared settings; GspVersion lives here
 src/demos/                One directory per demo
   lib/                    Shared analysers (demos.lib)
