@@ -117,6 +117,15 @@ jobs:
       # grammar regression shows up as a failure here.
       - name: Smoke-run demos against samples
         shell: bash
+        # Git Bash on windows-latest rewrites arguments that look like absolute
+        # POSIX paths, so `/f` and `/t` reach dotnet.exe as
+        # `C:/Program Files/Git/f`. That silently turned every Windows smoke run
+        # into a no-op against each demo's built-in sample until checksyntax
+        # started rejecting unknown arguments. Both variables are ignored on
+        # Linux.
+        env:
+          MSYS2_ARG_CONV_EXCL: "*"
+          MSYS_NO_PATHCONV: "1"
         run: |
           set -uo pipefail
           declare -A V=(
@@ -129,13 +138,16 @@ jobs:
           )
           fail=0
           for f in "${!V[@]}"; do
-            out=$(dotnet run --project src/demos/checksyntax/demos.checksyntax.csproj \
-                    -c Release --no-build -p:GspVersion="$GSP" -- \
-                    /f "samples/$f" /t "${V[$f]}" 2>&1 | tail -1)
-            if [ "$out" = "Success!" ]; then
+            # checksyntax exits 0 only when the file parsed; the ACCEPTED line
+            # guards against a future rewrite that keeps the exit code but stops
+            # reporting a result.
+            if out=$(dotnet run --project src/demos/checksyntax/demos.checksyntax.csproj \
+                       -c Release --no-build -p:GspVersion="$GSP" -- \
+                       /f "samples/$f" /t "${V[$f]}" 2>&1) \
+               && grep -q '^Result: ACCEPTED$' <<<"$out"; then
               echo "  ok    $f (${V[$f]})"
             else
-              echo "  FAIL  $f (${V[$f]}): $out"
+              echo "  FAIL  $f (${V[$f]}): $(tail -1 <<<"$out")"
               fail=1
             fi
           done
