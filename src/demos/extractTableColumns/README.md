@@ -24,7 +24,8 @@ All commands are run from the repository root.
 ```bash
 dotnet build src/demos/extractTableColumns/demos.extractTableColumns.csproj -c Release
 
-# One file — writes <file>.out beside it
+# One file — writes the report beside it, with .sql swapped for .out
+# (samples/postgresql-nested.sql -> samples/postgresql-nested.out). No stdout.
 dotnet run --project src/demos/extractTableColumns/demos.extractTableColumns.csproj -c Release -- \
   /f samples/postgresql-nested.sql /t postgresql
 

@@ -1,0 +1,14 @@
+<Project>
+  <!-- Opt in to an unpublished/full parser DLL without replacing the shared NuGet cache.
+       Apply to project-reference dependencies as well, so a process loads one parser. -->
+  <ItemGroup Condition="'$(GspAssemblyPath)' != ''">
+    <PackageReference Remove="gudusoft.gsqlparser" />
+    <Reference Include="gudusoft.gsqlparser">
+      <HintPath>$(GspAssemblyPath)</HintPath>
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+  <Target Name="ValidateGspAssemblyPath" BeforeTargets="ResolveReferences" Condition="'$(GspAssemblyPath)' != ''">
+    <Error Condition="!Exists('$(GspAssemblyPath)')" Text="GspAssemblyPath does not exist: $(GspAssemblyPath)" />
+  </Target>
+</Project>

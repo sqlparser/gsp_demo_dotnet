@@ -1,0 +1,1244 @@
+{
+  "cases": 41,
+  "rawExact": 31,
+  "structuredExact": 40,
+  "successful": 41,
+  "records": [
+    {
+      "name": "basic-oracle",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/basic.sql",
+        "/t",
+        "oracle"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/basic.sql": "acf6601d5e986b19e28c87fd06c45b98f4e1410b9ed7e63ba52101e14f7ab373"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/basic-oracle",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "8a5b8e5bda8c62077e8cb593ba54315a4cc848297466dd94f23776f67c785d90",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "8a5b8e5bda8c62077e8cb593ba54315a4cc848297466dd94f23776f67c785d90",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "basic-mssql",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/basic.sql",
+        "/t",
+        "mssql"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/basic.sql": "acf6601d5e986b19e28c87fd06c45b98f4e1410b9ed7e63ba52101e14f7ab373"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/basic-mssql",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "8a5b8e5bda8c62077e8cb593ba54315a4cc848297466dd94f23776f67c785d90",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "8a5b8e5bda8c62077e8cb593ba54315a4cc848297466dd94f23776f67c785d90",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "basic-mysql",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/basic.sql",
+        "/t",
+        "mysql"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/basic.sql": "acf6601d5e986b19e28c87fd06c45b98f4e1410b9ed7e63ba52101e14f7ab373"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/basic-mysql",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "8a5b8e5bda8c62077e8cb593ba54315a4cc848297466dd94f23776f67c785d90",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "8a5b8e5bda8c62077e8cb593ba54315a4cc848297466dd94f23776f67c785d90",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "basic-postgresql",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/basic.sql",
+        "/t",
+        "postgresql"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/basic.sql": "acf6601d5e986b19e28c87fd06c45b98f4e1410b9ed7e63ba52101e14f7ab373"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/basic-postgresql",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "8a5b8e5bda8c62077e8cb593ba54315a4cc848297466dd94f23776f67c785d90",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "b8a32888fd9532eefe2f9eea9da472fae793226b0d277f826146bb80dcaf6387",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": false,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "full",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/full",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "6ca005aa79217729759f7e59c37b480e0ebc94d653447408495763191ad237af",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "6ca005aa79217729759f7e59c37b480e0ebc94d653447408495763191ad237af",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "simple",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/s"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/simple",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "ae9b40f2a59127ad86a571473ed104b3792b8cbd21618c2e86f33de62e90c48d",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "ae9b40f2a59127ad86a571473ed104b3792b8cbd21618c2e86f33de62e90c48d",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "ignore-recordsets",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/i"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/ignore-recordsets",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "0dfb3ce6b3d393debbc1585598f37e0300ec3920bbb054d82f253c66ce16b63c",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "0dfb3ce6b3d393debbc1585598f37e0300ec3920bbb054d82f253c66ce16b63c",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "topselect",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/s",
+        "/topselectlist"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/topselect",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "ae9b40f2a59127ad86a571473ed104b3792b8cbd21618c2e86f33de62e90c48d",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "ae9b40f2a59127ad86a571473ed104b3792b8cbd21618c2e86f33de62e90c48d",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "without-functions",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/if"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/without-functions",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "ac1ec59a9900eb00d34266af99d606a1998561055500961c9e458cc706592a0f",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "ac1ec59a9900eb00d34266af99d606a1998561055500961c9e458cc706592a0f",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "selected-resultsets",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/s",
+        "/showResultSetTypes",
+        "cte,function"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/selected-resultsets",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "0dfb3ce6b3d393debbc1585598f37e0300ec3920bbb054d82f253c66ce16b63c",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "0dfb3ce6b3d393debbc1585598f37e0300ec3920bbb054d82f253c66ce16b63c",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "simple-relations",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/s",
+        "/simpleShowRelationTypes",
+        "fdd,fdr"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/simple-relations",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "320e5751cf0d865f3e820518abad69737e85610aadfd9b984d265e83033a60d6",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "320e5751cf0d865f3e820518abad69737e85610aadfd9b984d265e83033a60d6",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "retain-objects",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/s",
+        "/showVariable",
+        "/showCursor",
+        "/showSynonym"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/retain-objects",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "ae9b40f2a59127ad86a571473ed104b3792b8cbd21618c2e86f33de62e90c48d",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "ae9b40f2a59127ad86a571473ed104b3792b8cbd21618c2e86f33de62e90c48d",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "remove-objects",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/removeResultSetTypes",
+        "cte,function",
+        "/removeVariable",
+        "/removeCursor",
+        "/removeUnusedSynonym"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/remove-objects",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "ac1ec59a9900eb00d34266af99d606a1998561055500961c9e458cc706592a0f",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "ac1ec59a9900eb00d34266af99d606a1998561055500961c9e458cc706592a0f",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "normalized",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/n",
+        "/ic",
+        "/lof",
+        "/j"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/normalized",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "8a870c9c27be59d8b0b0377c80d84867a95eac677f901d40a89f158282927cb7",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "8a870c9c27be59d8b0b0377c80d84867a95eac677f901d40a89f158282927cb7",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "transform-code",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/transform",
+        "/showConstant",
+        "/traceTablePosition"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/transform-code",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "9c721a1a0661ec000cd9d36f0e58fea2032cf5ca543cec890d1437eb0ffdafdb",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "9c721a1a0661ec000cd9d36f0e58fea2032cf5ca543cec890d1437eb0ffdafdb",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "transform-coordinates",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/transform",
+        "/coor",
+        "/showConstant",
+        "/traceTablePosition"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/transform-coordinates",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "2a2d54fbd49ce4146f6e79d0bb15f3a81cba74691c7eaca40a87fbecf002c7ee",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "2a2d54fbd49ce4146f6e79d0bb15f3a81cba74691c7eaca40a87fbecf002c7ee",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "case-count",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/showCaseWhenAsIndirect",
+        "/treatArgumentsInCountFunctionAsDirectDataflow"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/case-count",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "b244971e94b9c75569c7933c700c9879d53f3493cb9fde6181cd17ea08a8acf1",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "b244971e94b9c75569c7933c700c9879d53f3493cb9fde6181cd17ea08a8acf1",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "default-names",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/defaultDatabase",
+        "demo",
+        "/defaultSchema",
+        "sales",
+        "/showImplicitSchema"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/default-names",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "bd87286e22dd35d67a50759ea20aca556cd34697a3aae3dc01c55c1c69583898",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "bd87286e22dd35d67a50759ea20aca556cd34697a3aae3dc01c55c1c69583898",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "filter-relations",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/filterRelationTypes",
+        "fdd"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/filter-relations",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "2df624777755676467196eb11bf94e138af86f26920ebe9cd387a398e95c84d8",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "2df624777755676467196eb11bf94e138af86f26920ebe9cd387a398e95c84d8",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "csv",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/csv"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/csv",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "f4dfff687b3271fba59f1915eb24b03b448c6126ce4d00f15dbcaffc358ca131",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "f4dfff687b3271fba59f1915eb24b03b448c6126ce4d00f15dbcaffc358ca131",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "csv-simple",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/csv-simple"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/csv-simple",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "10ca10726c565ef30cac729cb0238af004ff204a794d813a479a284833b9e583",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "10ca10726c565ef30cac729cb0238af004ff204a794d813a479a284833b9e583",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "csv-delimiter",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/csv",
+        "/delimiter",
+        "|"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/csv-delimiter",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "1b7004b78680020903193315795d72e8e4a5316ba24555b7aab5197944de728c",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "1b7004b78680020903193315795d72e8e4a5316ba24555b7aab5197944de728c",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "b27d514ee4839fcf514680a1cc1a1b802f7f20b73da81c0cf038d3c40c34a1a1",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "7a5e001647a186178fee6e6f76f62bbe7051c40c23be23f831f455af5e843e8f",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "graph",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/json",
+        "/graph"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/graph",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "feae91c63d852bc433f5d27532c6bfa06886d83398be56794cb9c119e4d4e9af",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "3f148ff37e8ecf8dbea5e3e2037a0ecd569063eb39ad5117b1b04f1745c3f45e",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "er-graph",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/json",
+        "/graph",
+        "/showER"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/er-graph",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "720e1f0a3eef5dde568b4bb3aa59f869de2e4d184a8eec46d3d5dcd7566d6654",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "2509ef8897b27e1376403d696c7d9b3813429ca4b45859cdb4f4ddf9a7ae0b90",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "visualize",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/lv"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/visualize",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "feae91c63d852bc433f5d27532c6bfa06886d83398be56794cb9c119e4d4e9af",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "3f148ff37e8ecf8dbea5e3e2037a0ecd569063eb39ad5117b1b04f1745c3f45e",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "trace-view",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/traceView"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/trace-view",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "48ecb287e72fbb74aff2aacdc16bad14c454881b84ced35f2a85dd5475e78932",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "48ecb287e72fbb74aff2aacdc16bad14c454881b84ced35f2a85dd5475e78932",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "table-xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/tableLineage"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/table-xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "f6736fac7502b38900c0605a184b1f98a4bd2eca83e1f3fe0fc8dc35181050ab",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "f6736fac7502b38900c0605a184b1f98a4bd2eca83e1f3fe0fc8dc35181050ab",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "table-json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/tableLineage",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/table-json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "f30003ce87905ebe7694dd386be4b0fcf169865b5094d126c22017f0f126a21d",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "176ed591a6576112d5bd26a07f1d4bfe46f676a16f146441ab065a706dda0026",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "table-csv",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/tableLineage",
+        "/csv"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/table-csv",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "a383e0f2ec456512359f6f1a22cc468d7148fe789bda17834fd02d1ca8137ed5",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "a383e0f2ec456512359f6f1a22cc468d7148fe789bda17834fd02d1ca8137ed5",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "table-simple-csv",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/tableLineage",
+        "/csv-simple"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/table-simple-csv",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "d5c0b014ca135cf6411e0379ca59025b3aba3643a5afc39c91cf62aeb69748dc",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "d5c0b014ca135cf6411e0379ca59025b3aba3643a5afc39c91cf62aeb69748dc",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "table-graph",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/tableLineage",
+        "/json",
+        "/graph"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/table-graph",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "427093aa89b1015c9d100b81995439a77b04f16b169eaf5a9d4f6a84ea7b4f16",
+        "stderrSha256": "5b7c835161dd2252f3c6be387fd08035d53946ebc7d3ba52a6c778db5a82ef92"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "fc18c71fd2fc466998bbc9d79bed20767496b40d788b34c11dde56ae40a9fab1",
+        "stderrSha256": "5b7c835161dd2252f3c6be387fd08035d53946ebc7d3ba52a6c778db5a82ef92"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "table-er-graph",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/tableLineage",
+        "/json",
+        "/graph",
+        "/showER"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/table-er-graph",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "afe4ce6a495350080aab4edfd9a84e2b1f40e3747fa23724e06acfded183500f",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "af18a61d2c8fccd7b534ff54d7a71ded2f726af29df062dbb02b3011017152cf",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "table-visualize",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql",
+        "/t",
+        "oracle",
+        "/tableLineage",
+        "/lv"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/table-visualize",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "333b7c132fbd9e61496211afb54f8859f5cd4d9f82f92f5ad9f5d8c111663548",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "8aeb01c7be38307edbf7d88763715fe85f0be0959d029cc133d007cad6b3967b",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "metadata",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/metadata-query.sql",
+        "/t",
+        "mssql",
+        "/env",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/metadata.json",
+        "/defaultDatabase",
+        "demo_db",
+        "/defaultSchema",
+        "dbo",
+        "/s"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/metadata-query.sql": "0e16ca7396efbeab97bd909f159a0382193662679d90fcd69ff7660da2424977",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/metadata.json": "ad14c0f05ad200cb2a2b9c29c4641ad32bff36324237697af87c755d73c36607"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/metadata",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "fb51c4ea60164c610bad6ca2f7a681ee76b75b7bf48ea17fa1aea2c03d811896",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "fb51c4ea60164c610bad6ca2f7a681ee76b75b7bf48ea17fa1aea2c03d811896",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "routine-full",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/routine-oracle.sql",
+        "/t",
+        "oracle"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/routine-oracle.sql": "2e1b216be260d02be123ea427d2b258bcc3c9421649393cc97d8dc043d7fe06e"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/routine-full",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "11e12e9fd0e2f3ed0ba046afb9a1ae07610bca2af19d72772af37704b165b694",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "11e12e9fd0e2f3ed0ba046afb9a1ae07610bca2af19d72772af37704b165b694",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "routine-retain",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/routine-oracle.sql",
+        "/t",
+        "oracle",
+        "/s",
+        "/showVariable",
+        "/showCursor",
+        "/showSynonym"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/routine-oracle.sql": "2e1b216be260d02be123ea427d2b258bcc3c9421649393cc97d8dc043d7fe06e"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/routine-retain",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "7cce144e7ba007fcc22c77de8ed1a769daa482cfd9d3a1e57b264e2f658ca5c9",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "7cce144e7ba007fcc22c77de8ed1a769daa482cfd9d3a1e57b264e2f658ca5c9",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "routine-remove",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/routine-oracle.sql",
+        "/t",
+        "oracle",
+        "/removeVariable",
+        "/removeCursor",
+        "/removeUnusedSynonym"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/routine-oracle.sql": "2e1b216be260d02be123ea427d2b258bcc3c9421649393cc97d8dc043d7fe06e"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/routine-remove",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "afdd8f87eb140f49f97c4f1c62c96f5b02e1aa64f16fbeb11849c84728c41b42",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "afdd8f87eb140f49f97c4f1c62c96f5b02e1aa64f16fbeb11849c84728c41b42",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "temporary-retain",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/temporary-mssql.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/withTemporaryTable"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/temporary-mssql.sql": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/temporary-retain",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "c1ea439d9bb807314e64655d425ec9117f12818ee71aa53bd1236afe9b932b1c",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "c1ea439d9bb807314e64655d425ec9117f12818ee71aa53bd1236afe9b932b1c",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "temporary-remove",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/temporary-mssql.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/temporary-mssql.sql": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/temporary-remove",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "e18cce9f09d3bad7eb3c79648c94987f986fc31d7c1ce28170c5022b850ecc72",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "e18cce9f09d3bad7eb3c79648c94987f986fc31d7c1ce28170c5022b850ecc72",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    },
+    {
+      "name": "statistics",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/basic.sql",
+        "/t",
+        "oracle",
+        "/stat"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/basic.sql": "acf6601d5e986b19e28c87fd06c45b98f4e1410b9ed7e63ba52101e14f7ab373"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/comparison-final-net10/statistics",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "3ceb437e32189a4c421205c08c963857ec5e43f81f3bcd8bb9540c55b1952697",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "0190009baf2b62c1366cc532ba0803268b57ebf3a73faae7acdf589787c7f2a7",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "statistics counters (timing recorded separately)",
+      "structuredExact": true,
+      "successful": true,
+      "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+    }
+  ]
+}

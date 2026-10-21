@@ -1,0 +1,6 @@
+{
+  "demoRevision": "65a2cef16409e99f834989478e683976032e003a",
+  "demoSourceSha256": "efef36b623aca858e085fca375b987dc432b33d7241998b81e1660c9cf07eea8",
+  "libraryRevision": "4940a81cf671dee163239df60488fa716d02177e",
+  "classpath": "/tmp/gsp-demo-dlineage-merge-20261021T073211Z/java-demo:/tmp/gsp-dotnet-large-consumers-20261021T050513Z/java-core:/tmp/gsp-dotnet-large-portable-replay-20261021/records/runtime/java:/tmp/gsp-dotnet-large-portable-replay-20261021/records/runtime/jars/assertj-core-3.26.3.jar:/tmp/gsp-dotnet-large-portable-replay-20261021/records/runtime/jars/gson-2.13.2.jar:/tmp/gsp-dotnet-large-portable-replay-20261021/records/runtime/jars/hamcrest-core-1.3.jar:/tmp/gsp-dotnet-large-portable-replay-20261021/records/runtime/jars/istack-commons-runtime-3.0.5.jar:/tmp/gsp-dotnet-large-portable-replay-20261021/records/runtime/jars/javax.activation-api-1.2.0.jar:/tmp/gsp-dotnet-large-portable-replay-20261021/records/runtime/jars/jaxb-api-2.4.0-b180830.0359.jar:/tmp/gsp-dotnet-large-portable-replay-20261021/records/runtime/jars/jaxb-core-2.3.0.1.jar:/tmp/gsp-dotnet-large-portable-replay-20261021/records/runtime/jars/jaxb-runtime-2.4.0-b180830.0438.jar:/tmp/gsp-dotnet-large-portable-replay-20261021/records/runtime/jars/junit-4.12.jar:/tmp/gsp-dotnet-large-portable-replay-20261021/records/runtime/jars/slf4j-api-1.7.36.jar"
+}

@@ -1,0 +1,191 @@
+{
+  "verifiedAtUtc": "2026-10-21T08:04:17.645896+00:00",
+  "status": "implemented-and-verified-with-preserved-library-difference",
+  "javaDemoRevision": "65a2cef16409e99f834989478e683976032e003a",
+  "javaCoreRevision": "4940a81cf671dee163239df60488fa716d02177e",
+  "javaDemoFlags": 46,
+  "missingJavaDemoFlags": [],
+  "relocatedCSharpFiles": 33,
+  "relocatedBytesUnchanged": true,
+  "publishedPinUnchanged": "4.1.0.8",
+  "publishedPackageCompatibilityTests": {
+    "passed": 19,
+    "failed": 0,
+    "skipped": 0
+  },
+  "wholeSolutionBuilds": {
+    "published4.1.0.8": "passed, 0 warnings/errors",
+    "currentNetstandard2.0": "passed, 0 warnings/errors"
+  },
+  "wholeSolutionTests": {
+    "currentNetstandard2.0": 79,
+    "finalAffectedScopeRetested": 62,
+    "publishedInitial": 35,
+    "publishedFinalAffectedScope": 19,
+    "note": "Whole-solution integration preceded the final statistics-only edge corrections; the changed lineage scope was rerun against both exact DLLs afterward. Other demo sources were not changed."
+  },
+  "configurations": [
+    {
+      "libraryTarget": "net10.0",
+      "runtime": "Linux / .NET 10",
+      "parserSha256": "a48945718543d77a4ff4146f07daf9e18f5d6c264720920fc53457f789516823",
+      "cliSha256": "53984d1e661d3a27e73426e1f082a409519978c3630a395fb083f5cf07456cf3",
+      "testAssemblySha256": "dc8ce0f188a5d4711f3406f7bd2558acd8d26718064d30d2d3e8ba498ea16285",
+      "unitTests": {
+        "total": "62",
+        "executed": "62",
+        "passed": "62",
+        "failed": "0",
+        "error": "0",
+        "timeout": "0",
+        "aborted": "0",
+        "inconclusive": "0",
+        "passedButRunAborted": "0",
+        "notRunnable": "0",
+        "notExecuted": "0",
+        "disconnected": "0",
+        "warning": "0",
+        "completed": "0",
+        "inProgress": "0",
+        "pending": "0"
+      },
+      "javaComparison": {
+        "cases": 41,
+        "successfulProcesses": 41,
+        "rawExact": 31,
+        "completeModelStructuredExact": 39,
+        "completeModels": 40,
+        "statisticsCountersExact": 1,
+        "statisticsCases": 1,
+        "comparatorExit": 1,
+        "unmatched": [
+          "basic-postgresql"
+        ]
+      },
+      "javaReferenceReuse": "Java demo and same pinned core executed for all cases, then immutable Java bytes reused for final C# replay; SQL/metadata and stdout/stderr hashes verified."
+    },
+    {
+      "libraryTarget": "netstandard2.0",
+      "runtime": "Linux / .NET 10",
+      "parserSha256": "fe56e000a8ceceed8bcf15158d6deaeab4fc95d42080bc035337a8c1f7d265e0",
+      "cliSha256": "9aadbebf5bf227ba482d2ccdd296b7b2d257fd1960ada81017d6a1bfaede09ee",
+      "testAssemblySha256": "744c91dff1293abe582886324d1df5a2f6113528b2da52a8fb0c65a021f9663d",
+      "unitTests": {
+        "total": "62",
+        "executed": "62",
+        "passed": "62",
+        "failed": "0",
+        "error": "0",
+        "timeout": "0",
+        "aborted": "0",
+        "inconclusive": "0",
+        "passedButRunAborted": "0",
+        "notRunnable": "0",
+        "notExecuted": "0",
+        "disconnected": "0",
+        "warning": "0",
+        "completed": "0",
+        "inProgress": "0",
+        "pending": "0"
+      },
+      "javaComparison": {
+        "cases": 41,
+        "successfulProcesses": 41,
+        "rawExact": 31,
+        "completeModelStructuredExact": 39,
+        "completeModels": 40,
+        "statisticsCountersExact": 1,
+        "statisticsCases": 1,
+        "comparatorExit": 1,
+        "unmatched": [
+          "basic-postgresql"
+        ]
+      },
+      "javaReferenceReuse": "Java demo and same pinned core executed for all cases, then immutable Java bytes reused for final C# replay; SQL/metadata and stdout/stderr hashes verified."
+    }
+  ],
+  "sourceSha256": {
+    "src/demos/dlineage/CommandLine.cs": "570f8b54dc0ce716b13c3995b6f0b3fa0736e1c653e0ab647e42aad34bbb7ed2",
+    "src/demos/dlineage/Compatibility/DataFlow/DataFlowAnalyzer.cs": "f5b88ed982ed5e621a7a2eb5140add308773d668b3d0867405a9c848bfd8c3cc",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/AbstractRelation.cs": "4e8217cb81afbbbb1b6a0b0878e8d585c1aab5082e24db02846c057ae4eca165",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/DataFlowRelation.cs": "538736fdacd3090c969ef737552cfa875c6306f31106c5f5ee4f5eb4e6690e3c",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/ImpactRelation.cs": "532dad931ed4996bde4af2169afca837cba94294171b3fd4476e143b54f4ecd4",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/ModelBindingManager.cs": "3e535cb55524c5b8790f40ce6a0f4bea5f0acbfbedbdc37d34bb0a4427d16756",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/ModelFactory.cs": "1829e36b73207ee410d97ecf4fcdb66b0e5207b6cb8e053ade6d3956379a1f8c",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/QueryTable.cs": "a81928be26c8da9f0baf2a180b2d058911677166d776d182f5a4a040ae996b75",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/QueryTableRelationElement.cs": "5878f0bc94ce9f931172732cd0337e7c7a3a59eac0854bb67565a98639c21a5c",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/RecordSetRelation.cs": "9b4d2b85b3b97a718591bb3a3b53b9cf4038a6b655f305fe98a3b789e96d1eb1",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/Relation.cs": "961772b37aa967bc1de71894b7a53400a1b204b5e35d4c33347f680117a0cbff",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/RelationElement.cs": "1d130b98a9d56f4ef63a6a971f8075ddd26ea608a7cb887de8b7c5f9a554f304",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/RelationType.cs": "d4726c55fc5e7027dd7b862c99880e83df5443239e89dd0151cad6c3291aa472",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/ResultColumn.cs": "2d490bd87f7067a00bb6e0dbbadac523d898e4da6778817a0a80cbea67d88496",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/ResultColumnRelationElement.cs": "25240a0ebb72bb817e9c57b925a643b80145937ede2cd064350fa626f11cb3be",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/ResultSet.cs": "010e9a07836ba02b9ada99c022afbe1cb56988d6e915bf44812da5649d09df15",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/SelectResultSet.cs": "2a4cef397bc974ce0eb68d08685a176dc0576985936a461b21d7167a12cc33a0",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/SelectSetResultColumn.cs": "2c33fb8f99af52e420947f67281f2612a5e0350ff1c1ca03de009f703ac83314",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/SelectSetResultSet.cs": "efe7c61c910d99c1b4030527a817cd6efcd1f44f62543978cfc659d6fc45129f",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/Table.cs": "fd4f1ca28b1789cedf7614ef7195bd85d3916bc13ada4c21a59cf0924767f859",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/TableColumn.cs": "aca4378e1e4aa23124d1a5b8ba973026ffe52d1de117f864b08c1dbeda379d4a",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/TableColumnRelationElement.cs": "0eb7c2650b24e54c27e27d8ae9cb894270422d6cf091e25f789b28d6872a7d00",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/TableRelationElement.cs": "3efa61dc73b9eb17b3026b031935a07e039b161437e65015e898429741891bdb",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/View.cs": "6db261b2b1c31d3b418fc366dfe6818753e55a09b4502c9067252a90ba0e55e4",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/ViewColumn.cs": "b20b0ba0fd7909803faf378281dc74b4cb145ab220838f2e32afcb05c0f16a95",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/ViewColumnRelationElement.cs": "67698b82d49f39808f2f4199a6562d42090548e7904c4c8ccc7aba197376d7fb",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/xml/PositionUtil.cs": "c74661f029cf32e81a6abcd2a260c24ace7c1c0e3d76918dce0e2348f9241fef",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/xml/XML2Model.cs": "81522215f1640ded32bf05fa54ecb193b37d7f430525499ad972af27c97ca781",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/xml/column.cs": "7329fd32f09e5f88abba80f7523177e46d078b615772b7caa5003b5ce0c3a858",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/xml/dataflow.cs": "c52966981a0f853d6107a94457523856ad5f9518a9aeee7b07745a71e0ab5e61",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/xml/relation.cs": "51669e9e6cb9362c364eaaaf9a5a6b031f282ba4dd4bc26bb361fa6e9f5983d5",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/xml/sourceColumn.cs": "ba9ebb338a8de4cc7048576be379e2beae4e7d3c3734039de8bb218b812df7ce",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/xml/table.cs": "42ed2693581491ae5b56ff9eca5e2191cd666849b19a38acebe41e9da81ac864",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/xml/targetColumn.cs": "6044ebd6205afcecb05fac36a94efe8fccadb052d3e622273b921714fcc6c29d",
+    "src/demos/dlineage/Compatibility/LegacyLineage.cs": "4365fba9a75678e114b007a6b44712935bd81dc1f37d62fc0a119513928d84d1",
+    "src/demos/dlineage/DataFlowAnalyzer.cs": "14d083411b67865e1f850c8b6eff8972610c8db29038fbcf55741c37c0c1c4e7",
+    "src/demos/dlineage/Dlineage.cs": "d5557c365f1c4c853f0ca2b053688723209debee1e5034d927abe06b9aaf46c8",
+    "src/demos/dlineage/demos.dlineage.csproj": "1691ea8cbdb814ab8d495a17d5fd9b7feaea713687e971b06d3cf29a0f60863d",
+    "src/demos/dlineage/readme.md": "44de89cb2bb646800e7a99b4aa6a89b26182c0df00d8dc0f86f10c293343e52f",
+    "samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae",
+    "samples/dlineage/basic.sql": "acf6601d5e986b19e28c87fd06c45b98f4e1410b9ed7e63ba52101e14f7ab373",
+    "samples/dlineage/metadata-query.sql": "0e16ca7396efbeab97bd909f159a0382193662679d90fcd69ff7660da2424977",
+    "samples/dlineage/metadata.json": "ad14c0f05ad200cb2a2b9c29c4641ad32bff36324237697af87c755d73c36607",
+    "samples/dlineage/routine-oracle.sql": "2e1b216be260d02be123ea427d2b258bcc3c9421649393cc97d8dc043d7fe06e",
+    "samples/dlineage/temporary-mssql.sql": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d",
+    "Directory.Build.props": "655c2b91db61e7aa89fb0f6d5399c103c04c0ef441a04045085da734d48d3373",
+    "Directory.Build.targets": "38bb274ec669fc77a9cd550ac01424ea4853c78e852bb3b4d6e957d5aabc90c3",
+    "gsp_demo_dotnet.slnx": "6e81cc63be5b601feb2c591eee34d9872fd8e65de105d5caf4631315fabc1fc2",
+    "src/demos/demos.slnx": "d47d33e964dbbc9e96335d6ada49813d4cd624bbffe49bf47bba314ff3cd7ff4",
+    "src/demos/build.sh": "c0504ecab507b016cbce30bf1d1b75f1ed79002bcf636ab9543aa5e42cb688ca",
+    "tests/dlineage/DlineageTests.cs": "a37e2574cfb031c7a7e8824dc5e4ca09a88927e1c58a3ab6b0faa090d8262300",
+    "tests/dlineage/compare_java.py": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc",
+    "tests/dlineage/test.dlineage.csproj": "c31ad69111e75344323a2afef79f49683bd4ebaaf3c9150c15736ec693feca8a"
+  },
+  "comparisonAuditSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc",
+  "archive": {
+    "path": "records.tar.gz",
+    "sha256": "37bf1649037728b79d03523d3176667f205bbc2b694771349da6886a21bd35f0",
+    "members": 491,
+    "allMemberSha256Verified": true
+  },
+  "scope": {
+    "release": false,
+    "versionBump": false,
+    "push": false,
+    "windowsRemoteCi": false
+  },
+  "knownDifferences": [
+    {
+      "case": "basic-postgresql",
+      "java": "DECIMAL datatype name decimal",
+      "csharp": "DECIMAL datatype name dec",
+      "handling": "Preserved as a full-model mismatch; no output rewriting or field suppression."
+    },
+    {
+      "cases": "8 JSON/graph variants",
+      "handling": "Object field order/encoding byte differences retained; complete typed parsed models match."
+    },
+    {
+      "case": "statistics",
+      "handling": "Timings differ; nine deterministic counters match, raw outputs retained."
+    }
+  ]
+}

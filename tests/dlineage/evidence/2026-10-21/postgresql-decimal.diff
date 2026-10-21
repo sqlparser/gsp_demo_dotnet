@@ -1,0 +1,16 @@
+--- java
++++ dotnet
+@@ -3,11 +3,11 @@
+     <process id="13" name="Query Insert-1" procedureName="batchQueries" queryHashId="804ecd5c75c2164c88d1ee854d68e99d" type="sstinsert" coordinate="[3,1,0],[4,57,0]"/>
+     <table id="4" name="source_data" type="table" coordinate="[1,1,0],[1,57,0]" fromDDL="true" endpointKind="CATALOG_OBJECT" endpointIntroduction="CREATE_TABLE_DDL" createdInSql="true">
+         <column id="5" name="id" coordinate="[1,27,0],[1,29,0]" dataType="int"/>
+-        <column id="6" name="amount" coordinate="[1,35,0],[1,41,0]" dataType="decimal"/>
++        <column id="6" name="amount" coordinate="[1,35,0],[1,41,0]" dataType="dec"/>
+     </table>
+     <table id="10" name="target_data" type="table" processIds="13" coordinate="[2,1,0],[2,57,0]" fromDDL="true" endpointKind="CATALOG_OBJECT" endpointIntroduction="CREATE_TABLE_DDL" createdInSql="true">
+         <column id="11" name="id" coordinate="[2,27,0],[2,29,0]" dataType="int"/>
+-        <column id="12" name="amount" coordinate="[2,35,0],[2,41,0]" dataType="decimal"/>
++        <column id="12" name="amount" coordinate="[2,35,0],[2,41,0]" dataType="dec"/>
+         <column id="9" name="RelationRows" coordinate="[2,1,0],[2,57,0]" source="system"/>
+     </table>
+     <resultset id="15" name="INSERT-SELECT-1" type="insert-select" coordinate="[4,8,0],[4,22,0]">

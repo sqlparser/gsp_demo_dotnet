@@ -1,0 +1,8 @@
+{
+  "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/advanced-oracle.sql": "2b11443f426d60f523755990487a15b490f55dc0359ba6a9a6f7a4d91dfdb7ae",
+  "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/basic.sql": "acf6601d5e986b19e28c87fd06c45b98f4e1410b9ed7e63ba52101e14f7ab373",
+  "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/metadata-query.sql": "0e16ca7396efbeab97bd909f159a0382193662679d90fcd69ff7660da2424977",
+  "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/metadata.json": "ad14c0f05ad200cb2a2b9c29c4641ad32bff36324237697af87c755d73c36607",
+  "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/routine-oracle.sql": "2e1b216be260d02be123ea427d2b258bcc3c9421649393cc97d8dc043d7fe06e",
+  "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/temporary-mssql.sql": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d"
+}

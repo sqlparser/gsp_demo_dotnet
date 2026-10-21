@@ -43,12 +43,17 @@ dotnet run --project src/demos/columnImpact/demos.columnImpact.csproj -c Release
   /f samples/oracle-lineage.sql /t oracle /v
 ```
 
-`/v` reports one row per view column, naming the table column it derives from and
-the expression that produced it:
+`/v` emits tab-separated rows: one `rt=vTable` row per view listing the tables it
+reads, then one `rt=col` row per **view-column/source-column pair**, naming the
+table column it derives from and the expression that produced it. A column
+computed from two source columns gets two rows — `total_cost` below:
 
 ```text
-rt=col  view=v_employee_costs  column=base_salary  source=EMPLOYEES.SALARY  expression=
-rt=col  view=v_employee_costs  column=total_cost   source=EMPLOYEES.SALARY  expression=e.salary * (1 + NVL(e.commission_pct, 0))
+rt=vTable	view=v_employee_costs	tables=employees
+rt=col	view=v_employee_costs	column=base_salary	source=EMPLOYEES.SALARY	expression=
+rt=col	view=v_employee_costs	column=total_cost	source=EMPLOYEES.SALARY	expression=e.salary * (1 + NVL(e.commission_pct, 0))
+rt=col	view=v_employee_costs	column=total_cost	source=EMPLOYEES.COMMISSION_PCT	expression=e.salary * (1 + NVL(e.commission_pct, 0))
+...
 ```
 
 `expression=` is empty for columns selected straight through without a

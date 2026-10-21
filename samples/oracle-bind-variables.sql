@@ -1,6 +1,13 @@
 -- A report query parameterised with $name$ placeholders, the form the
--- removevars and removeCondition demos rewrite.
---   dotnet run --project src/demos/removevars/demos.removevars.csproj -c Release -- /f samples/oracle-bind-variables.sql /t oracle
+-- removeCondition demo rewrites. removeCondition's Main is hard-wired to
+-- C:\1.txt, so it is a code sample rather than something to run against this
+-- file -- see src/demos/removeCondition/README.md.
+--
+-- removevars takes a positional path (no /f, no /t -- the vendor is hard-coded
+-- to MSSQL) and prints the rewrite to stdout:
+--   dotnet run --project src/demos/removevars/demos.removevars.csproj -c Release -- samples/oracle-bind-variables.sql
+-- It leaves the predicates below in place: $name$ inside quotes is a string
+-- literal, not a bind marker, and removevars only strips real bind variables.
 
 SELECT SUM(d.amt) AS total_amount,
        d.fund_acct,

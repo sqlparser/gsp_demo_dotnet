@@ -73,9 +73,8 @@ Run `./build.sh list` to see this table in the terminal.
 | **formatsql** | Pretty-print / reformat SQL |
 | **gettablecolumns** | Extract table and column names from queries |
 | **columnImpact** | Trace column-level lineage through SELECT statements |
-| **dlineage** | Full data lineage analysis |
+| **[dlineage](dlineage/readme.md)** | Unified column/table lineage, XML/JSON/CSV/graph output; includes former dataFlowAnalyzer |
 | **dlineageRelation** | Data lineage relation extraction |
-| **dataFlowAnalyzer** | Analyze data flow in SQL |
 | **convertJoin** | Convert between old-style (+) and ANSI JOIN syntax |
 | **joinRelationAnalyze** | Analyze join relationships |
 | **extractTableColumns** | Extract table/column pairs, including through subqueries |
@@ -120,15 +119,18 @@ automatically; no library sources or manual downloads are required.
 The version is set in one place, `Directory.Build.props` at the repository root:
 
 ```xml
-<GspVersion>4.1.0.7</GspVersion>
+<GspVersion>4.1.0.8</GspVersion>
 ```
 
 Every demo references it as `Version="$(GspVersion)"`, so bumping that one
 property moves the whole repository.
 
-To build against the full edition instead of the trial on nuget.org, replace a
-demo's `PackageReference` with a `Reference` whose `HintPath` points at the
-full-edition DLL from <https://www.sqlparser.com/download.php>.
+To build against a local/full parser DLL, pass
+`-p:GspAssemblyPath=/absolute/path/gudusoft.gsqlparser.dll` to `dotnet build`
+or `dotnet run` before `--`. The unified [dlineage](dlineage/readme.md) needs
+the current DLL for its Java-compatible API; the pinned `4.1.0.8` package only
+supports its legacy commands. `build.sh run dataFlowAnalyzer` remains an alias
+for `dlineage`; the separate project has been removed.
 
 ## Usage on Windows
 

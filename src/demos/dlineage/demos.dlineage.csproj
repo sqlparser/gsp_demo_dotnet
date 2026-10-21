@@ -5,6 +5,7 @@
     <RootNamespace>gudusoft.gsqlparser.demos.dlineage</RootNamespace>
     <AssemblyName>dlineage</AssemblyName>
     <LangVersion>latest</LangVersion>
+    <StartupObject>gudusoft.gsqlparser.demos.dlineage.Dlineage</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>

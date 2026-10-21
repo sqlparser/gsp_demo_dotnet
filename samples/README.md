@@ -11,12 +11,15 @@ Run from the repository root.
 |---|---|---|---|
 | `oracle-outer-join.sql` | oracle | Proprietary `(+)` outer joins | `convertJoin` — rewrites them as ANSI `LEFT OUTER JOIN` |
 | `oracle-lineage.sql` | oracle | Table → view → summary table chain | `dlineage`, `columnImpact` — traces each column to its source |
-| `oracle-bind-variables.sql` | oracle | `$name$` placeholders in a WHERE clause | `removevars`, `removeCondition` |
+| `oracle-bind-variables.sql` | oracle | `$name$` placeholders in a WHERE clause | `removeCondition` — but its `Main` is hard-wired to `C:\1.txt`, so read it as a code sample. `removevars` parses the file and leaves these predicates alone: quoted `$name$` is a literal, not a bind marker. |
 | `mssql-report.sql` | mssql | `TOP`, a CTE, a windowed aggregate | `formatsql`, `gettablecolumns` |
 | `postgresql-nested.sql` | postgresql | `::` casts, correlated subquery, derived table | `extractTableColumns` — resolves columns through subqueries |
 | `snowflake-qualify.sql` | snowflake | `QUALIFY` filtering on a window function | `checksyntax` |
 | `mssql-proc-refresh.sql` | mssql | Stored procedure with `TRY`/`CATCH` | `analyzesp` |
 | `mssql-proc-rollup.sql` | mssql | Stored procedure that `EXEC`s the other, no `TRY`/`CATCH` | `analyzesp` |
+| `dlineage/basic.sql` | oracle/mssql/mysql/postgresql | DDL plus INSERT/SELECT with direct and indirect dependencies | [Unified dlineage](../src/demos/dlineage/readme.md), using the current local DLL |
+| `dlineage/advanced-oracle.sql` | oracle | View, CTE, JOIN, CASE, SUM and COUNT | `dlineage` output and option examples |
+| `dlineage/metadata-query.sql` + `dlineage/metadata.json` | mssql | Resolve an unqualified column using offline metadata | `dlineage /env` with `demo_db` / `dbo` defaults |
 
 The two procedure files are a pair: `analyzesp` attributes findings per input
 file, so they are passed together to show a procedure-to-procedure call and the

@@ -2,8 +2,11 @@
 
 A close relative of `removeCondition/`, but simpler — instead of matching
 named placeholders it removes **every WHERE predicate whose right-hand
-side is a bind variable** (e.g. `:foo`, `@foo`, `?`). The rewritten SQL
+side is a named bind variable** (e.g. `:foo`, `@foo`). The rewritten SQL
 preserves only predicates between real values / columns.
+
+Positional `?` markers are *not* removed — the checker matches named
+variables, so `c = ?` survives the rewrite.
 
 Handy for pre-parsing SQL before piping it into a tool that can't deal
 with bind syntax — e.g. a planner/explainer, a syntax checker for a dialect

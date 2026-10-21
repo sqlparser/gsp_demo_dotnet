@@ -35,7 +35,10 @@ dotnet run --project src/demos/convertJoin/demos.convertJoin.csproj -c Release -
   /f YOUR_QUERY.sql /t mssql
 ```
 
-Both Oracle commands print the original and the ANSI rewrite:
+Both Oracle commands print a `SQL with <vendor> propriety joins` header followed
+by the ANSI rewrite. Only the rewrite is echoed — the header is not followed by
+the original SQL (the call that would print it is commented out in
+`convertJoin.cs`):
 
 ```text
 SQL in ANSI joins

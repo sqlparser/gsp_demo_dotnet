@@ -5,13 +5,19 @@
 [![NuGet](https://img.shields.io/nuget/v/gudusoft.gsqlparser.svg)](https://www.nuget.org/packages/gudusoft.gsqlparser)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-Nineteen runnable sample programs for [General SQL Parser](https://www.sqlparser.com)
+Eighteen runnable sample programs for [General SQL Parser](https://www.sqlparser.com)
 .NET: syntax checking, SQL formatting, column-level lineage, AST traversal and
 SQL rewriting, across 15 database dialects.
 
 Every demo is a small, self-contained console app. Clone this repository and run
 one — nothing else to install, no database connection, no library sources
 needed. The demos pull `gudusoft.gsqlparser` from nuget.org.
+
+The unified [dlineage demo](src/demos/dlineage/readme.md) also supports the current
+unreleased lineage library through `-p:GspAssemblyPath=/absolute/path/gudusoft.gsqlparser.dll`.
+The pinned `4.1.0.8` package supports its retained `/legacy`, `/fo`, `/b` and `/ddl`
+commands; its new Java-compatible API requires the current DLL. No package release
+or version bump is needed to use that local build.
 
 ## What the library does
 
@@ -76,7 +82,12 @@ FROM     employees e
          ON e.department_id = d.department_id
          LEFT OUTER JOIN locations l
          ON d.location_id = l.location_id
+WHERE    e.salary > 5000
+ORDER BY e.last_name
 ```
+
+The `(+)` predicates become `ON` clauses, while `e.salary > 5000` — a real
+filter, not a join — stays in the `WHERE`.
 
 See [`samples/README.md`](samples/README.md) for what each file exercises.
 
@@ -93,7 +104,7 @@ dotnet run --project src/demos/listGSPInfo/demos.listGSPInfo.csproj -c Release
 
 ```text
 ...
-Version:4.1.0.7, Release date:2026-7-26, Full version = False,
+Version:4.1.0.8, Release date:2026-7-30, Full version = False,
 Db: 14/17, dbvdb2,dbvgreenplum,dbvhive,dbvimpala,dbvinformix,dbvmysql,dbvmssql,...
 ```
 
@@ -106,9 +117,8 @@ Db: 14/17, dbvdb2,dbvgreenplum,dbvhive,dbvimpala,dbvinformix,dbvmysql,dbvmssql,.
 | **gettablecolumns** | Extract table and column names from queries |
 | **extractTableColumns** | Extract table/column pairs, including through subqueries |
 | **columnImpact** | Trace column-level lineage through SELECT statements |
-| **dlineage** | Full data lineage analysis |
+| **[dlineage](src/demos/dlineage/readme.md)** | Unified column/table lineage, XML/JSON/CSV/graph output and retained directional/DDL commands |
 | **dlineageRelation** | Data lineage relation extraction |
-| **dataFlowAnalyzer** | Analyze data flow in SQL |
 | **convertJoin** | Convert between old-style `(+)` and ANSI JOIN syntax |
 | **joinRelationAnalyze** | Analyze join relationships |
 | **expressionTraverser** | Walk the expression AST with a visitor |
@@ -138,15 +148,16 @@ large script is hitting this, not a bug.
 `listGSPInfo` prints `Full version = False` when you are on the trial.
 
 The full edition is available from <https://www.sqlparser.com/download.php>. To
-run these demos against it, replace the `PackageReference` in a demo's `.csproj`
-with a `Reference` pointing at the full-edition DLL.
+run these demos against it, pass
+`-p:GspAssemblyPath=/absolute/path/gudusoft.gsqlparser.dll` when building.
+This applies the same DLL to project dependencies without editing project files.
 
 ## Updating the library version
 
 Every project takes its version from one property in `Directory.Build.props`:
 
 ```xml
-<GspVersion>4.1.0.7</GspVersion>
+<GspVersion>4.1.0.8</GspVersion>
 ```
 
 Change it there and rebuild.
@@ -169,8 +180,9 @@ release before it is the latest.
 ## Layout
 
 ```
-gsp_demo_dotnet.slnx      Solution covering all 25 projects
+gsp_demo_dotnet.slnx      Solution covering 18 demos, 3 shared libraries and 5 test projects
 Directory.Build.props     Shared settings; GspVersion lives here
+Directory.Build.targets   Optional explicit local parser DLL reference
 src/demos/                One directory per demo
   lib/                    Shared analysers (demos.lib)
   util/                   Shared helpers (demos.util)
@@ -186,6 +198,14 @@ dotnet test gsp_demo_dotnet.slnx -c Release
 ```
 
 ## If you copied this code before 28 July 2026
+
+The separate `dataFlowAnalyzer` project was merged into `dlineage` on
+2026-10-21. Update project paths to `src/demos/dlineage/demos.dlineage.csproj`.
+The old analyzer and model namespaces below are retained in that assembly under
+`dlineage/Compatibility/DataFlow/`; new code uses the library's formal
+`gudusoft.gsqlparser.dlineage` API. See the [migration instructions](src/demos/dlineage/readme.md#legacy-command-migration)
+for the default output and `/s` changes. The remainder of this section describes
+the earlier namespace-only migration.
 
 Some namespaces were corrected so that each demo owns its own. If you pasted
 demo code into your own project and it stops compiling after pulling an update,

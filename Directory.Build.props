@@ -15,7 +15,12 @@
     See src/demos/dlineageCommon/demos.dlineageCommon.csproj.
   -->
   <PropertyGroup>
-    <GspVersion>4.1.0.7</GspVersion>
+    <GspVersion>4.1.0.8</GspVersion>
+
+    <!-- The current dlineage API is unreleased. Keep the published pin and allow
+         an explicit local DLL while preparing the unified demo, without publishing. -->
+    <EnableDlineage Condition="'$(EnableDlineage)' == '' and ('$(GspAssemblyPath)' != '' or $([MSBuild]::VersionGreaterThanOrEquals('$(GspVersion)', '4.1.0.17')))">true</EnableDlineage>
+    <DefineConstants Condition="'$(EnableDlineage)' == 'true'">$(DefineConstants);GSP_DLINEAGE</DefineConstants>
 
     <TargetFramework>net10.0</TargetFramework>
     <LangVersion>latest</LangVersion>
@@ -25,8 +30,9 @@
     <!-- Assembly metadata. The SDK generates the [assembly: ...] attributes from
          these properties, so there are no hand-written AssemblyInfo.cs files.
          Version drives AssemblyVersion, FileVersion and InformationalVersion at
-         once; demo binaries deliberately carry the parser version they were
-         built against, so a stray dll can be traced back to a GSP release. -->
+         once; package builds carry the pinned parser version. When using an
+         explicit local DLL, dlineage /version reports the loaded parser's
+         actual metadata; GspVersion and the published pin remain unchanged. -->
     <Copyright>Copyright © 2016-2026 Gudu Software Limited</Copyright>
     <Company>Gudu Software Limited</Company>
     <Product>General SQL Parser .NET Demos</Product>

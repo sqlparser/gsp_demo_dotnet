@@ -9,7 +9,6 @@
     <Project Path="checksyntax/demos.checksyntax.csproj" />
     <Project Path="columnImpact/demos.columnImpact.csproj" />
     <Project Path="convertJoin/demos.convertJoin.csproj" />
-    <Project Path="dataFlowAnalyzer/demos.dataFlowAnalyzer.csproj" />
     <Project Path="dlineage/demos.dlineage.csproj" />
     <Project Path="dlineageRelation/demos.dlineageRelation.csproj" />
     <Project Path="expressionTraverser/demos.expressionTraverser.csproj" />

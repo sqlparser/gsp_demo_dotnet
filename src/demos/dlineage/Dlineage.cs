@@ -1,157 +1,85 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
+using System.IO;
+using System.Text;
 
 namespace gudusoft.gsqlparser.demos.dlineage
 {
-    using System.IO;
-    using System.Text;
-    using gudusoft.gsqlparser.demos.dlineage.model.xml;
-    using gudusoft.gsqlparser.demos.dlineage.model.metadata;
-    using gudusoft.gsqlparser.demos.util;
-    //using util;
-
-    public class Dlineage
+    /// <summary>Unified lineage command line; new analysis uses the library's Java-compatible API.</summary>
+    public static class Dlineage
     {
-        
-        public static void Main(string[] args)
+        private static readonly object ConsoleLock = new object();
+        public static int Main(string[] args) => Run(args, Console.Out, Console.Error);
+
+        // The library and retained demos use Console internally. Restore the host's writers
+        // even after an exception; never close them when disposing an output file.
+        public static int Run(string[] args, TextWriter output, TextWriter error)
         {
-            if (args.Length < 1)
+            lock (ConsoleLock)
             {
-                Console.WriteLine("Usage: Dlineage [/f <path_to_sql_file>] [/d <path_to_directory_includes_sql_files>] [/t <database type>] [/fo <table column>] [/b <view column>] [/ddl] [/s] [/log]");
-                Console.WriteLine("/f: Option, specify the sql file path to analyze dlineage.");
-                Console.WriteLine("/d: Option, specify the sql directory path to analyze dlineage.");
-                Console.WriteLine("/d: Option, forward analyze the specified table column.");
-                Console.WriteLine("/t: Option, set the database type. Support oracle, mysql, mssql, db2, netezza, teradata, informix, sybase, postgresql, hive, greenplum, redshift, snowflake, impala and mdx, the default type is oracle");
-                Console.WriteLine("/fo: Option, forward analyze the specified table column.");
-                Console.WriteLine("/b: Option, backward analyze the specified view column.");
-                Console.WriteLine("/ddl: Option, output the database DDL schema.");
-                Console.WriteLine("/s: Option, set the strict match mode. It will match the catalog name and schema name.");
-                Console.WriteLine("/log: Option, generate a dlineage.log file to log information.");
-                return;
-            }
-
-            FileInfo sqlFiles = null;
-
-            IList<string> argList = new List<string>(args);
-            if (argList.IndexOf("/f") != -1 && argList.Count > argList.IndexOf("/f") + 1)
-            {
-                sqlFiles = new FileInfo(args[argList.IndexOf("/f") + 1]);
-                if (!sqlFiles.Exists || sqlFiles.Attributes == FileAttributes.Directory)
+                TextWriter originalOut = Console.Out;
+                TextWriter originalError = Console.Error;
+                var diagnostics = new StringBuilder();
+                using var capturedError = new StringWriter(diagnostics);
+                StreamWriter fileWriter = null;
+                CommandLine command = null;
+                try
                 {
-                    Console.WriteLine(sqlFiles + " is not a valid file.");
-                    return;
-                }
-            }
-            else if (argList.IndexOf("/d") != -1 && argList.Count > argList.IndexOf("/d") + 1)
-            {
-                sqlFiles = new FileInfo(args[argList.IndexOf("/d") + 1]);
-                if (sqlFiles.Attributes != FileAttributes.Directory)
-                {
-                    Console.WriteLine(sqlFiles + " is not a valid directory.");
-                    return;
-                }
-            }
-
-            bool strict = argList.IndexOf("/s") != -1;
-            bool log = argList.IndexOf("/log") != -1;
-
-            TextWriter pw = null;
-            StringBuilder sw = null;
-            TextWriter systemSteam = Console.Error;
-
-            try
-            {
-                sw = new StringBuilder();
-                pw = new StringWriter(sw);
-                Console.SetError(pw);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-                Console.Write(e.StackTrace);
-            }
-
-            DlineageCommon dlineage;
-
-            if (sqlFiles != null)
-            {
-                dlineage = new DlineageCommon(sqlFiles, Common.GetEDbVendor(args), strict, false);
-            }
-            else
-            {
-                string sqltext = @"SELECT e.last_name AS name,
-                                e.commission_pct comm,
-                                e.salary * 12 ""Annual Salary""
-                                FROM scott.employees AS e
-                                WHERE e.salary > 1000 or 1=1
-                                ORDER BY
-                                e.first_name,
-                                e.last_name;";
-
-                dlineage = new DlineageCommon(sqltext, Common.GetEDbVendor(args), strict, false);
-            }
-
-            bool forwardAnalyze = argList.IndexOf("/fo") != -1;
-            bool backwardAnalyze = argList.IndexOf("/b") != -1;
-            bool outputDDL = argList.IndexOf("/ddl") != -1;
-           
-
-            if (!forwardAnalyze && !backwardAnalyze && !outputDDL)
-            {
-                dlineage.columnImpact();
-            }
-            else if (outputDDL)
-            {
-                dlineage.outputDDLSchema();
-            }
-            else
-            {
-                columnImpactResult impactResult = dlineage.generateColumnImpact(null);
-                IList<ColumnMetaData[]> relations = dlineage.collectDlineageRelations(impactResult);
-
-                if (forwardAnalyze && argList.Count > argList.IndexOf("/fo") + 1)
-                {
-                    string tableColumn = argList[argList.IndexOf("/fo") + 1];
-                    dlineage.forwardAnalyze(tableColumn, relations);
-                }
-
-                if (backwardAnalyze && argList.Count > argList.IndexOf("/b") + 1)
-                {
-                    string viewColumn = argList[argList.IndexOf("/b") + 1];
-                    dlineage.backwardAnalyze(viewColumn, relations);
-                }
-            }
-
-            if (pw != null)
-            {
-                pw.Close();
-            }
-
-            if (sw != null)
-            {
-                string errorMessage = sw.ToString().Trim();
-                if (errorMessage.Length > 0)
-                {
-                    if (log)
+                    Console.SetError(capturedError);
+                    command = CommandLine.Parse(args);
+                    if (command.Help) { CommandLine.WriteHelp(output); return 0; }
+                    Console.SetOut(output);
+                    if (command.Has("/version"))
                     {
-                        try
+#if GSP_DLINEAGE
+                        Console.WriteLine("Version: " + global::gudusoft.gsqlparser.dlineage.DataFlowAnalyzer.getVersion());
+                        Console.WriteLine("Release Date: " + global::gudusoft.gsqlparser.dlineage.DataFlowAnalyzer.getReleaseDate());
+#else
+                        Console.WriteLine("Parser version: " + typeof(TGSqlParser).Assembly.GetName().Version);
+                        Console.WriteLine("Java-compatible dlineage API: unavailable. " + CommandLine.LibraryRequired);
+#endif
+                        return 0;
+                    }
+                    command.ValidateInput();
+#if !GSP_DLINEAGE
+                    if (!command.Legacy) throw new ArgumentException(CommandLine.LibraryRequired);
+#endif
+                    if (command.Value("/o") is string outputPath)
+                    {
+                        command.ValidateOutput(outputPath);
+                        fileWriter = new StreamWriter(outputPath, false, new UTF8Encoding(false));
+                        Console.SetOut(fileWriter);
+                    }
+                    int code = command.Legacy ? LegacyLineage.Run(command) : RunCurrent(command);
+                    return code == 0 && command.Legacy && diagnostics.Length > 0 ? 1 : code;
+                }
+                catch (ArgumentException ex) { capturedError.WriteLine(ex.Message); return 2; }
+                catch (Exception ex) { capturedError.WriteLine(ex.Message); return 1; }
+                finally
+                {
+                    Console.SetOut(originalOut);
+                    Console.SetError(originalError);
+                    fileWriter?.Dispose();
+                    string message = diagnostics.ToString().Trim();
+                    if (message.Length > 0)
+                    {
+                        error.WriteLine(message);
+                        if (command?.Has("/log") == true)
                         {
-                            pw = new StreamWriter(new FileInfo("./dlineage.log").FullName);
-                            pw.WriteLine(errorMessage);
-                            pw.Close();
-
-                        }
-                        catch (FileNotFoundException e)
-                        {
-                            Console.WriteLine(e.ToString());
-                            Console.Write(e.StackTrace);
+                            try { File.WriteAllText("dataflow.log", message + Environment.NewLine, new UTF8Encoding(false)); }
+                            catch (Exception ex) { error.WriteLine("Unable to write dataflow.log: " + ex.Message); }
                         }
                     }
-
-                    Console.SetError(systemSteam);
-                    Console.Error.WriteLine(errorMessage);
                 }
             }
+        }
+
+        private static int RunCurrent(CommandLine command)
+        {
+#if GSP_DLINEAGE
+            return DataFlowAnalyzer.Run(command);
+#else
+            throw new ArgumentException(CommandLine.LibraryRequired);
+#endif
         }
     }
 }

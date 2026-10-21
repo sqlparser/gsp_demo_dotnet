@@ -29,14 +29,25 @@ No arguments.
 
 ## Sample output
 
-```
-dbvoracle
-dbvmssql
-dbvmysql
+Every `EDbVendor` is listed, with `(not supported)` marking the ones this build
+cannot parse. The summary line follows:
+
+```text
+dbvdb2
+dbvgreenplum
+dbvhive
 ...
-Version:3.5.0.2, Release date:2026-04-14, Full version = True,
-Db: 14/14, dbvoracle,dbvmssql,...
+dbvsnowflake
+dbvbigquery(not supported)
+dbvhana(not supported)
+dbvdax(not supported)
+Version:4.1.0.8, Release date:2026-7-30, Full version = False,
+Db: 14/17, dbvdb2,dbvgreenplum,dbvhive,dbvimpala,dbvinformix,dbvmysql,dbvmssql,...
 ```
+
+`Full version = False` and `14/17` are what the nuget.org **trial** package
+reports; the full edition prints `True`. See the trial-limit section in the
+[root README](../../../README.md).
 
 ## Build your own
 

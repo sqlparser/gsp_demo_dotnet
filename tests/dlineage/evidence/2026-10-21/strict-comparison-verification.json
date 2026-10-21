@@ -1,0 +1,20 @@
+[
+  {
+    "target": "net10",
+    "cases": 41,
+    "rawExact": 31,
+    "structuredExact": 40,
+    "completeModels": 40,
+    "statisticsCounters": 1,
+    "programSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+  },
+  {
+    "target": "netstandard",
+    "cases": 41,
+    "rawExact": 31,
+    "structuredExact": 40,
+    "completeModels": 40,
+    "statisticsCounters": 1,
+    "programSha256": "2f5842c8d8f7b19345164cff78a6f58d7f16e110804a01dae8fbff4fbb1092bc"
+  }
+]

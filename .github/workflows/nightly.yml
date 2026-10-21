@@ -153,7 +153,7 @@ jobs:
           done
 
           # A few demos that exercise different parts of the library.
-          for p in formatsql convertJoin gettablecolumns dlineage dataFlowAnalyzer; do
+          for p in formatsql convertJoin gettablecolumns; do
             proj=$(ls src/demos/$p/*.csproj | head -1)
             if dotnet run --project "$proj" -c Release --no-build -p:GspVersion="$GSP" -- \
                  /f samples/oracle-lineage.sql /t oracle > /dev/null 2>&1; then
@@ -163,6 +163,18 @@ jobs:
               fail=1
             fi
           done
+
+          # The published pin predates the Java-compatible dlineage API. Test
+          # its explicit availability contract, plus the retained legacy mode.
+          # tests/dlineage exercises full output formats when the API is enabled.
+          if dotnet run --project src/demos/dlineage/demos.dlineage.csproj \
+               -c Release --no-build -p:GspVersion="$GSP" -- \
+               /f samples/oracle-lineage.sql /t oracle /legacy > /dev/null 2>&1; then
+            echo "  ok    dlineage legacy compatibility"
+          else
+            echo "  FAIL  dlineage legacy compatibility"
+            fail=1
+          fi
 
           exit $fail
 
