@@ -80,6 +80,28 @@ JSON 模型可能结构相等而字节不同（字段顺序、序列化转义）
 
 本次没有发布包、调整默认包版本或运行远端 Windows CI。
 
+## 2026-10-24 SQL Server 当前开发版验证
+
+两份最新 4.1.0.18 DLL 各通过 62 项 CLI 测试。额外的 [SQL 清单](sqlserver-acceptance-20261024.json)保留用户查询、11 份公开 parser 原脚本和两个既有 demo 场景的字节／来源，共 14 份 SQL、62 组完整／简化 XML／JSON 及转换、表级、临时表组合；元数据按同一文件、选项执行。
+
+```bash
+python3 tests/dlineage/compare_java.py \
+  --dotnet /absolute/path/dlineage.dll \
+  --java-classpath 'PINNED_JAVA_DEMO_AND_CORE_CLASSPATH' \
+  --suite tests/dlineage/sqlserver-acceptance-20261024.json \
+  --output /tmp/current-sqlserver-comparison
+```
+
+可沿用 `--java-records`，前提是 SQL／metadata 字节、选项及路径都匹配已存参考。`--case cte/xml` 等选择必须存在；混入错误名称会直接报错。`--startup-hook`、`--expected-parser-sha256` 和 `--expected-parser-tfm` 可共同验证实际加载的 parser；本批所有 CLI 进程均启用该检查。新 Java 参考另用 `--java-load-log` 记录实际 class 来源。
+
+每 DLL 的实际结果为：完整模型 58/62，相同 stdout 字节 29/62，双方退出码为零 34/62。固定 Java 的 CTE／CROSS APPLY 原案例各四种输出，在修复前不相同，修复后全部相同。四组 `qualifiedname` 的五段物理表名仍超出既有 Identifier 合同。`merge`、`ranking_functions`、`createfunction`、`pro1`、`usersql2`、`string-agg` 各四组已有诊断，模型相同，Java 正常返回、C# 返回 1；不改 CLI 公开错误合同。比较器仍返回 1，不能将 58 个相同模型写成 58 组无诊断成功。
+
+[机器记录](evidence/2026-10-24/validation.json)、[net10 全部逐案记录](evidence/2026-10-24/java-net10.0-summary.json)、[netstandard 全部逐案记录](evidence/2026-10-24/java-netstandard2.0-summary.json)和[原标识符错误](evidence/2026-10-24/qualifiedname-dotnet.stderr.txt)均保留。完整 Java classpath、实际 CLI／DLL、原始失败、stdout／stderr、调用链诊断与可独立重放包另随库仓库 `docs/dlineage/evidence/sqlserver-demo-acceptance-2026-10-24` 保存；在新目录中对用户查询、CTE、CROSS APPLY 的三个 XML 案例进行了实际独立重放，三组均字节相同。该重放不冒称重新运行全部 62 组。
+
+原始 SQL 的 CRLF、尾空格及末尾空行均为已固定输入字节；`.gitattributes` 只对这批 `.sql` 关闭相应格式提示，不改 SQL、不放宽 SHA 或模型比较。
+
+本批无发布、无推送、无 Windows／Framework 新认证；下方 10 月 21 日记录保持原产物身份。
+
 ## 2026-10-21 验证结果
 
 | 验证范围 | 结果 |

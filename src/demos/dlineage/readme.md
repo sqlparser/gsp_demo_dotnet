@@ -19,11 +19,13 @@ The former `dataFlowAnalyzer` demo has been merged into this directory. New func
 - [Using the API](#using-the-api): call the formal library from your application.
 - [Troubleshooting and scope](#troubleshooting-and-scope): versions, dialects and Java compatibility boundaries.
 
+- [Current SQL Server examples and validation](#sqlserver-acceptance).
+
 ## Prerequisites and build
 
 Install the .NET 10 SDK. Run all commands from the **`gsp_demo_dotnet` repository root**.
 
-**The pinned NuGet package, `4.1.0.8`, does not contain the formal dlineage API. Full functionality requires the current development library, such as a local `4.1.0.17` DLL. You do not need to publish a new version first.**
+**The pinned NuGet package, `4.1.0.8`, does not contain the formal dlineage API. Full functionality requires the current development library, such as a local `4.1.0.18` DLL. You do not need to publish a new version first.**
 
 Specify the DLL with `GspAssemblyPath`. This requires no changes to project files, the pinned NuGet version or the global package cache:
 
@@ -38,7 +40,12 @@ To build the library from an adjacent `gsp_dotnet` checkout:
 
 ```bash
 dotnet build ../gsp_dotnet/gsp_dotnet_core/src/gsqlparser/gsqlparser.csproj \
-  -c Release -f net10.0
+  -c Release -f net10.0 \
+  -p:includeDB2=true -p:includeGreenplum=true -p:includeHive=true \
+  -p:includeImpala=true -p:includeInformix=true -p:includeMdx=true \
+  -p:includeMssql=true -p:includeMySQL=true -p:includeNetezza=true \
+  -p:includeOracle=true -p:includePostgreSQL=true -p:includeRedshift=true \
+  -p:includeSnowflake=true -p:includeSybase=true -p:includeTeradata=true
 
 dotnet build src/demos/dlineage/demos.dlineage.csproj -c Release \
   -p:GspAssemblyPath="$PWD/../gsp_dotnet/gsp_dotnet_core/src/gsqlparser/bin/Release/net10.0/gudusoft.gsqlparser.dll"
@@ -59,7 +66,7 @@ dotnet build src/demos/dlineage/demos.dlineage.csproj -c Release `
 dotnet src/demos/dlineage/bin/Release/net10.0/dlineage.dll /f samples/dlineage/basic.sql /json
 ```
 
-Without a local DLL, the repository still builds with its original NuGet configuration. Help, version information and legacy commands remain available. New analysis commands report the missing API and return `2`; they do not silently switch to the old algorithm. `EnableDlineage` is enabled when a local DLL is specified or `GspVersion >= 4.1.0.17`. This version check is a compilation condition, not a statement that the package has been published.
+Without a local DLL, the repository still builds with its original NuGet configuration. Help, version information and legacy commands remain available. New analysis commands report the missing API and return `2`; they do not silently switch to the old algorithm. `EnableDlineage` is enabled when a local DLL is specified or `GspVersion >= 4.1.0.18`. This version check is a compilation condition, not a statement that the package has been published.
 
 ## Quick start
 
@@ -289,3 +296,22 @@ CLI hosts can call `Dlineage.Run(args, outputWriter, errorWriter)` to obtain an 
 - **Is every output identical to Java?** Comparison retains a PostgreSQL `DECIMAL` type-name difference: Java emits `decimal`, while the current C# library emits `dec`. The demo does not rewrite it. JSON may also differ in property order or escaped bytes. Parsed models and raw bytes are checked separately; see the validation records.
 
 The implementation reference is `DataFlowAnalyzer.java` at Java demo commit `65a2cef16409e99f834989478e683976032e003a`. The current C# library's Java source baseline is `4940a81cf671dee163239df60488fa716d02177e`. Validation methods and actual differences are documented in [`tests/dlineage/readme.md`](../../../tests/dlineage/readme.md), currently in Chinese.
+
+<a id="sqlserver-acceptance"></a>
+
+## 2026-10-24: Current SQL Server development build
+
+The current local library is **4.1.0.18**; no new NuGet release is required. Missing CTE reference checks and CROSS APPLY argument collection have been corrected in the library. The demo continues to use the formal API. Each latest DLL passed the existing 62 CLI tests; the netstandard2.0 parser also ran under Linux/.NET 10.
+
+The additional suite preserves 14 original SQL inputs and 62 option/format groups. Per DLL, **58 complete models match, 29 stdout byte streams match, and 34 groups return zero on both sides**. Four groups retain the existing five-segment physical identifier limitation. Another 24 produce matching models and the same orphan-column diagnostic messages, with C# returning 1 according to its documented error contract. Java also prints an extra blank line after the error header; both stderr byte streams are retained. The complete comparison still returns 1; failures are retained. Public parser fixtures are not 14 customer workloads.
+
+The original `SELECT ... INTO [dbo].[customer_revenue]` query is included and can produce both files:
+
+```bash
+dotnet src/demos/dlineage/bin/Release/net10.0/dlineage.dll \
+  /f samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql /t mssql /o customer_revenue.xml
+dotnet src/demos/dlineage/bin/Release/net10.0/dlineage.dll \
+  /f samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql /t mssql /json /o customer_revenue.json
+```
+
+The results contain all five target columns and their sources. Actual DLL identities, results and replay instructions are in the [validation guide](../../../tests/dlineage/readme.md#2026-10-24-sql-server-当前开发版验证) and [machine record](../../../tests/dlineage/evidence/2026-10-24/validation.json). The October 21 four-dialect comparison retains its original DLL scope. This batch did not run Windows CI or change the default package pin.

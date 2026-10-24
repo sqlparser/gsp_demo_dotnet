@@ -1,0 +1,18 @@
+{
+  "createdBy": "sqlflow",
+  "servers": [{
+    "name": "demo",
+    "dbVendor": "dbvmssql",
+    "databases": [{
+      "name": "demo_db",
+      "schemas": [{
+        "name": "dbo",
+        "tables": [
+          { "name": "emp", "columns": [{ "name": "id" }, { "name": "ename" }, { "name": "deptid" }] },
+          { "name": "dept", "columns": [{ "name": "id" }, { "name": "dname" }] },
+          { "name": "employee_names", "columns": [{ "name": "name" }] }
+        ]
+      }]
+    }]
+  }]
+}

@@ -1,0 +1,450 @@
+{
+  "date": "2026-10-24",
+  "javaLibraryRevision": "4940a81cf671dee163239df60488fa716d02177e",
+  "javaDemoRevision": "65a2cef16409e99f834989478e683976032e003a",
+  "sourceVersion": "4.1.0.18",
+  "publishedNuGetPin": "4.1.0.8",
+  "release": false,
+  "pushed": false,
+  "windowsExecuted": false,
+  "host": "Linux/.NET10; both parser TFMs observed through actual AssemblyLoad",
+  "cliExecution": {
+    "recordedAtUtc": "2026-10-24T04:17:44.485925+00:00",
+    "status": "complete",
+    "commands": [
+      {
+        "label": "demo-build-net10.0",
+        "argv": [
+          "dotnet",
+          "build",
+          "/home/ubuntu/github/gsp_demo_dotnet/tests/dlineage/test.dlineage.csproj",
+          "-c",
+          "Release",
+          "--artifacts-path",
+          "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-net10.0",
+          "-p:GspAssemblyPath=/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-build/bin/gsqlparser/release_net10.0/gudusoft.gsqlparser.dll",
+          "--nologo"
+        ],
+        "cwd": "/home/ubuntu/github/gsp_demo_dotnet",
+        "environment": {},
+        "startedAtUtc": "2026-10-24T04:17:10.062580+00:00",
+        "exitCode": 0,
+        "finishedAtUtc": "2026-10-24T04:17:20.084456+00:00"
+      },
+      {
+        "label": "demo-tests-net10.0",
+        "argv": [
+          "dotnet",
+          "test",
+          "/home/ubuntu/github/gsp_demo_dotnet/tests/dlineage/test.dlineage.csproj",
+          "-c",
+          "Release",
+          "--artifacts-path",
+          "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-net10.0",
+          "-p:GspAssemblyPath=/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-build/bin/gsqlparser/release_net10.0/gudusoft.gsqlparser.dll",
+          "--nologo",
+          "--no-build",
+          "--no-restore",
+          "--logger",
+          "trx;LogFileName=cli.trx",
+          "--results-directory",
+          "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-tests/net10.0"
+        ],
+        "cwd": "/home/ubuntu/github/gsp_demo_dotnet",
+        "environment": {
+          "DOTNET_STARTUP_HOOKS": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/startup-hook/out/Hook.dll",
+          "GSP_R244_ORIGINAL_LOAD_REPORT": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-test-loaded-net10.0.json",
+          "GSP_DLINEAGE_EXPECTED_ASSEMBLY_SHA256": "147e8ce17d8ae3df361cb6df3531ca1817d2e4fedfbeaccbc67d1197d1bacc03",
+          "GSP_DLINEAGE_EXPECTED_TFM": ".NETCoreApp,Version=v10.0",
+          "GSP_DLINEAGE_EXPECTED_ASSEMBLY_PATH": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-net10.0/bin/test.dlineage/release/gudusoft.gsqlparser.dll"
+        },
+        "startedAtUtc": "2026-10-24T04:17:20.195804+00:00",
+        "exitCode": 0,
+        "finishedAtUtc": "2026-10-24T04:17:29.660355+00:00"
+      },
+      {
+        "label": "demo-version-net10.0",
+        "argv": [
+          "dotnet",
+          "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-net10.0/bin/demos.dlineage/release/dlineage.dll",
+          "/version"
+        ],
+        "cwd": "/home/ubuntu/github/gsp_demo_dotnet",
+        "environment": {
+          "DOTNET_STARTUP_HOOKS": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/startup-hook/out/Hook.dll",
+          "GSP_R244_ORIGINAL_LOAD_REPORT": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-version-loaded-net10.0.json",
+          "GSP_DLINEAGE_EXPECTED_ASSEMBLY_SHA256": "147e8ce17d8ae3df361cb6df3531ca1817d2e4fedfbeaccbc67d1197d1bacc03",
+          "GSP_DLINEAGE_EXPECTED_TFM": ".NETCoreApp,Version=v10.0",
+          "GSP_DLINEAGE_EXPECTED_ASSEMBLY_PATH": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-net10.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll"
+        },
+        "startedAtUtc": "2026-10-24T04:17:29.662448+00:00",
+        "exitCode": 0,
+        "finishedAtUtc": "2026-10-24T04:17:29.850663+00:00"
+      },
+      {
+        "label": "demo-build-netstandard2.0",
+        "argv": [
+          "dotnet",
+          "build",
+          "/home/ubuntu/github/gsp_demo_dotnet/tests/dlineage/test.dlineage.csproj",
+          "-c",
+          "Release",
+          "--artifacts-path",
+          "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0",
+          "-p:GspAssemblyPath=/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-build/bin/gsqlparser/release_netstandard2.0/gudusoft.gsqlparser.dll",
+          "--nologo"
+        ],
+        "cwd": "/home/ubuntu/github/gsp_demo_dotnet",
+        "environment": {},
+        "startedAtUtc": "2026-10-24T04:17:29.908926+00:00",
+        "exitCode": 0,
+        "finishedAtUtc": "2026-10-24T04:17:34.814857+00:00"
+      },
+      {
+        "label": "demo-tests-netstandard2.0",
+        "argv": [
+          "dotnet",
+          "test",
+          "/home/ubuntu/github/gsp_demo_dotnet/tests/dlineage/test.dlineage.csproj",
+          "-c",
+          "Release",
+          "--artifacts-path",
+          "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0",
+          "-p:GspAssemblyPath=/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-build/bin/gsqlparser/release_netstandard2.0/gudusoft.gsqlparser.dll",
+          "--nologo",
+          "--no-build",
+          "--no-restore",
+          "--logger",
+          "trx;LogFileName=cli.trx",
+          "--results-directory",
+          "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-tests/netstandard2.0"
+        ],
+        "cwd": "/home/ubuntu/github/gsp_demo_dotnet",
+        "environment": {
+          "DOTNET_STARTUP_HOOKS": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/startup-hook/out/Hook.dll",
+          "GSP_R244_ORIGINAL_LOAD_REPORT": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-test-loaded-netstandard2.0.json",
+          "GSP_DLINEAGE_EXPECTED_ASSEMBLY_SHA256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+          "GSP_DLINEAGE_EXPECTED_TFM": ".NETStandard,Version=v2.0",
+          "GSP_DLINEAGE_EXPECTED_ASSEMBLY_PATH": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/test.dlineage/release/gudusoft.gsqlparser.dll"
+        },
+        "startedAtUtc": "2026-10-24T04:17:34.933880+00:00",
+        "exitCode": 0,
+        "finishedAtUtc": "2026-10-24T04:17:44.277840+00:00"
+      },
+      {
+        "label": "demo-version-netstandard2.0",
+        "argv": [
+          "dotnet",
+          "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+          "/version"
+        ],
+        "cwd": "/home/ubuntu/github/gsp_demo_dotnet",
+        "environment": {
+          "DOTNET_STARTUP_HOOKS": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/startup-hook/out/Hook.dll",
+          "GSP_R244_ORIGINAL_LOAD_REPORT": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-version-loaded-netstandard2.0.json",
+          "GSP_DLINEAGE_EXPECTED_ASSEMBLY_SHA256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+          "GSP_DLINEAGE_EXPECTED_TFM": ".NETStandard,Version=v2.0",
+          "GSP_DLINEAGE_EXPECTED_ASSEMBLY_PATH": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll"
+        },
+        "startedAtUtc": "2026-10-24T04:17:44.280469+00:00",
+        "exitCode": 0,
+        "finishedAtUtc": "2026-10-24T04:17:44.484068+00:00"
+      }
+    ],
+    "reports": [
+      {
+        "tfm": "net10.0",
+        "cli": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-net10.0/bin/demos.dlineage/release/dlineage.dll",
+        "cliSha256": "45ef3f36d24b00f9f04fbcd84adb6e960d2c73b4629477d5aa35f05bb835e61e",
+        "parserSha256": "147e8ce17d8ae3df361cb6df3531ca1817d2e4fedfbeaccbc67d1197d1bacc03",
+        "tests": {
+          "total": "62",
+          "executed": "62",
+          "passed": "62",
+          "failed": "0",
+          "error": "0",
+          "timeout": "0",
+          "aborted": "0",
+          "inconclusive": "0",
+          "passedButRunAborted": "0",
+          "notRunnable": "0",
+          "notExecuted": "0",
+          "disconnected": "0",
+          "warning": "0",
+          "completed": "0",
+          "inProgress": "0",
+          "pending": "0"
+        },
+        "testLoadedCore": {
+          "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-net10.0/bin/test.dlineage/release/gudusoft.gsqlparser.dll",
+          "sha256": "147e8ce17d8ae3df361cb6df3531ca1817d2e4fedfbeaccbc67d1197d1bacc03",
+          "framework": ".NETCoreApp,Version=v10.0",
+          "processId": 986364,
+          "host": ".NET 10.0.13",
+          "os": "Ubuntu 24.04.3 LTS",
+          "observation": "Actual AssemblyLoad or already loaded assembly"
+        },
+        "cliLoadedCore": {
+          "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-net10.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+          "sha256": "147e8ce17d8ae3df361cb6df3531ca1817d2e4fedfbeaccbc67d1197d1bacc03",
+          "framework": ".NETCoreApp,Version=v10.0",
+          "processId": 986493,
+          "host": ".NET 10.0.13",
+          "os": "Ubuntu 24.04.3 LTS",
+          "observation": "Actual AssemblyLoad or already loaded assembly"
+        },
+        "startupHook": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/startup-hook/out/Hook.dll",
+        "startupHookSha256": "e4d8f46ba7d8eb255a04bc0fc7408420d408f378a972c041e51b3e3c1b6c07bd",
+        "publishedPinUnchanged": "4.1.0.8",
+        "windowsExecuted": false
+      },
+      {
+        "tfm": "netstandard2.0",
+        "cli": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "cliSha256": "af478172bd23ca493a1533f98b4174a43e62331e552420d161570312334fa229",
+        "parserSha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "tests": {
+          "total": "62",
+          "executed": "62",
+          "passed": "62",
+          "failed": "0",
+          "error": "0",
+          "timeout": "0",
+          "aborted": "0",
+          "inconclusive": "0",
+          "passedButRunAborted": "0",
+          "notRunnable": "0",
+          "notExecuted": "0",
+          "disconnected": "0",
+          "warning": "0",
+          "completed": "0",
+          "inProgress": "0",
+          "pending": "0"
+        },
+        "testLoadedCore": {
+          "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/test.dlineage/release/gudusoft.gsqlparser.dll",
+          "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+          "framework": ".NETStandard,Version=v2.0",
+          "processId": 986672,
+          "host": ".NET 10.0.13",
+          "os": "Ubuntu 24.04.3 LTS",
+          "observation": "Actual AssemblyLoad or already loaded assembly"
+        },
+        "cliLoadedCore": {
+          "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+          "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+          "framework": ".NETStandard,Version=v2.0",
+          "processId": 986780,
+          "host": ".NET 10.0.13",
+          "os": "Ubuntu 24.04.3 LTS",
+          "observation": "Actual AssemblyLoad or already loaded assembly"
+        },
+        "startupHook": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/startup-hook/out/Hook.dll",
+        "startupHookSha256": "e4d8f46ba7d8eb255a04bc0fc7408420d408f378a972c041e51b3e3c1b6c07bd",
+        "publishedPinUnchanged": "4.1.0.8",
+        "windowsExecuted": false
+      }
+    ],
+    "sourceVersion": "4.1.0.18",
+    "publishedPin": "4.1.0.8",
+    "published": false,
+    "remoteCiRuns": 0
+  },
+  "reports": [
+    {
+      "tfm": "net10.0",
+      "counts": {
+        "cases": 62,
+        "rawExact": 29,
+        "structuredExact": 58,
+        "successful": 34
+      },
+      "comparisonExit": 1,
+      "modelDifferences": [
+        "qualifiedname/xml",
+        "qualifiedname/json",
+        "qualifiedname/simple-xml",
+        "qualifiedname/simple-json"
+      ],
+      "nonzeroExitCases": [
+        "merge/xml",
+        "merge/json",
+        "merge/simple-xml",
+        "merge/simple-json",
+        "ranking_functions/xml",
+        "ranking_functions/json",
+        "ranking_functions/simple-xml",
+        "ranking_functions/simple-json",
+        "createfunction/xml",
+        "createfunction/json",
+        "createfunction/simple-xml",
+        "createfunction/simple-json",
+        "pro1/xml",
+        "pro1/json",
+        "pro1/simple-xml",
+        "pro1/simple-json",
+        "qualifiedname/xml",
+        "qualifiedname/json",
+        "qualifiedname/simple-xml",
+        "qualifiedname/simple-json",
+        "usersql2/xml",
+        "usersql2/json",
+        "usersql2/simple-xml",
+        "usersql2/simple-json",
+        "string-agg/xml",
+        "string-agg/json",
+        "string-agg/simple-xml",
+        "string-agg/simple-json"
+      ],
+      "actualParserSha256": "147e8ce17d8ae3df361cb6df3531ca1817d2e4fedfbeaccbc67d1197d1bacc03",
+      "summary": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/comparison-net10.0/summary.json",
+      "command": {
+        "argv": [
+          "python3",
+          "/home/ubuntu/github/gsp_demo_dotnet/tests/dlineage/compare_java.py",
+          "--dotnet",
+          "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-net10.0/bin/demos.dlineage/release/dlineage.dll",
+          "--java-records",
+          "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0",
+          "--suite",
+          "/home/ubuntu/github/gsp_demo_dotnet/tests/dlineage/sqlserver-acceptance-20261024.json",
+          "--output",
+          "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/comparison-net10.0",
+          "--startup-hook",
+          "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/startup-hook/out/Hook.dll",
+          "--expected-parser-sha256",
+          "147e8ce17d8ae3df361cb6df3531ca1817d2e4fedfbeaccbc67d1197d1bacc03",
+          "--expected-parser-tfm",
+          ".NETCoreApp,Version=v10.0"
+        ],
+        "cwd": "/home/ubuntu/github/gsp_demo_dotnet",
+        "startedAtUtc": "2026-10-24T04:18:46.997559+00:00",
+        "exitCode": 1,
+        "finishedAtUtc": "2026-10-24T04:20:32.185989+00:00"
+      }
+    },
+    {
+      "tfm": "netstandard2.0",
+      "counts": {
+        "cases": 62,
+        "rawExact": 29,
+        "structuredExact": 58,
+        "successful": 34
+      },
+      "comparisonExit": 1,
+      "modelDifferences": [
+        "qualifiedname/xml",
+        "qualifiedname/json",
+        "qualifiedname/simple-xml",
+        "qualifiedname/simple-json"
+      ],
+      "nonzeroExitCases": [
+        "merge/xml",
+        "merge/json",
+        "merge/simple-xml",
+        "merge/simple-json",
+        "ranking_functions/xml",
+        "ranking_functions/json",
+        "ranking_functions/simple-xml",
+        "ranking_functions/simple-json",
+        "createfunction/xml",
+        "createfunction/json",
+        "createfunction/simple-xml",
+        "createfunction/simple-json",
+        "pro1/xml",
+        "pro1/json",
+        "pro1/simple-xml",
+        "pro1/simple-json",
+        "qualifiedname/xml",
+        "qualifiedname/json",
+        "qualifiedname/simple-xml",
+        "qualifiedname/simple-json",
+        "usersql2/xml",
+        "usersql2/json",
+        "usersql2/simple-xml",
+        "usersql2/simple-json",
+        "string-agg/xml",
+        "string-agg/json",
+        "string-agg/simple-xml",
+        "string-agg/simple-json"
+      ],
+      "actualParserSha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+      "summary": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/comparison-netstandard2.0/summary.json",
+      "command": {
+        "argv": [
+          "python3",
+          "/home/ubuntu/github/gsp_demo_dotnet/tests/dlineage/compare_java.py",
+          "--dotnet",
+          "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+          "--java-records",
+          "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0",
+          "--suite",
+          "/home/ubuntu/github/gsp_demo_dotnet/tests/dlineage/sqlserver-acceptance-20261024.json",
+          "--output",
+          "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/comparison-netstandard2.0",
+          "--startup-hook",
+          "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/startup-hook/out/Hook.dll",
+          "--expected-parser-sha256",
+          "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+          "--expected-parser-tfm",
+          ".NETStandard,Version=v2.0"
+        ],
+        "cwd": "/home/ubuntu/github/gsp_demo_dotnet",
+        "startedAtUtc": "2026-10-24T04:20:32.187195+00:00",
+        "exitCode": 1,
+        "finishedAtUtc": "2026-10-24T04:22:05.589273+00:00"
+      }
+    }
+  ],
+  "suite": {
+    "file": "tests/dlineage/sqlserver-acceptance-20261024.json",
+    "sha256": "b741101964856acecf7e73577a869bc33b80c338c7a14e62416eddd9594bb33d"
+  },
+  "sourceHashes": {
+    "src/demos/dlineage/DataFlowAnalyzer.cs": "14d083411b67865e1f850c8b6eff8972610c8db29038fbcf55741c37c0c1c4e7",
+    "src/demos/dlineage/Dlineage.cs": "d5557c365f1c4c853f0ca2b053688723209debee1e5034d927abe06b9aaf46c8",
+    "src/demos/dlineage/CommandLine.cs": "0ca8fca3b7fa83715f5edbbdd82a32c44956f63d4f3724c3d8e3205a2fb5d9e4",
+    "src/demos/dlineage/Compatibility/LegacyLineage.cs": "4365fba9a75678e114b007a6b44712935bd81dc1f37d62fc0a119513928d84d1",
+    "src/demos/dlineage/Compatibility/DataFlow/DataFlowAnalyzer.cs": "f5b88ed982ed5e621a7a2eb5140add308773d668b3d0867405a9c848bfd8c3cc",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/AbstractRelation.cs": "4e8217cb81afbbbb1b6a0b0878e8d585c1aab5082e24db02846c057ae4eca165",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/View.cs": "6db261b2b1c31d3b418fc366dfe6818753e55a09b4502c9067252a90ba0e55e4",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/SelectResultSet.cs": "2a4cef397bc974ce0eb68d08685a176dc0576985936a461b21d7167a12cc33a0",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/ModelFactory.cs": "1829e36b73207ee410d97ecf4fcdb66b0e5207b6cb8e053ade6d3956379a1f8c",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/ViewColumn.cs": "b20b0ba0fd7909803faf378281dc74b4cb145ab220838f2e32afcb05c0f16a95",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/SelectSetResultColumn.cs": "2c33fb8f99af52e420947f67281f2612a5e0350ff1c1ca03de009f703ac83314",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/ResultColumn.cs": "2d490bd87f7067a00bb6e0dbbadac523d898e4da6778817a0a80cbea67d88496",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/ImpactRelation.cs": "532dad931ed4996bde4af2169afca837cba94294171b3fd4476e143b54f4ecd4",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/Relation.cs": "961772b37aa967bc1de71894b7a53400a1b204b5e35d4c33347f680117a0cbff",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/RelationType.cs": "d4726c55fc5e7027dd7b862c99880e83df5443239e89dd0151cad6c3291aa472",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/TableRelationElement.cs": "3efa61dc73b9eb17b3026b031935a07e039b161437e65015e898429741891bdb",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/DataFlowRelation.cs": "538736fdacd3090c969ef737552cfa875c6306f31106c5f5ee4f5eb4e6690e3c",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/ViewColumnRelationElement.cs": "67698b82d49f39808f2f4199a6562d42090548e7904c4c8ccc7aba197376d7fb",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/ResultColumnRelationElement.cs": "25240a0ebb72bb817e9c57b925a643b80145937ede2cd064350fa626f11cb3be",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/TableColumnRelationElement.cs": "0eb7c2650b24e54c27e27d8ae9cb894270422d6cf091e25f789b28d6872a7d00",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/QueryTable.cs": "a81928be26c8da9f0baf2a180b2d058911677166d776d182f5a4a040ae996b75",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/RelationElement.cs": "1d130b98a9d56f4ef63a6a971f8075ddd26ea608a7cb887de8b7c5f9a554f304",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/Table.cs": "fd4f1ca28b1789cedf7614ef7195bd85d3916bc13ada4c21a59cf0924767f859",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/RecordSetRelation.cs": "9b4d2b85b3b97a718591bb3a3b53b9cf4038a6b655f305fe98a3b789e96d1eb1",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/QueryTableRelationElement.cs": "5878f0bc94ce9f931172732cd0337e7c7a3a59eac0854bb67565a98639c21a5c",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/ModelBindingManager.cs": "3e535cb55524c5b8790f40ce6a0f4bea5f0acbfbedbdc37d34bb0a4427d16756",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/TableColumn.cs": "aca4378e1e4aa23124d1a5b8ba973026ffe52d1de117f864b08c1dbeda379d4a",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/SelectSetResultSet.cs": "efe7c61c910d99c1b4030527a817cd6efcd1f44f62543978cfc659d6fc45129f",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/ResultSet.cs": "010e9a07836ba02b9ada99c022afbe1cb56988d6e915bf44812da5649d09df15",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/xml/table.cs": "42ed2693581491ae5b56ff9eca5e2191cd666849b19a38acebe41e9da81ac864",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/xml/relation.cs": "51669e9e6cb9362c364eaaaf9a5a6b031f282ba4dd4bc26bb361fa6e9f5983d5",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/xml/dataflow.cs": "c52966981a0f853d6107a94457523856ad5f9518a9aeee7b07745a71e0ab5e61",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/xml/PositionUtil.cs": "c74661f029cf32e81a6abcd2a260c24ace7c1c0e3d76918dce0e2348f9241fef",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/xml/XML2Model.cs": "81522215f1640ded32bf05fa54ecb193b37d7f430525499ad972af27c97ca781",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/xml/sourceColumn.cs": "ba9ebb338a8de4cc7048576be379e2beae4e7d3c3734039de8bb218b812df7ce",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/xml/column.cs": "7329fd32f09e5f88abba80f7523177e46d078b615772b7caa5003b5ce0c3a858",
+    "src/demos/dlineage/Compatibility/DataFlow/dataflow/model/xml/targetColumn.cs": "6044ebd6205afcecb05fac36a94efe8fccadb052d3e622273b921714fcc6c29d"
+  },
+  "comparisonToolSha256": "b3ff083322304ce8a011c2557e4034dde27111d07c35d1ea4403253787175daf",
+  "knownBoundaries": {
+    "fiveSegmentIdentifierGroups": 4,
+    "diagnosticExitDifferenceGroups": 24,
+    "unknownModelDifferences": 0
+  },
+  "originalComparisonFailureRetained": true,
+  "immutableInputWhitespacePolicy": "Only original SQL fixture files retain their CRLF/trailing spaces/terminal blank lines; narrow Git whitespace attributes suppress style diagnostics, with exact input SHA and complete model comparisons unchanged."
+}

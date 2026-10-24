@@ -1,0 +1,2938 @@
+{
+  "cases": 62,
+  "rawExact": 29,
+  "structuredExact": 58,
+  "successful": 34,
+  "records": [
+    {
+      "name": "customer-revenue/xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+        "/t",
+        "mssql"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/customer-revenue/xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "0de4a1fe0ae759f0d9145318cb4dc2a21122022fdbec2f7aae4cc255055ece84",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+        "/t",
+        "mssql"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 990839,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "0de4a1fe0ae759f0d9145318cb4dc2a21122022fdbec2f7aae4cc255055ece84",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "customer-revenue/json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/customer-revenue/json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "901133537e9fffd63bf6bfcc239432867e58072d91d6d270560a45efc5ed0b88",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 990838,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "d2f5c6129fac8b10c6cce89b04c3922adc29fda862a897352bff7aad85f4b475",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "customer-revenue/simple-xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/customer-revenue/simple-xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "72f47db0a4bc3c005cb8e53635feabe05e18aafeadfb1c6f9ba069e6e9148c63",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 990912,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "72f47db0a4bc3c005cb8e53635feabe05e18aafeadfb1c6f9ba069e6e9148c63",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "customer-revenue/simple-json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/customer-revenue/simple-json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "9184acd077012b19fd0a8dd45ddd10e2d6d95edddf6abeca301054965927ff97",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 990926,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "ba03b3cbc916c2cb564385e41396294a21cc42298adf05934aee0fc37e611f20",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "cte/xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/cte.sql",
+        "/t",
+        "mssql"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/cte.sql": "cb7caecf0c07a1ba80700f1e25784401075a4d7e6455d81d88931283e5caf096"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/cte/xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "e287b411aa0d2cd5e7d3111461c4cb90d36dd05350814efef3af2f49773da854",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/cte.sql",
+        "/t",
+        "mssql"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 990960,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "e287b411aa0d2cd5e7d3111461c4cb90d36dd05350814efef3af2f49773da854",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "cte/json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/cte.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/cte.sql": "cb7caecf0c07a1ba80700f1e25784401075a4d7e6455d81d88931283e5caf096"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/cte/json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "754e4c73a5df5a5516bfebf34ea9ab493f7811cbcfb5a6903f5fc54387b966b4",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/cte.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 990974,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "8549a0db2d48e6726e7d1611c987920649f2a32072396d1c7dcba89ba1577175",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "cte/simple-xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/cte.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/cte.sql": "cb7caecf0c07a1ba80700f1e25784401075a4d7e6455d81d88931283e5caf096"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/cte/simple-xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "7beb24e4c52e6d099d420286d600919b9c03f06c16f642f7b896f3eac0112db7",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/cte.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991035,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "7beb24e4c52e6d099d420286d600919b9c03f06c16f642f7b896f3eac0112db7",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "cte/simple-json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/cte.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/cte.sql": "cb7caecf0c07a1ba80700f1e25784401075a4d7e6455d81d88931283e5caf096"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/cte/simple-json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "61db68191a44f05b8d968379e98f4f383b5422a49b813b0b6c309a8225506766",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/cte.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991049,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "7ba032bd101f270a86b81a127cce4586ebafca17c708f18ff3a3c865c3e40115",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "crossapply/xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/crossapply.sql",
+        "/t",
+        "mssql"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/crossapply.sql": "35e1cc451cd4f1c365de70a525341c8d439c1f5bc0b7310b50a466b74334cf72"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/crossapply/xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "6143c25810b6a97c385068dc95d3135e5002a26d692aadde53596c84138a99a8",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/crossapply.sql",
+        "/t",
+        "mssql"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991157,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "6143c25810b6a97c385068dc95d3135e5002a26d692aadde53596c84138a99a8",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "crossapply/json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/crossapply.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/crossapply.sql": "35e1cc451cd4f1c365de70a525341c8d439c1f5bc0b7310b50a466b74334cf72"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/crossapply/json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "8fe14cf4b5ff0c1aa9ed04ecda96b97c41e27ea037242922377c50f18e3d9446",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/crossapply.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991192,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "2809f7a2c64508bc16e99ee3716ff628e5eb2e9a703ebb17178479e834a24566",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "crossapply/simple-xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/crossapply.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/crossapply.sql": "35e1cc451cd4f1c365de70a525341c8d439c1f5bc0b7310b50a466b74334cf72"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/crossapply/simple-xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "a08adb866394e5e2009f075ecd45da79e930bdb46a3cdb59e8e8e74214399ed8",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/crossapply.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991209,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "a08adb866394e5e2009f075ecd45da79e930bdb46a3cdb59e8e8e74214399ed8",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "crossapply/simple-json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/crossapply.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/crossapply.sql": "35e1cc451cd4f1c365de70a525341c8d439c1f5bc0b7310b50a466b74334cf72"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/crossapply/simple-json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "fd2155d3b3a7234dd5b3897b0e26f66ddf23c6b83a9fa0a4e7f3910e92cf0de0",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/crossapply.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991244,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "214cda0fc8aabcf93a5ca76387dd027c36bea29b5c621a7bbc06da0a45cfb12f",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "pivot/xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pivot.sql",
+        "/t",
+        "mssql"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pivot.sql": "e11c4c31b324f0b4c6f63fb3d348da400e43cf4c8d970bcbf14bab96ec51eea0"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/pivot/xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "dc01c7101cdcfacea76c45a5066e6b05ff4c9273b3aabf5c7b3216fe9f2e8110",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pivot.sql",
+        "/t",
+        "mssql"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991281,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "dc01c7101cdcfacea76c45a5066e6b05ff4c9273b3aabf5c7b3216fe9f2e8110",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "pivot/json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pivot.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pivot.sql": "e11c4c31b324f0b4c6f63fb3d348da400e43cf4c8d970bcbf14bab96ec51eea0"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/pivot/json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "dae5916a5f3891f54c9410e8d6a654ba9afdb4c0a50da80083c1fe16118dcc69",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pivot.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991295,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "1206a4a3540f899e35b199ce0c3f4455ea679844ff561872a463fdcd62d7a144",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "pivot/simple-xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pivot.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pivot.sql": "e11c4c31b324f0b4c6f63fb3d348da400e43cf4c8d970bcbf14bab96ec51eea0"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/pivot/simple-xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "21e6cacc57eb7ae4630019f780c726b55c3594448f3e12d5ec1ce67ccc2fec43",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pivot.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991331,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "21e6cacc57eb7ae4630019f780c726b55c3594448f3e12d5ec1ce67ccc2fec43",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "pivot/simple-json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pivot.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pivot.sql": "e11c4c31b324f0b4c6f63fb3d348da400e43cf4c8d970bcbf14bab96ec51eea0"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/pivot/simple-json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "633902635f8b5628d5cc076f9f22aaee6dd739f2f68d587980ff0e7a1cf8d42e",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pivot.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991365,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "a42823ac86890bd62e07d0af1c66a6b0de3933f87f8c7307c1c63485b94823b0",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "merge/xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/merge.sql",
+        "/t",
+        "mssql"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/merge.sql": "4d0ee9c9f2a7f59a8ee6f78cf428cc74fc5eb79d52d515b285d3badb06eae257"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/merge/xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "983467ccfd5176bc3bb4f57c874162f1575c2f6cef6873ef2516b2bbc780a640",
+        "stderrSha256": "30debfa40b55ab3cfdc1b27a8b7e672db8b042c8a142a34128d6fa5b3d21e0df"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/merge.sql",
+        "/t",
+        "mssql"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991402,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "983467ccfd5176bc3bb4f57c874162f1575c2f6cef6873ef2516b2bbc780a640",
+        "stderrSha256": "a579784cd2dca383075d2d7c1113f367b12840d2b28912d3445920a778cae343"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "merge/json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/merge.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/merge.sql": "4d0ee9c9f2a7f59a8ee6f78cf428cc74fc5eb79d52d515b285d3badb06eae257"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/merge/json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "535be7d49e500733a4be0ec9529c91d36547ab281e4813d5686bdc3dc2732129",
+        "stderrSha256": "30debfa40b55ab3cfdc1b27a8b7e672db8b042c8a142a34128d6fa5b3d21e0df"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/merge.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991416,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "9a01c4f8b9c9943f32cfb1777d3295a6ca0e72e269a09c5291e990bbeae9fedd",
+        "stderrSha256": "a579784cd2dca383075d2d7c1113f367b12840d2b28912d3445920a778cae343"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "merge/simple-xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/merge.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/merge.sql": "4d0ee9c9f2a7f59a8ee6f78cf428cc74fc5eb79d52d515b285d3badb06eae257"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/merge/simple-xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "e3a9b9f547b4e346b16706f18523502ec5814000ee9d93aa68c650fbd8dd71fe",
+        "stderrSha256": "30debfa40b55ab3cfdc1b27a8b7e672db8b042c8a142a34128d6fa5b3d21e0df"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/merge.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991473,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "e3a9b9f547b4e346b16706f18523502ec5814000ee9d93aa68c650fbd8dd71fe",
+        "stderrSha256": "a579784cd2dca383075d2d7c1113f367b12840d2b28912d3445920a778cae343"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "merge/simple-json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/merge.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/merge.sql": "4d0ee9c9f2a7f59a8ee6f78cf428cc74fc5eb79d52d515b285d3badb06eae257"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/merge/simple-json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "530eb055c77f4036f570e7c5706fba9c2b3422de4af87067ab3404ebca9cbdb9",
+        "stderrSha256": "30debfa40b55ab3cfdc1b27a8b7e672db8b042c8a142a34128d6fa5b3d21e0df"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/merge.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991487,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "690a4f1506d6cf92e66c80c629b0f2237db342abf36b3f358ede1c51769bd757",
+        "stderrSha256": "a579784cd2dca383075d2d7c1113f367b12840d2b28912d3445920a778cae343"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "outputclause/xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/outputclause.sql",
+        "/t",
+        "mssql"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/outputclause.sql": "de1b22df61881d83d81d540643455044a5598c815d5fe972ee98923b7a0e78c4"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/outputclause/xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "7644ae944fae1300c584d6c21724a01c54c8a88f6c63c605cd2b1ceb39d51dd4",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/outputclause.sql",
+        "/t",
+        "mssql"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991605,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "7644ae944fae1300c584d6c21724a01c54c8a88f6c63c605cd2b1ceb39d51dd4",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "outputclause/json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/outputclause.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/outputclause.sql": "de1b22df61881d83d81d540643455044a5598c815d5fe972ee98923b7a0e78c4"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/outputclause/json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "bbdcbc2af7993334fbeb65c8957300f4022dc1ab0ea1be54dba9755aea0dbc55",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/outputclause.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991639,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "4bed6112efda9aabc95f697ab4a7fe428732cbd1296027d71211a7af92de7357",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "outputclause/simple-xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/outputclause.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/outputclause.sql": "de1b22df61881d83d81d540643455044a5598c815d5fe972ee98923b7a0e78c4"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/outputclause/simple-xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "f8ceda79d7adfa047c64a04a7264389db4bf3cc5cb00a47aa5661d5206d0fe38",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/outputclause.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991673,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "f8ceda79d7adfa047c64a04a7264389db4bf3cc5cb00a47aa5661d5206d0fe38",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "outputclause/simple-json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/outputclause.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/outputclause.sql": "de1b22df61881d83d81d540643455044a5598c815d5fe972ee98923b7a0e78c4"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/outputclause/simple-json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "d237c46310017fdb8764075df03e368f5b6dc6f15ae3b48140b0a231d44e71a3",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/outputclause.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991707,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "901f5d41ca66b549cd5b39ee1cd32fb145a914825543a4a3a9833d225f1e904d",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "ranking_functions/xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/ranking_functions.sql",
+        "/t",
+        "mssql"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/ranking_functions.sql": "e214bd57383addbcd8c008829d62089d744924d6ed52909a6a69543727609057"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/ranking_functions/xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "d981e64952dfd102eff4872ba7bf1ebfb96a7b229a0cd8d2aebcc12750a67939",
+        "stderrSha256": "a44f75dda0163b351df819a9cafb607af9c508d8dac1765b4d00b5bae06ccd33"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/ranking_functions.sql",
+        "/t",
+        "mssql"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991739,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "d981e64952dfd102eff4872ba7bf1ebfb96a7b229a0cd8d2aebcc12750a67939",
+        "stderrSha256": "22e22b9b32fe32bd5db2e54ae5009c18ff96d05cb00ed4cb8cf339f907420820"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "ranking_functions/json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/ranking_functions.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/ranking_functions.sql": "e214bd57383addbcd8c008829d62089d744924d6ed52909a6a69543727609057"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/ranking_functions/json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "ae30e31bc698de468c245fba06e80a0c17f6086231c900fef5351b78360f698e",
+        "stderrSha256": "a44f75dda0163b351df819a9cafb607af9c508d8dac1765b4d00b5bae06ccd33"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/ranking_functions.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991775,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "27551a0f4123b0381ef38be8555955f3dfda6e8bff6d01d905e5d9b95bd2546e",
+        "stderrSha256": "22e22b9b32fe32bd5db2e54ae5009c18ff96d05cb00ed4cb8cf339f907420820"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "ranking_functions/simple-xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/ranking_functions.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/ranking_functions.sql": "e214bd57383addbcd8c008829d62089d744924d6ed52909a6a69543727609057"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/ranking_functions/simple-xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "75c0a5d9aa59cc5cc372bd80f8e16042b68373d9357407e0bf39f293a09458c6",
+        "stderrSha256": "a44f75dda0163b351df819a9cafb607af9c508d8dac1765b4d00b5bae06ccd33"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/ranking_functions.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991790,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "75c0a5d9aa59cc5cc372bd80f8e16042b68373d9357407e0bf39f293a09458c6",
+        "stderrSha256": "22e22b9b32fe32bd5db2e54ae5009c18ff96d05cb00ed4cb8cf339f907420820"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "ranking_functions/simple-json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/ranking_functions.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/ranking_functions.sql": "e214bd57383addbcd8c008829d62089d744924d6ed52909a6a69543727609057"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/ranking_functions/simple-json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "a4f92f010c46bb6107c28cd6607b45e590b2e163d70075415f90294599e1e221",
+        "stderrSha256": "a44f75dda0163b351df819a9cafb607af9c508d8dac1765b4d00b5bae06ccd33"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/ranking_functions.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991826,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "79c9632fc21623fc3d1f3751a44b1888482bfbb6202e0547aa7513c78a1adf46",
+        "stderrSha256": "22e22b9b32fe32bd5db2e54ae5009c18ff96d05cb00ed4cb8cf339f907420820"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "createfunction/xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/createfunction.sql",
+        "/t",
+        "mssql"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/createfunction.sql": "d2ba917d7b4997b68c0c23d429c8cb9bd046a53d4a502896a91b8865e8418b05"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/createfunction/xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "65adbd16c6b44dde8569201c37e9b538111738e2041b274871731edb022913ba",
+        "stderrSha256": "59caf4927b3a4da40273ea799786d5a44e45f0dea1512b3fac545dd161413f62"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/createfunction.sql",
+        "/t",
+        "mssql"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991862,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "65adbd16c6b44dde8569201c37e9b538111738e2041b274871731edb022913ba",
+        "stderrSha256": "1943aafabb87fcd84c120fc5abc6469860ad27d017699cf45e7f94de936d0bc3"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "createfunction/json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/createfunction.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/createfunction.sql": "d2ba917d7b4997b68c0c23d429c8cb9bd046a53d4a502896a91b8865e8418b05"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/createfunction/json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "ee08bac1aa394a382a3db31fd57d8d3852095a8556cbb90fd70e7c70b1237f73",
+        "stderrSha256": "59caf4927b3a4da40273ea799786d5a44e45f0dea1512b3fac545dd161413f62"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/createfunction.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991895,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "fb4caedb440542530ed4f2e03727ccdc2acc9c2262dd8340620f07539f5d0244",
+        "stderrSha256": "1943aafabb87fcd84c120fc5abc6469860ad27d017699cf45e7f94de936d0bc3"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "createfunction/simple-xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/createfunction.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/createfunction.sql": "d2ba917d7b4997b68c0c23d429c8cb9bd046a53d4a502896a91b8865e8418b05"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/createfunction/simple-xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "d46d87ef61b8a36e8d6101b0d2454b9cbf06e937faad2e7e6fb83ec4b6531e4a",
+        "stderrSha256": "59caf4927b3a4da40273ea799786d5a44e45f0dea1512b3fac545dd161413f62"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/createfunction.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991910,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "d46d87ef61b8a36e8d6101b0d2454b9cbf06e937faad2e7e6fb83ec4b6531e4a",
+        "stderrSha256": "1943aafabb87fcd84c120fc5abc6469860ad27d017699cf45e7f94de936d0bc3"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "createfunction/simple-json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/createfunction.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/createfunction.sql": "d2ba917d7b4997b68c0c23d429c8cb9bd046a53d4a502896a91b8865e8418b05"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/createfunction/simple-json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "3367195e747c7b9a4d67c36706eea08819fe5cb45c9c235f696bcfab17e35d7f",
+        "stderrSha256": "59caf4927b3a4da40273ea799786d5a44e45f0dea1512b3fac545dd161413f62"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/createfunction.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991950,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "40908f3c7bc85f4768e0b731eabed52333a57e16f5c31b77b1d7bf1aa73675ea",
+        "stderrSha256": "1943aafabb87fcd84c120fc5abc6469860ad27d017699cf45e7f94de936d0bc3"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "pro1/xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pro1.sql",
+        "/t",
+        "mssql"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pro1.sql": "ecbaeb619fb3d766c11b9538bf4142d7d04b6ddd464d5427787fe4fe4918a5ba"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/pro1/xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "768cf51fd58297b853f42d2cbe566155668faaa407024a98d17c29ea8928fcb9",
+        "stderrSha256": "9ca080a5c2633a1f272baec33a120c0cab11f91daf5a935b3f6e98bfe164699b"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pro1.sql",
+        "/t",
+        "mssql"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 991992,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "768cf51fd58297b853f42d2cbe566155668faaa407024a98d17c29ea8928fcb9",
+        "stderrSha256": "6d762bd325b4e253fbc4f2395786f6198932875897d65d1864ed66e3a9892bd2"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "pro1/json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pro1.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pro1.sql": "ecbaeb619fb3d766c11b9538bf4142d7d04b6ddd464d5427787fe4fe4918a5ba"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/pro1/json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "9b5631d7cf946f8a77437abaf25eef758d0e07f56e18546a8a3e7864bf18a147",
+        "stderrSha256": "9ca080a5c2633a1f272baec33a120c0cab11f91daf5a935b3f6e98bfe164699b"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pro1.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992037,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "4739c117385daa09406fb01f95101e4531738c5e1d36f7e01afd602ac4101050",
+        "stderrSha256": "6d762bd325b4e253fbc4f2395786f6198932875897d65d1864ed66e3a9892bd2"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "pro1/simple-xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pro1.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pro1.sql": "ecbaeb619fb3d766c11b9538bf4142d7d04b6ddd464d5427787fe4fe4918a5ba"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/pro1/simple-xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "90ddb60832e1a23f4fbe95872d1cbd4f8f0c6ca7b244e8a1358e56c7bef81582",
+        "stderrSha256": "9ca080a5c2633a1f272baec33a120c0cab11f91daf5a935b3f6e98bfe164699b"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pro1.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992165,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "90ddb60832e1a23f4fbe95872d1cbd4f8f0c6ca7b244e8a1358e56c7bef81582",
+        "stderrSha256": "6d762bd325b4e253fbc4f2395786f6198932875897d65d1864ed66e3a9892bd2"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "pro1/simple-json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pro1.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pro1.sql": "ecbaeb619fb3d766c11b9538bf4142d7d04b6ddd464d5427787fe4fe4918a5ba"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/pro1/simple-json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "9a480277a4b7862ee661e1ba6726f1588e46408ff7191a5eca752dd7e89134a8",
+        "stderrSha256": "9ca080a5c2633a1f272baec33a120c0cab11f91daf5a935b3f6e98bfe164699b"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/pro1.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992179,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "1c4724123a7bf7369131af9e91be73e7226cb4f1e9b04946eb03f45136dce4d9",
+        "stderrSha256": "6d762bd325b4e253fbc4f2395786f6198932875897d65d1864ed66e3a9892bd2"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "qualifiedname/xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/qualifiedname.sql",
+        "/t",
+        "mssql"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/qualifiedname.sql": "6666c0f131eb6270211b573fd2e657c62556b936be1bd168d88f1c53c618d397"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/qualifiedname/xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "1cbec58cb0b856f72d07d2095bc1a823c368be2ba673f70d61d88c1701c8fec9",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/qualifiedname.sql",
+        "/t",
+        "mssql"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992242,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "e8f40be32f4642f81cf757df5f7c321b6281b8fa3239c047fd66fa5dc57bc1d7",
+        "stderrSha256": "b4cf7822ac858f9bfc80d89c8c2e74889b4d1e512d0d324de812cae641506053"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": false,
+      "successful": false
+    },
+    {
+      "name": "qualifiedname/json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/qualifiedname.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/qualifiedname.sql": "6666c0f131eb6270211b573fd2e657c62556b936be1bd168d88f1c53c618d397"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/qualifiedname/json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "dfa910e495ef4ca9dd21ddfa439258cf4f219c637b0001d3824e1255d96356cc",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/qualifiedname.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992294,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "392fbbd755edd32c26aab0dc5de2ff69df1838e53d702e2b8f105be9322132c0",
+        "stderrSha256": "b4cf7822ac858f9bfc80d89c8c2e74889b4d1e512d0d324de812cae641506053"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": false,
+      "successful": false
+    },
+    {
+      "name": "qualifiedname/simple-xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/qualifiedname.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/qualifiedname.sql": "6666c0f131eb6270211b573fd2e657c62556b936be1bd168d88f1c53c618d397"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/qualifiedname/simple-xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "cab54bf55a54537506dfc03f0e046e2966a9a6f31d9baa728b05a18adc28838a",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/qualifiedname.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992328,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "e8f40be32f4642f81cf757df5f7c321b6281b8fa3239c047fd66fa5dc57bc1d7",
+        "stderrSha256": "b4cf7822ac858f9bfc80d89c8c2e74889b4d1e512d0d324de812cae641506053"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": false,
+      "successful": false
+    },
+    {
+      "name": "qualifiedname/simple-json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/qualifiedname.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/qualifiedname.sql": "6666c0f131eb6270211b573fd2e657c62556b936be1bd168d88f1c53c618d397"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/qualifiedname/simple-json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "7ac0400cdaf18dd9985d7b8ee3c518851444bea7f3d6ae8b79b0ee78c821c585",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/qualifiedname.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992342,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "392fbbd755edd32c26aab0dc5de2ff69df1838e53d702e2b8f105be9322132c0",
+        "stderrSha256": "b4cf7822ac858f9bfc80d89c8c2e74889b4d1e512d0d324de812cae641506053"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": false,
+      "successful": false
+    },
+    {
+      "name": "usersql2/xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/usersql2.sql",
+        "/t",
+        "mssql"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/usersql2.sql": "17bf5a1c0dc3074e935f7919aeebcf87da04b0ccb93cec800f7b90b3e2f3ffdd"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/usersql2/xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "d96f9882e2c14308b60134e52a02f708698316949b306ce24ad5eefe8b763f16",
+        "stderrSha256": "0e194c1e8eadd005574f5e146813cad13d52ebf3008e0aafea5c767d13e6bdf7"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/usersql2.sql",
+        "/t",
+        "mssql"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992356,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "d96f9882e2c14308b60134e52a02f708698316949b306ce24ad5eefe8b763f16",
+        "stderrSha256": "3328518b464a5845f437cde3240f38b4fe75c6284ec344717ff76a0903c460fd"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "usersql2/json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/usersql2.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/usersql2.sql": "17bf5a1c0dc3074e935f7919aeebcf87da04b0ccb93cec800f7b90b3e2f3ffdd"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/usersql2/json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "4a9acc96228b0b44cc7f794853d4000a246d696454e35dbafbc5243a0d0a6f26",
+        "stderrSha256": "0e194c1e8eadd005574f5e146813cad13d52ebf3008e0aafea5c767d13e6bdf7"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/usersql2.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992435,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "6b858605be8b59b2dda4ed4ca0318280cbbfc2579974b33535aa41162d7d4bb8",
+        "stderrSha256": "3328518b464a5845f437cde3240f38b4fe75c6284ec344717ff76a0903c460fd"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "usersql2/simple-xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/usersql2.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/usersql2.sql": "17bf5a1c0dc3074e935f7919aeebcf87da04b0ccb93cec800f7b90b3e2f3ffdd"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/usersql2/simple-xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "415afb3ca54bb3b47bbb32dd1b0735926f447092786cb0686f32e086a31c3dc3",
+        "stderrSha256": "0e194c1e8eadd005574f5e146813cad13d52ebf3008e0aafea5c767d13e6bdf7"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/usersql2.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992453,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "415afb3ca54bb3b47bbb32dd1b0735926f447092786cb0686f32e086a31c3dc3",
+        "stderrSha256": "3328518b464a5845f437cde3240f38b4fe75c6284ec344717ff76a0903c460fd"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "usersql2/simple-json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/usersql2.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/usersql2.sql": "17bf5a1c0dc3074e935f7919aeebcf87da04b0ccb93cec800f7b90b3e2f3ffdd"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/usersql2/simple-json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "45eb919d0f1d578f5644d94769ece4f8ed93cd120acae70f3933ed24f327e575",
+        "stderrSha256": "0e194c1e8eadd005574f5e146813cad13d52ebf3008e0aafea5c767d13e6bdf7"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/usersql2.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992490,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "3084f3e3037e3be7d00f26d87ab5dd186fadba17748c2e6fabb94fe023428bea",
+        "stderrSha256": "3328518b464a5845f437cde3240f38b4fe75c6284ec344717ff76a0903c460fd"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "string-agg/xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/string-agg.sql",
+        "/t",
+        "mssql"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/string-agg.sql": "acda16a88584f16efc24a054dddfc2d80940b0ccfebe6e5136b9c2123ad9b927"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/string-agg/xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "7477bfbb3d980ccb2e23c91dbe203b420f83ab8988a2738de6bff2c6f2f03098",
+        "stderrSha256": "72a928c83309802c3553eb5b92edc1fed7db02ae20c76442e19dfb5538f5367b"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/string-agg.sql",
+        "/t",
+        "mssql"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992564,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "7477bfbb3d980ccb2e23c91dbe203b420f83ab8988a2738de6bff2c6f2f03098",
+        "stderrSha256": "efcda426596f2bd71f4cea5498b6da0694edb32bbe5489202586620d567d7665"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "string-agg/json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/string-agg.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/string-agg.sql": "acda16a88584f16efc24a054dddfc2d80940b0ccfebe6e5136b9c2123ad9b927"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/string-agg/json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "a396acbead6277b2cd3389d5d36daa26b67878d60fae7d3e2471ba87b81d695a",
+        "stderrSha256": "72a928c83309802c3553eb5b92edc1fed7db02ae20c76442e19dfb5538f5367b"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/string-agg.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992602,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "e6431c258d3e52c5889643df823b7ff341992b8d739deaf44d628aa20bebe672",
+        "stderrSha256": "efcda426596f2bd71f4cea5498b6da0694edb32bbe5489202586620d567d7665"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "string-agg/simple-xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/string-agg.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/string-agg.sql": "acda16a88584f16efc24a054dddfc2d80940b0ccfebe6e5136b9c2123ad9b927"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/string-agg/simple-xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "7c5d59694b0e13dd735dae4f8c2c14c52628350d25715e97b8a2dc52d6219cda",
+        "stderrSha256": "72a928c83309802c3553eb5b92edc1fed7db02ae20c76442e19dfb5538f5367b"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/string-agg.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992634,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "7c5d59694b0e13dd735dae4f8c2c14c52628350d25715e97b8a2dc52d6219cda",
+        "stderrSha256": "efcda426596f2bd71f4cea5498b6da0694edb32bbe5489202586620d567d7665"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "string-agg/simple-json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/string-agg.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/string-agg.sql": "acda16a88584f16efc24a054dddfc2d80940b0ccfebe6e5136b9c2123ad9b927"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/string-agg/simple-json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "3ff9c49d5f6b43443d9fdadc53e4926541a1f90a773356967458e2022b524965",
+        "stderrSha256": "72a928c83309802c3553eb5b92edc1fed7db02ae20c76442e19dfb5538f5367b"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/string-agg.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992673,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 1,
+        "stdoutSha256": "f0c13c8551842fee0132bf3fe03ea49349b66c614eaf3ba6cee8bbb3b71748f8",
+        "stderrSha256": "efcda426596f2bd71f4cea5498b6da0694edb32bbe5489202586620d567d7665"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": false
+    },
+    {
+      "name": "temporary/xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/temporary.sql",
+        "/t",
+        "mssql"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/temporary.sql": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/temporary/xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "8f09eb02ae17955bc86ad4417c67d7186189efbc708a759b6945facf2811f333",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/temporary.sql",
+        "/t",
+        "mssql"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992691,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "8f09eb02ae17955bc86ad4417c67d7186189efbc708a759b6945facf2811f333",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "temporary/json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/temporary.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/temporary.sql": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/temporary/json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "628f5bb08bd307ff1ad6e3099d94fec214d2673f6cf09af6acd4084566b164ed",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/temporary.sql",
+        "/t",
+        "mssql",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992724,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "c2dd0472bcf43235c0786c851995cbd2787237734f059d5f1cd0da15aac0962d",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "temporary/simple-xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/temporary.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/temporary.sql": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/temporary/simple-xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "e18cce9f09d3bad7eb3c79648c94987f986fc31d7c1ce28170c5022b850ecc72",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/temporary.sql",
+        "/t",
+        "mssql",
+        "/s"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992741,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "e18cce9f09d3bad7eb3c79648c94987f986fc31d7c1ce28170c5022b850ecc72",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "temporary/simple-json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/temporary.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/temporary.sql": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/temporary/simple-json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "933ad266a24871c7490b864ca495b4a7f0f5cf362d5c4f27a838bd6aae9c5f54",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/temporary.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992794,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "7e345db5fdbe885ca9798365597d63d3524eb19452741c1f4246e81b4abdde1a",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "metadata-query/xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata-query.sql",
+        "/t",
+        "mssql",
+        "/defaultDatabase",
+        "demo_db",
+        "/defaultSchema",
+        "dbo",
+        "/env",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata.json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata-query.sql": "0e16ca7396efbeab97bd909f159a0382193662679d90fcd69ff7660da2424977",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata.json": "ad14c0f05ad200cb2a2b9c29c4641ad32bff36324237697af87c755d73c36607"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/metadata-query/xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "e8d4f3ddf757a5eadb3213eb69461011460362282a1755b8c667c0e771290377",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata-query.sql",
+        "/t",
+        "mssql",
+        "/defaultDatabase",
+        "demo_db",
+        "/defaultSchema",
+        "dbo",
+        "/env",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata.json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992808,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "e8d4f3ddf757a5eadb3213eb69461011460362282a1755b8c667c0e771290377",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "metadata-query/json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata-query.sql",
+        "/t",
+        "mssql",
+        "/defaultDatabase",
+        "demo_db",
+        "/defaultSchema",
+        "dbo",
+        "/json",
+        "/env",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata.json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata-query.sql": "0e16ca7396efbeab97bd909f159a0382193662679d90fcd69ff7660da2424977",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata.json": "ad14c0f05ad200cb2a2b9c29c4641ad32bff36324237697af87c755d73c36607"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/metadata-query/json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "b734c0b0b6940ed806da11d5026d8b9c2946165218cb48aa0352652d2df090dc",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata-query.sql",
+        "/t",
+        "mssql",
+        "/defaultDatabase",
+        "demo_db",
+        "/defaultSchema",
+        "dbo",
+        "/json",
+        "/env",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata.json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992840,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "4b3c25e328bb3223d36251f08c9d5093ca1be19cb288b54ff964e43787ce3b3c",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "metadata-query/simple-xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata-query.sql",
+        "/t",
+        "mssql",
+        "/defaultDatabase",
+        "demo_db",
+        "/defaultSchema",
+        "dbo",
+        "/s",
+        "/env",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata.json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata-query.sql": "0e16ca7396efbeab97bd909f159a0382193662679d90fcd69ff7660da2424977",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata.json": "ad14c0f05ad200cb2a2b9c29c4641ad32bff36324237697af87c755d73c36607"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/metadata-query/simple-xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "fb51c4ea60164c610bad6ca2f7a681ee76b75b7bf48ea17fa1aea2c03d811896",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata-query.sql",
+        "/t",
+        "mssql",
+        "/defaultDatabase",
+        "demo_db",
+        "/defaultSchema",
+        "dbo",
+        "/s",
+        "/env",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata.json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992854,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "fb51c4ea60164c610bad6ca2f7a681ee76b75b7bf48ea17fa1aea2c03d811896",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "metadata-query/simple-json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata-query.sql",
+        "/t",
+        "mssql",
+        "/defaultDatabase",
+        "demo_db",
+        "/defaultSchema",
+        "dbo",
+        "/s",
+        "/json",
+        "/env",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata.json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata-query.sql": "0e16ca7396efbeab97bd909f159a0382193662679d90fcd69ff7660da2424977",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata.json": "ad14c0f05ad200cb2a2b9c29c4641ad32bff36324237697af87c755d73c36607"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/metadata-query/simple-json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "1a92356461ca4a66fde6c36338200765a5d4a50881fedef8a5170763879c54ee",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata-query.sql",
+        "/t",
+        "mssql",
+        "/defaultDatabase",
+        "demo_db",
+        "/defaultSchema",
+        "dbo",
+        "/s",
+        "/json",
+        "/env",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/metadata.json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992942,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "408ddd974354e9d1e02cd9e0cb846dee91ae14403f97e778740fa951d16177ea",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "customer-revenue/transform-xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+        "/t",
+        "mssql",
+        "/transform",
+        "/coor",
+        "/showConstant",
+        "/j"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/customer-revenue/transform-xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "0c745300feecfbdbf197a78964aa33fd8cd25ae76f3ddf3cce80262181dc3670",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+        "/t",
+        "mssql",
+        "/transform",
+        "/coor",
+        "/showConstant",
+        "/j"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992976,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "0c745300feecfbdbf197a78964aa33fd8cd25ae76f3ddf3cce80262181dc3670",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "customer-revenue/transform-json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+        "/t",
+        "mssql",
+        "/transform",
+        "/coor",
+        "/showConstant",
+        "/j",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/customer-revenue/transform-json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "b14d29f4b833ba15aa73b514e7d28163812d50ea645453cd95e3966b67589656",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+        "/t",
+        "mssql",
+        "/transform",
+        "/coor",
+        "/showConstant",
+        "/j",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 992990,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "f5d41d47b71b096bdd937a06cbbf2368cc595d5309cc2be16f5ca02aeeec1a60",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "customer-revenue/table-xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+        "/t",
+        "mssql",
+        "/tableLineage"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/customer-revenue/table-xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "5cb6768542c8b6d669410391b3d52071e3284a5326e506868e1af835fe973dcd",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+        "/t",
+        "mssql",
+        "/tableLineage"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 993025,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "5cb6768542c8b6d669410391b3d52071e3284a5326e506868e1af835fe973dcd",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "customer-revenue/table-json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+        "/t",
+        "mssql",
+        "/tableLineage",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/customer-revenue/table-json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "38bfd886c8809223cfa5075e7f8fb10c7ba057ff07f817889eba2b419c103f80",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+        "/t",
+        "mssql",
+        "/tableLineage",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 993107,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "6a2b95e8939d82607f27066ba3b32d155a758c54d5744d20b941019bae9ef093",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "temporary/keep-xml",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/temporary.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/withTemporaryTable"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/temporary.sql": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/temporary/keep-xml",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "c1ea439d9bb807314e64655d425ec9117f12818ee71aa53bd1236afe9b932b1c",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/temporary.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/withTemporaryTable"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 993145,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "c1ea439d9bb807314e64655d425ec9117f12818ee71aa53bd1236afe9b932b1c",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": true,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    },
+    {
+      "name": "temporary/keep-json",
+      "options": [
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/temporary.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/withTemporaryTable",
+        "/json"
+      ],
+      "inputFiles": {
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/temporary.sql": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d"
+      },
+      "javaReferenceReusedFrom": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/comparison-net10.0/temporary/keep-json",
+      "java": {
+        "exit": 0,
+        "stdoutSha256": "80de24b4e87e343984b3a1527dcd6e965993cfa08c48065bb3ec968f1da5f374",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "dotnetCommand": [
+        "dotnet",
+        "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/dlineage.dll",
+        "/f",
+        "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/sqlserver-acceptance-20261024/temporary.sql",
+        "/t",
+        "mssql",
+        "/s",
+        "/withTemporaryTable",
+        "/json"
+      ],
+      "actualLoadedCore": {
+        "location": "/tmp/gsp-dlineage-checkpoint-20261024T032934Z/final-demo-validation/demo-netstandard2.0/bin/demos.dlineage/release/gudusoft.gsqlparser.dll",
+        "sha256": "9b6344bc7aafd0c11a67748c5a2439c49e79f6dff13f7679761ad880532770f4",
+        "framework": ".NETStandard,Version=v2.0",
+        "processId": 993163,
+        "host": ".NET 10.0.13",
+        "os": "Ubuntu 24.04.3 LTS",
+        "observation": "Actual AssemblyLoad or already loaded assembly"
+      },
+      "dotnet": {
+        "exit": 0,
+        "stdoutSha256": "d3a4699ca2f626eb2b425b34767cf7b7b96f96ac59e54b05bc5cc4f2c36e7805",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawExact": false,
+      "comparison": "complete output model",
+      "structuredExact": true,
+      "successful": true
+    }
+  ],
+  "suite": {
+    "path": "/home/ubuntu/github/gsp_demo_dotnet/tests/dlineage/sqlserver-acceptance-20261024.json",
+    "sha256": "b741101964856acecf7e73577a869bc33b80c338c7a14e62416eddd9594bb33d"
+  }
+}

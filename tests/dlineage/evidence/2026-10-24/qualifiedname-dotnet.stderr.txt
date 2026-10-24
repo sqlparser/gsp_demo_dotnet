@@ -1,0 +1,2 @@
+Error log:
+IdentifierCapabilityException: Unsupported dbvmssql qualified table layout with 5 segments. STRUCT/JSON paths and surplus levels require an explicit binding model.
