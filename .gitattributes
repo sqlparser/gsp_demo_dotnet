@@ -1,0 +1,8 @@
+# Keep the statistics fixture LF so its token-based line count is stable.
+samples/dlineage/basic.sql text eol=lf
+
+# Original SQL/metadata fixture bytes are pinned by the acceptance manifest.
+samples/dlineage/sqlserver-acceptance-20261024/** -text
+
+# Whitespace belongs to these immutable original SQL inputs; SHA guards remain strict.
+samples/dlineage/sqlserver-acceptance-20261024/*.sql whitespace=-trailing-space,-blank-at-eof,-space-before-tab

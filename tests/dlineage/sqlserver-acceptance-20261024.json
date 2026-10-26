@@ -1,0 +1,1118 @@
+{
+  "schemaVersion": 1,
+  "scope": "14originalSQLinputs:oneuserquery,11unmodifiedpublicparserfixtures,twoexistingdemosamples;62completeCLIoption/outputgroups. Not14customerworkloads.",
+  "javaLibraryRevision": "4940a81cf671dee163239df60488fa716d02177e",
+  "javaDemoRevision": "65a2cef16409e99f834989478e683976032e003a",
+  "cases": [
+    {
+      "name": "customer-revenue/xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+      "sqlSha256": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c",
+      "source": {
+        "kind": "user-supplied-query",
+        "path": "/home/ubuntu/tmp/customer_revenue.sql",
+        "sha256": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c"
+      },
+      "vendor": "mssql",
+      "flags": []
+    },
+    {
+      "name": "customer-revenue/json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+      "sqlSha256": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c",
+      "source": {
+        "kind": "user-supplied-query",
+        "path": "/home/ubuntu/tmp/customer_revenue.sql",
+        "sha256": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c"
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/json"
+      ]
+    },
+    {
+      "name": "customer-revenue/simple-xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+      "sqlSha256": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c",
+      "source": {
+        "kind": "user-supplied-query",
+        "path": "/home/ubuntu/tmp/customer_revenue.sql",
+        "sha256": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c"
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s"
+      ]
+    },
+    {
+      "name": "customer-revenue/simple-json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+      "sqlSha256": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c",
+      "source": {
+        "kind": "user-supplied-query",
+        "path": "/home/ubuntu/tmp/customer_revenue.sql",
+        "sha256": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c"
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s",
+        "/json"
+      ]
+    },
+    {
+      "name": "cte/xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/cte.sql",
+      "sqlSha256": "cb7caecf0c07a1ba80700f1e25784401075a4d7e6455d81d88931283e5caf096",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/cte.sql",
+        "sha256": "cb7caecf0c07a1ba80700f1e25784401075a4d7e6455d81d88931283e5caf096",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/cte.sql",
+        "gitBlobSha256": "55048f312b7dcd0e09efac058154dafc022f774e0bb73b4e7de787a690fdf57a",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": []
+    },
+    {
+      "name": "cte/json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/cte.sql",
+      "sqlSha256": "cb7caecf0c07a1ba80700f1e25784401075a4d7e6455d81d88931283e5caf096",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/cte.sql",
+        "sha256": "cb7caecf0c07a1ba80700f1e25784401075a4d7e6455d81d88931283e5caf096",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/cte.sql",
+        "gitBlobSha256": "55048f312b7dcd0e09efac058154dafc022f774e0bb73b4e7de787a690fdf57a",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/json"
+      ]
+    },
+    {
+      "name": "cte/simple-xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/cte.sql",
+      "sqlSha256": "cb7caecf0c07a1ba80700f1e25784401075a4d7e6455d81d88931283e5caf096",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/cte.sql",
+        "sha256": "cb7caecf0c07a1ba80700f1e25784401075a4d7e6455d81d88931283e5caf096",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/cte.sql",
+        "gitBlobSha256": "55048f312b7dcd0e09efac058154dafc022f774e0bb73b4e7de787a690fdf57a",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s"
+      ]
+    },
+    {
+      "name": "cte/simple-json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/cte.sql",
+      "sqlSha256": "cb7caecf0c07a1ba80700f1e25784401075a4d7e6455d81d88931283e5caf096",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/cte.sql",
+        "sha256": "cb7caecf0c07a1ba80700f1e25784401075a4d7e6455d81d88931283e5caf096",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/cte.sql",
+        "gitBlobSha256": "55048f312b7dcd0e09efac058154dafc022f774e0bb73b4e7de787a690fdf57a",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s",
+        "/json"
+      ]
+    },
+    {
+      "name": "crossapply/xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/crossapply.sql",
+      "sqlSha256": "35e1cc451cd4f1c365de70a525341c8d439c1f5bc0b7310b50a466b74334cf72",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/crossapply.sql",
+        "sha256": "35e1cc451cd4f1c365de70a525341c8d439c1f5bc0b7310b50a466b74334cf72",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/crossapply.sql",
+        "gitBlobSha256": "10326ed06af7de394d8f0275726532a5dad2c059e871a46053227f8b1062b0ab",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": []
+    },
+    {
+      "name": "crossapply/json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/crossapply.sql",
+      "sqlSha256": "35e1cc451cd4f1c365de70a525341c8d439c1f5bc0b7310b50a466b74334cf72",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/crossapply.sql",
+        "sha256": "35e1cc451cd4f1c365de70a525341c8d439c1f5bc0b7310b50a466b74334cf72",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/crossapply.sql",
+        "gitBlobSha256": "10326ed06af7de394d8f0275726532a5dad2c059e871a46053227f8b1062b0ab",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/json"
+      ]
+    },
+    {
+      "name": "crossapply/simple-xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/crossapply.sql",
+      "sqlSha256": "35e1cc451cd4f1c365de70a525341c8d439c1f5bc0b7310b50a466b74334cf72",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/crossapply.sql",
+        "sha256": "35e1cc451cd4f1c365de70a525341c8d439c1f5bc0b7310b50a466b74334cf72",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/crossapply.sql",
+        "gitBlobSha256": "10326ed06af7de394d8f0275726532a5dad2c059e871a46053227f8b1062b0ab",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s"
+      ]
+    },
+    {
+      "name": "crossapply/simple-json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/crossapply.sql",
+      "sqlSha256": "35e1cc451cd4f1c365de70a525341c8d439c1f5bc0b7310b50a466b74334cf72",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/crossapply.sql",
+        "sha256": "35e1cc451cd4f1c365de70a525341c8d439c1f5bc0b7310b50a466b74334cf72",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/crossapply.sql",
+        "gitBlobSha256": "10326ed06af7de394d8f0275726532a5dad2c059e871a46053227f8b1062b0ab",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s",
+        "/json"
+      ]
+    },
+    {
+      "name": "pivot/xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/pivot.sql",
+      "sqlSha256": "e11c4c31b324f0b4c6f63fb3d348da400e43cf4c8d970bcbf14bab96ec51eea0",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/pivot.sql",
+        "sha256": "e11c4c31b324f0b4c6f63fb3d348da400e43cf4c8d970bcbf14bab96ec51eea0",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/pivot.sql",
+        "gitBlobSha256": "03bfabed39fde3234f5fc7d80fdd15177c2257330b5e4885590c1612c79b683d",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": []
+    },
+    {
+      "name": "pivot/json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/pivot.sql",
+      "sqlSha256": "e11c4c31b324f0b4c6f63fb3d348da400e43cf4c8d970bcbf14bab96ec51eea0",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/pivot.sql",
+        "sha256": "e11c4c31b324f0b4c6f63fb3d348da400e43cf4c8d970bcbf14bab96ec51eea0",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/pivot.sql",
+        "gitBlobSha256": "03bfabed39fde3234f5fc7d80fdd15177c2257330b5e4885590c1612c79b683d",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/json"
+      ]
+    },
+    {
+      "name": "pivot/simple-xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/pivot.sql",
+      "sqlSha256": "e11c4c31b324f0b4c6f63fb3d348da400e43cf4c8d970bcbf14bab96ec51eea0",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/pivot.sql",
+        "sha256": "e11c4c31b324f0b4c6f63fb3d348da400e43cf4c8d970bcbf14bab96ec51eea0",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/pivot.sql",
+        "gitBlobSha256": "03bfabed39fde3234f5fc7d80fdd15177c2257330b5e4885590c1612c79b683d",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s"
+      ]
+    },
+    {
+      "name": "pivot/simple-json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/pivot.sql",
+      "sqlSha256": "e11c4c31b324f0b4c6f63fb3d348da400e43cf4c8d970bcbf14bab96ec51eea0",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/pivot.sql",
+        "sha256": "e11c4c31b324f0b4c6f63fb3d348da400e43cf4c8d970bcbf14bab96ec51eea0",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/pivot.sql",
+        "gitBlobSha256": "03bfabed39fde3234f5fc7d80fdd15177c2257330b5e4885590c1612c79b683d",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s",
+        "/json"
+      ]
+    },
+    {
+      "name": "merge/xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/merge.sql",
+      "sqlSha256": "4d0ee9c9f2a7f59a8ee6f78cf428cc74fc5eb79d52d515b285d3badb06eae257",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/merge.sql",
+        "sha256": "4d0ee9c9f2a7f59a8ee6f78cf428cc74fc5eb79d52d515b285d3badb06eae257",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/merge.sql",
+        "gitBlobSha256": "ef424c7dbe45561047e35b989be52159b50ffa93725131581359c2a700da43ae",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": []
+    },
+    {
+      "name": "merge/json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/merge.sql",
+      "sqlSha256": "4d0ee9c9f2a7f59a8ee6f78cf428cc74fc5eb79d52d515b285d3badb06eae257",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/merge.sql",
+        "sha256": "4d0ee9c9f2a7f59a8ee6f78cf428cc74fc5eb79d52d515b285d3badb06eae257",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/merge.sql",
+        "gitBlobSha256": "ef424c7dbe45561047e35b989be52159b50ffa93725131581359c2a700da43ae",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/json"
+      ]
+    },
+    {
+      "name": "merge/simple-xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/merge.sql",
+      "sqlSha256": "4d0ee9c9f2a7f59a8ee6f78cf428cc74fc5eb79d52d515b285d3badb06eae257",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/merge.sql",
+        "sha256": "4d0ee9c9f2a7f59a8ee6f78cf428cc74fc5eb79d52d515b285d3badb06eae257",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/merge.sql",
+        "gitBlobSha256": "ef424c7dbe45561047e35b989be52159b50ffa93725131581359c2a700da43ae",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s"
+      ]
+    },
+    {
+      "name": "merge/simple-json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/merge.sql",
+      "sqlSha256": "4d0ee9c9f2a7f59a8ee6f78cf428cc74fc5eb79d52d515b285d3badb06eae257",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/merge.sql",
+        "sha256": "4d0ee9c9f2a7f59a8ee6f78cf428cc74fc5eb79d52d515b285d3badb06eae257",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/merge.sql",
+        "gitBlobSha256": "ef424c7dbe45561047e35b989be52159b50ffa93725131581359c2a700da43ae",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s",
+        "/json"
+      ]
+    },
+    {
+      "name": "outputclause/xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/outputclause.sql",
+      "sqlSha256": "de1b22df61881d83d81d540643455044a5598c815d5fe972ee98923b7a0e78c4",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/outputclause.sql",
+        "sha256": "de1b22df61881d83d81d540643455044a5598c815d5fe972ee98923b7a0e78c4",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/outputclause.sql",
+        "gitBlobSha256": "162c7a5549568c35b08a38400f93c57f3a6215f9464ecaab29989174415fdba0",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": []
+    },
+    {
+      "name": "outputclause/json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/outputclause.sql",
+      "sqlSha256": "de1b22df61881d83d81d540643455044a5598c815d5fe972ee98923b7a0e78c4",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/outputclause.sql",
+        "sha256": "de1b22df61881d83d81d540643455044a5598c815d5fe972ee98923b7a0e78c4",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/outputclause.sql",
+        "gitBlobSha256": "162c7a5549568c35b08a38400f93c57f3a6215f9464ecaab29989174415fdba0",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/json"
+      ]
+    },
+    {
+      "name": "outputclause/simple-xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/outputclause.sql",
+      "sqlSha256": "de1b22df61881d83d81d540643455044a5598c815d5fe972ee98923b7a0e78c4",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/outputclause.sql",
+        "sha256": "de1b22df61881d83d81d540643455044a5598c815d5fe972ee98923b7a0e78c4",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/outputclause.sql",
+        "gitBlobSha256": "162c7a5549568c35b08a38400f93c57f3a6215f9464ecaab29989174415fdba0",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s"
+      ]
+    },
+    {
+      "name": "outputclause/simple-json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/outputclause.sql",
+      "sqlSha256": "de1b22df61881d83d81d540643455044a5598c815d5fe972ee98923b7a0e78c4",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/outputclause.sql",
+        "sha256": "de1b22df61881d83d81d540643455044a5598c815d5fe972ee98923b7a0e78c4",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/outputclause.sql",
+        "gitBlobSha256": "162c7a5549568c35b08a38400f93c57f3a6215f9464ecaab29989174415fdba0",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s",
+        "/json"
+      ]
+    },
+    {
+      "name": "ranking_functions/xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/ranking_functions.sql",
+      "sqlSha256": "e214bd57383addbcd8c008829d62089d744924d6ed52909a6a69543727609057",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/ranking_functions.sql",
+        "sha256": "e214bd57383addbcd8c008829d62089d744924d6ed52909a6a69543727609057",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/ranking_functions.sql",
+        "gitBlobSha256": "54fd4234122ad1369a9a2238a5db1e19fce730a060448c6bb70e1d4440783fa8",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": []
+    },
+    {
+      "name": "ranking_functions/json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/ranking_functions.sql",
+      "sqlSha256": "e214bd57383addbcd8c008829d62089d744924d6ed52909a6a69543727609057",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/ranking_functions.sql",
+        "sha256": "e214bd57383addbcd8c008829d62089d744924d6ed52909a6a69543727609057",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/ranking_functions.sql",
+        "gitBlobSha256": "54fd4234122ad1369a9a2238a5db1e19fce730a060448c6bb70e1d4440783fa8",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/json"
+      ]
+    },
+    {
+      "name": "ranking_functions/simple-xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/ranking_functions.sql",
+      "sqlSha256": "e214bd57383addbcd8c008829d62089d744924d6ed52909a6a69543727609057",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/ranking_functions.sql",
+        "sha256": "e214bd57383addbcd8c008829d62089d744924d6ed52909a6a69543727609057",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/ranking_functions.sql",
+        "gitBlobSha256": "54fd4234122ad1369a9a2238a5db1e19fce730a060448c6bb70e1d4440783fa8",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s"
+      ]
+    },
+    {
+      "name": "ranking_functions/simple-json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/ranking_functions.sql",
+      "sqlSha256": "e214bd57383addbcd8c008829d62089d744924d6ed52909a6a69543727609057",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/ranking_functions.sql",
+        "sha256": "e214bd57383addbcd8c008829d62089d744924d6ed52909a6a69543727609057",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/ranking_functions.sql",
+        "gitBlobSha256": "54fd4234122ad1369a9a2238a5db1e19fce730a060448c6bb70e1d4440783fa8",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s",
+        "/json"
+      ]
+    },
+    {
+      "name": "createfunction/xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/createfunction.sql",
+      "sqlSha256": "d2ba917d7b4997b68c0c23d429c8cb9bd046a53d4a502896a91b8865e8418b05",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/createfunction.sql",
+        "sha256": "d2ba917d7b4997b68c0c23d429c8cb9bd046a53d4a502896a91b8865e8418b05",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/createfunction.sql",
+        "gitBlobSha256": "ff22d58159e8908accfd7c2eea5ce15019087964ef11baba2e72ca17dae244e5",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": []
+    },
+    {
+      "name": "createfunction/json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/createfunction.sql",
+      "sqlSha256": "d2ba917d7b4997b68c0c23d429c8cb9bd046a53d4a502896a91b8865e8418b05",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/createfunction.sql",
+        "sha256": "d2ba917d7b4997b68c0c23d429c8cb9bd046a53d4a502896a91b8865e8418b05",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/createfunction.sql",
+        "gitBlobSha256": "ff22d58159e8908accfd7c2eea5ce15019087964ef11baba2e72ca17dae244e5",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/json"
+      ]
+    },
+    {
+      "name": "createfunction/simple-xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/createfunction.sql",
+      "sqlSha256": "d2ba917d7b4997b68c0c23d429c8cb9bd046a53d4a502896a91b8865e8418b05",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/createfunction.sql",
+        "sha256": "d2ba917d7b4997b68c0c23d429c8cb9bd046a53d4a502896a91b8865e8418b05",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/createfunction.sql",
+        "gitBlobSha256": "ff22d58159e8908accfd7c2eea5ce15019087964ef11baba2e72ca17dae244e5",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s"
+      ]
+    },
+    {
+      "name": "createfunction/simple-json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/createfunction.sql",
+      "sqlSha256": "d2ba917d7b4997b68c0c23d429c8cb9bd046a53d4a502896a91b8865e8418b05",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/createfunction.sql",
+        "sha256": "d2ba917d7b4997b68c0c23d429c8cb9bd046a53d4a502896a91b8865e8418b05",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/createfunction.sql",
+        "gitBlobSha256": "ff22d58159e8908accfd7c2eea5ce15019087964ef11baba2e72ca17dae244e5",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s",
+        "/json"
+      ]
+    },
+    {
+      "name": "pro1/xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/pro1.sql",
+      "sqlSha256": "ecbaeb619fb3d766c11b9538bf4142d7d04b6ddd464d5427787fe4fe4918a5ba",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/pro1.sql",
+        "sha256": "ecbaeb619fb3d766c11b9538bf4142d7d04b6ddd464d5427787fe4fe4918a5ba",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/pro1.sql",
+        "gitBlobSha256": "b8bb1f626657fe5885568bea297c8ef9a13f6c4795e2c90a721389635292e3e7",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": []
+    },
+    {
+      "name": "pro1/json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/pro1.sql",
+      "sqlSha256": "ecbaeb619fb3d766c11b9538bf4142d7d04b6ddd464d5427787fe4fe4918a5ba",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/pro1.sql",
+        "sha256": "ecbaeb619fb3d766c11b9538bf4142d7d04b6ddd464d5427787fe4fe4918a5ba",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/pro1.sql",
+        "gitBlobSha256": "b8bb1f626657fe5885568bea297c8ef9a13f6c4795e2c90a721389635292e3e7",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/json"
+      ]
+    },
+    {
+      "name": "pro1/simple-xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/pro1.sql",
+      "sqlSha256": "ecbaeb619fb3d766c11b9538bf4142d7d04b6ddd464d5427787fe4fe4918a5ba",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/pro1.sql",
+        "sha256": "ecbaeb619fb3d766c11b9538bf4142d7d04b6ddd464d5427787fe4fe4918a5ba",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/pro1.sql",
+        "gitBlobSha256": "b8bb1f626657fe5885568bea297c8ef9a13f6c4795e2c90a721389635292e3e7",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s"
+      ]
+    },
+    {
+      "name": "pro1/simple-json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/pro1.sql",
+      "sqlSha256": "ecbaeb619fb3d766c11b9538bf4142d7d04b6ddd464d5427787fe4fe4918a5ba",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/pro1.sql",
+        "sha256": "ecbaeb619fb3d766c11b9538bf4142d7d04b6ddd464d5427787fe4fe4918a5ba",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/pro1.sql",
+        "gitBlobSha256": "b8bb1f626657fe5885568bea297c8ef9a13f6c4795e2c90a721389635292e3e7",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s",
+        "/json"
+      ]
+    },
+    {
+      "name": "qualifiedname/xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/qualifiedname.sql",
+      "sqlSha256": "6666c0f131eb6270211b573fd2e657c62556b936be1bd168d88f1c53c618d397",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/qualifiedname.sql",
+        "sha256": "6666c0f131eb6270211b573fd2e657c62556b936be1bd168d88f1c53c618d397",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/qualifiedname.sql",
+        "gitBlobSha256": "c88e7ada7f9ded926c8cf434d6f60d3e42bb43b812ec1af72938a2d3d054dc1f",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": []
+    },
+    {
+      "name": "qualifiedname/json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/qualifiedname.sql",
+      "sqlSha256": "6666c0f131eb6270211b573fd2e657c62556b936be1bd168d88f1c53c618d397",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/qualifiedname.sql",
+        "sha256": "6666c0f131eb6270211b573fd2e657c62556b936be1bd168d88f1c53c618d397",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/qualifiedname.sql",
+        "gitBlobSha256": "c88e7ada7f9ded926c8cf434d6f60d3e42bb43b812ec1af72938a2d3d054dc1f",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/json"
+      ]
+    },
+    {
+      "name": "qualifiedname/simple-xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/qualifiedname.sql",
+      "sqlSha256": "6666c0f131eb6270211b573fd2e657c62556b936be1bd168d88f1c53c618d397",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/qualifiedname.sql",
+        "sha256": "6666c0f131eb6270211b573fd2e657c62556b936be1bd168d88f1c53c618d397",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/qualifiedname.sql",
+        "gitBlobSha256": "c88e7ada7f9ded926c8cf434d6f60d3e42bb43b812ec1af72938a2d3d054dc1f",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s"
+      ]
+    },
+    {
+      "name": "qualifiedname/simple-json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/qualifiedname.sql",
+      "sqlSha256": "6666c0f131eb6270211b573fd2e657c62556b936be1bd168d88f1c53c618d397",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/qualifiedname.sql",
+        "sha256": "6666c0f131eb6270211b573fd2e657c62556b936be1bd168d88f1c53c618d397",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/qualifiedname.sql",
+        "gitBlobSha256": "c88e7ada7f9ded926c8cf434d6f60d3e42bb43b812ec1af72938a2d3d054dc1f",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s",
+        "/json"
+      ]
+    },
+    {
+      "name": "usersql2/xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/usersql2.sql",
+      "sqlSha256": "17bf5a1c0dc3074e935f7919aeebcf87da04b0ccb93cec800f7b90b3e2f3ffdd",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/usersql2.sql",
+        "sha256": "17bf5a1c0dc3074e935f7919aeebcf87da04b0ccb93cec800f7b90b3e2f3ffdd",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/usersql2.sql",
+        "gitBlobSha256": "ddab578927d9e51409d433ac00ed03e4e27f2ead89d55bfaeca96af5560452ae",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": []
+    },
+    {
+      "name": "usersql2/json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/usersql2.sql",
+      "sqlSha256": "17bf5a1c0dc3074e935f7919aeebcf87da04b0ccb93cec800f7b90b3e2f3ffdd",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/usersql2.sql",
+        "sha256": "17bf5a1c0dc3074e935f7919aeebcf87da04b0ccb93cec800f7b90b3e2f3ffdd",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/usersql2.sql",
+        "gitBlobSha256": "ddab578927d9e51409d433ac00ed03e4e27f2ead89d55bfaeca96af5560452ae",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/json"
+      ]
+    },
+    {
+      "name": "usersql2/simple-xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/usersql2.sql",
+      "sqlSha256": "17bf5a1c0dc3074e935f7919aeebcf87da04b0ccb93cec800f7b90b3e2f3ffdd",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/usersql2.sql",
+        "sha256": "17bf5a1c0dc3074e935f7919aeebcf87da04b0ccb93cec800f7b90b3e2f3ffdd",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/usersql2.sql",
+        "gitBlobSha256": "ddab578927d9e51409d433ac00ed03e4e27f2ead89d55bfaeca96af5560452ae",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s"
+      ]
+    },
+    {
+      "name": "usersql2/simple-json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/usersql2.sql",
+      "sqlSha256": "17bf5a1c0dc3074e935f7919aeebcf87da04b0ccb93cec800f7b90b3e2f3ffdd",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/allversions/MSSQL/usersql2.sql",
+        "sha256": "17bf5a1c0dc3074e935f7919aeebcf87da04b0ccb93cec800f7b90b3e2f3ffdd",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/allversions/MSSQL/usersql2.sql",
+        "gitBlobSha256": "ddab578927d9e51409d433ac00ed03e4e27f2ead89d55bfaeca96af5560452ae",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s",
+        "/json"
+      ]
+    },
+    {
+      "name": "string-agg/xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/string-agg.sql",
+      "sqlSha256": "acda16a88584f16efc24a054dddfc2d80940b0ccfebe6e5136b9c2123ad9b927",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/dotnet/mssql/string_agg.sql",
+        "sha256": "acda16a88584f16efc24a054dddfc2d80940b0ccfebe6e5136b9c2123ad9b927",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/dotnet/mssql/string_agg.sql",
+        "gitBlobSha256": "c8bc644cf3ef27a66b1504e31a90c4a689cd9b0eceae2b369b94432ae20e69b7",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": []
+    },
+    {
+      "name": "string-agg/json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/string-agg.sql",
+      "sqlSha256": "acda16a88584f16efc24a054dddfc2d80940b0ccfebe6e5136b9c2123ad9b927",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/dotnet/mssql/string_agg.sql",
+        "sha256": "acda16a88584f16efc24a054dddfc2d80940b0ccfebe6e5136b9c2123ad9b927",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/dotnet/mssql/string_agg.sql",
+        "gitBlobSha256": "c8bc644cf3ef27a66b1504e31a90c4a689cd9b0eceae2b369b94432ae20e69b7",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/json"
+      ]
+    },
+    {
+      "name": "string-agg/simple-xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/string-agg.sql",
+      "sqlSha256": "acda16a88584f16efc24a054dddfc2d80940b0ccfebe6e5136b9c2123ad9b927",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/dotnet/mssql/string_agg.sql",
+        "sha256": "acda16a88584f16efc24a054dddfc2d80940b0ccfebe6e5136b9c2123ad9b927",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/dotnet/mssql/string_agg.sql",
+        "gitBlobSha256": "c8bc644cf3ef27a66b1504e31a90c4a689cd9b0eceae2b369b94432ae20e69b7",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s"
+      ]
+    },
+    {
+      "name": "string-agg/simple-json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/string-agg.sql",
+      "sqlSha256": "acda16a88584f16efc24a054dddfc2d80940b0ccfebe6e5136b9c2123ad9b927",
+      "source": {
+        "kind": "public-parser-fixture",
+        "path": "/home/ubuntu/github/gsp_dotnet/gsp_sqlfiles/TestCases/public/dotnet/mssql/string_agg.sql",
+        "sha256": "acda16a88584f16efc24a054dddfc2d80940b0ccfebe6e5136b9c2123ad9b927",
+        "repositoryCommit": "a170c565dd9ca0dc688e2bff496e891e12784b86",
+        "repository": "/home/ubuntu/github/gsp_dotnet",
+        "repositoryPath": "gsp_sqlfiles/TestCases/public/dotnet/mssql/string_agg.sql",
+        "gitBlobSha256": "c8bc644cf3ef27a66b1504e31a90c4a689cd9b0eceae2b369b94432ae20e69b7",
+        "gitBlobEqualsInputBytes": false
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s",
+        "/json"
+      ]
+    },
+    {
+      "name": "temporary/xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/temporary.sql",
+      "sqlSha256": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d",
+      "source": {
+        "kind": "existing-demo-sample",
+        "path": "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/temporary-mssql.sql",
+        "sha256": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d"
+      },
+      "vendor": "mssql",
+      "flags": []
+    },
+    {
+      "name": "temporary/json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/temporary.sql",
+      "sqlSha256": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d",
+      "source": {
+        "kind": "existing-demo-sample",
+        "path": "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/temporary-mssql.sql",
+        "sha256": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d"
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/json"
+      ]
+    },
+    {
+      "name": "temporary/simple-xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/temporary.sql",
+      "sqlSha256": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d",
+      "source": {
+        "kind": "existing-demo-sample",
+        "path": "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/temporary-mssql.sql",
+        "sha256": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d"
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s"
+      ]
+    },
+    {
+      "name": "temporary/simple-json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/temporary.sql",
+      "sqlSha256": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d",
+      "source": {
+        "kind": "existing-demo-sample",
+        "path": "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/temporary-mssql.sql",
+        "sha256": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d"
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s",
+        "/json"
+      ]
+    },
+    {
+      "name": "metadata-query/xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/metadata-query.sql",
+      "sqlSha256": "0e16ca7396efbeab97bd909f159a0382193662679d90fcd69ff7660da2424977",
+      "source": {
+        "kind": "existing-demo-sample",
+        "path": "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/metadata-query.sql",
+        "sha256": "0e16ca7396efbeab97bd909f159a0382193662679d90fcd69ff7660da2424977"
+      },
+      "vendor": "mssql",
+      "metadata": "samples/dlineage/sqlserver-acceptance-20261024/metadata.json",
+      "metadataSha256": "ad14c0f05ad200cb2a2b9c29c4641ad32bff36324237697af87c755d73c36607",
+      "flags": [
+        "/defaultDatabase",
+        "demo_db",
+        "/defaultSchema",
+        "dbo"
+      ]
+    },
+    {
+      "name": "metadata-query/json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/metadata-query.sql",
+      "sqlSha256": "0e16ca7396efbeab97bd909f159a0382193662679d90fcd69ff7660da2424977",
+      "source": {
+        "kind": "existing-demo-sample",
+        "path": "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/metadata-query.sql",
+        "sha256": "0e16ca7396efbeab97bd909f159a0382193662679d90fcd69ff7660da2424977"
+      },
+      "vendor": "mssql",
+      "metadata": "samples/dlineage/sqlserver-acceptance-20261024/metadata.json",
+      "metadataSha256": "ad14c0f05ad200cb2a2b9c29c4641ad32bff36324237697af87c755d73c36607",
+      "flags": [
+        "/defaultDatabase",
+        "demo_db",
+        "/defaultSchema",
+        "dbo",
+        "/json"
+      ]
+    },
+    {
+      "name": "metadata-query/simple-xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/metadata-query.sql",
+      "sqlSha256": "0e16ca7396efbeab97bd909f159a0382193662679d90fcd69ff7660da2424977",
+      "source": {
+        "kind": "existing-demo-sample",
+        "path": "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/metadata-query.sql",
+        "sha256": "0e16ca7396efbeab97bd909f159a0382193662679d90fcd69ff7660da2424977"
+      },
+      "vendor": "mssql",
+      "metadata": "samples/dlineage/sqlserver-acceptance-20261024/metadata.json",
+      "metadataSha256": "ad14c0f05ad200cb2a2b9c29c4641ad32bff36324237697af87c755d73c36607",
+      "flags": [
+        "/defaultDatabase",
+        "demo_db",
+        "/defaultSchema",
+        "dbo",
+        "/s"
+      ]
+    },
+    {
+      "name": "metadata-query/simple-json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/metadata-query.sql",
+      "sqlSha256": "0e16ca7396efbeab97bd909f159a0382193662679d90fcd69ff7660da2424977",
+      "source": {
+        "kind": "existing-demo-sample",
+        "path": "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/metadata-query.sql",
+        "sha256": "0e16ca7396efbeab97bd909f159a0382193662679d90fcd69ff7660da2424977"
+      },
+      "vendor": "mssql",
+      "metadata": "samples/dlineage/sqlserver-acceptance-20261024/metadata.json",
+      "metadataSha256": "ad14c0f05ad200cb2a2b9c29c4641ad32bff36324237697af87c755d73c36607",
+      "flags": [
+        "/defaultDatabase",
+        "demo_db",
+        "/defaultSchema",
+        "dbo",
+        "/s",
+        "/json"
+      ]
+    },
+    {
+      "name": "customer-revenue/transform-xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+      "sqlSha256": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c",
+      "source": {
+        "kind": "user-supplied-query",
+        "path": "/home/ubuntu/tmp/customer_revenue.sql",
+        "sha256": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c"
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/transform",
+        "/coor",
+        "/showConstant",
+        "/j"
+      ]
+    },
+    {
+      "name": "customer-revenue/transform-json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+      "sqlSha256": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c",
+      "source": {
+        "kind": "user-supplied-query",
+        "path": "/home/ubuntu/tmp/customer_revenue.sql",
+        "sha256": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c"
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/transform",
+        "/coor",
+        "/showConstant",
+        "/j",
+        "/json"
+      ]
+    },
+    {
+      "name": "customer-revenue/table-xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+      "sqlSha256": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c",
+      "source": {
+        "kind": "user-supplied-query",
+        "path": "/home/ubuntu/tmp/customer_revenue.sql",
+        "sha256": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c"
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/tableLineage"
+      ]
+    },
+    {
+      "name": "customer-revenue/table-json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql",
+      "sqlSha256": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c",
+      "source": {
+        "kind": "user-supplied-query",
+        "path": "/home/ubuntu/tmp/customer_revenue.sql",
+        "sha256": "7e0f2834c5e101ee255e04afb1cedd43c27e37b295bcc80ff5114663acd2a68c"
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/tableLineage",
+        "/json"
+      ]
+    },
+    {
+      "name": "temporary/keep-xml",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/temporary.sql",
+      "sqlSha256": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d",
+      "source": {
+        "kind": "existing-demo-sample",
+        "path": "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/temporary-mssql.sql",
+        "sha256": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d"
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s",
+        "/withTemporaryTable"
+      ]
+    },
+    {
+      "name": "temporary/keep-json",
+      "sql": "samples/dlineage/sqlserver-acceptance-20261024/temporary.sql",
+      "sqlSha256": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d",
+      "source": {
+        "kind": "existing-demo-sample",
+        "path": "/home/ubuntu/github/gsp_demo_dotnet/samples/dlineage/temporary-mssql.sql",
+        "sha256": "7788217b46bf09e6cac3338fc29a6707774d0de84458e9a69f5b7049a22b772d"
+      },
+      "vendor": "mssql",
+      "flags": [
+        "/s",
+        "/withTemporaryTable",
+        "/json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "historicalMatrixAndFullModelComparisonFunctionsUnchanged": true,
+  "historicalCases": 41,
+  "newCases": 62,
+  "controls": [
+    {
+      "name": "duplicate-name",
+      "rejected": true,
+      "reason": "Invalid or duplicate case name: customer-revenue/xml"
+    },
+    {
+      "name": "unsafe-name",
+      "rejected": true,
+      "reason": "Invalid or duplicate case name: ../outside"
+    },
+    {
+      "name": "changed-sql-hash",
+      "rejected": true,
+      "reason": "Original SQL bytes changed: customer-revenue/xml"
+    },
+    {
+      "name": "reserved-selector",
+      "rejected": true,
+      "reason": "Input/output selectors must use manifest fields: customer-revenue/xml"
+    },
+    {
+      "name": "changed-metadata-hash",
+      "rejected": true,
+      "reason": "Original metadata bytes changed: metadata-query/xml"
+    },
+    {
+      "name": "mixed-valid-and-unknown-selection",
+      "rejected": true,
+      "exitCode": 2
+    }
+  ]
+}

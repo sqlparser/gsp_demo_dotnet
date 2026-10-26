@@ -19,11 +19,13 @@
 - [代码调用](#代码调用)：在自己的程序中使用正式 API。
 - [常见问题与实现范围](#常见问题与实现范围)：版本、方言、Java 对齐边界。
 
+- [当前 SQL Server 示例与验证](#sqlserver-acceptance)。
+
 ## 准备与构建
 
 需要 .NET 10 SDK，命令均从 **`gsp_demo_dotnet` 仓库根目录**执行。
 
-**当前仓库固定的 NuGet `4.1.0.8` 不含正式 dlineage API。完整功能需要当前开发版库，例如本地 `4.1.0.17` DLL；不需要先发布新版本。**
+**当前仓库固定的 NuGet `4.1.0.8` 不含正式 dlineage API。完整功能需要当前开发版库，例如本地 `4.1.0.18` DLL；不需要先发布新版本。**
 
 通过 `GspAssemblyPath` 显式指定 DLL，不必修改项目文件、NuGet 版本或全局包缓存：
 
@@ -38,7 +40,12 @@ dotnet build src/demos/dlineage/demos.dlineage.csproj -c Release \
 
 ```bash
 dotnet build ../gsp_dotnet/gsp_dotnet_core/src/gsqlparser/gsqlparser.csproj \
-  -c Release -f net10.0
+  -c Release -f net10.0 \
+  -p:includeDB2=true -p:includeGreenplum=true -p:includeHive=true \
+  -p:includeImpala=true -p:includeInformix=true -p:includeMdx=true \
+  -p:includeMssql=true -p:includeMySQL=true -p:includeNetezza=true \
+  -p:includeOracle=true -p:includePostgreSQL=true -p:includeRedshift=true \
+  -p:includeSnowflake=true -p:includeSybase=true -p:includeTeradata=true
 
 dotnet build src/demos/dlineage/demos.dlineage.csproj -c Release \
   -p:GspAssemblyPath="$PWD/../gsp_dotnet/gsp_dotnet_core/src/gsqlparser/bin/Release/net10.0/gudusoft.gsqlparser.dll"
@@ -59,7 +66,7 @@ dotnet build src/demos/dlineage/demos.dlineage.csproj -c Release `
 dotnet src/demos/dlineage/bin/Release/net10.0/dlineage.dll /f samples/dlineage/basic.sql /json
 ```
 
-未指定本地 DLL 时，仓库仍能按原来的 NuGet 配置构建：帮助、版本和旧命令可用；新分析命令明确提示缺少 API，返回 `2`，不会悄悄切换到旧算法。`EnableDlineage` 在指定本地 DLL 或 `GspVersion >= 4.1.0.17` 时启用；版本号只表示编译条件，不意味着该包已经发布。
+未指定本地 DLL 时，仓库仍能按原来的 NuGet 配置构建：帮助、版本和旧命令可用；新分析命令明确提示缺少 API，返回 `2`，不会悄悄切换到旧算法。`EnableDlineage` 在指定本地 DLL 或 `GspVersion >= 4.1.0.18` 时启用；版本号只表示编译条件，不意味着该包已经发布。
 
 ## 快速开始
 
@@ -284,3 +291,22 @@ CLI 宿主可调用 `Dlineage.Run(args, outputWriter, errorWriter)` 获取退出
 - **是否所有输出都与 Java 完全相同？** 对照中保留了 PostgreSQL `DECIMAL` 的类型名称差异：Java 模型为 `decimal`，当前 C# 库为 `dec`，demo 不改写它。JSON 也可能存在字段顺序或转义字节差异；可解析模型与原始字节分别核验，详见验证记录。
 
 实现参考固定为 Java demo 提交 `65a2cef16409e99f834989478e683976032e003a` 的 `DataFlowAnalyzer.java`；当前 C# 库的 Java 源码基准为 `4940a81cf671dee163239df60488fa716d02177e`。验证方法与实际差异见 [`tests/dlineage/readme.md`](../../../tests/dlineage/readme.md)。
+
+<a id="sqlserver-acceptance"></a>
+
+## 2026-10-24：SQL Server 当前开发版验证
+
+当前本地库为 **4.1.0.18**，无需发布新 NuGet。原始 CTE 和 CROSS APPLY 的漏迁移已在库中修复，demo 继续调用正式 API。两份最新 DLL 各通过现有 62 项 CLI 测试；`netstandard2.0` 的执行宿主也是 Linux/.NET 10。
+
+新增 14 份原始 SQL、62 组选项／格式对照：每份 DLL 有 **58 组完整模型相同、29 组 stdout 字节相同、34 组双方退出码均为 0**。四组五段物理表名仍触发既有 Identifier 能力限制；另有 24 组双方报告相同的 orphan-column 诊断、模型相同，但 C# 按公开合同返回 1；Java 错误标题后还多一个空行，双方原始 stderr 均保留。完整比较仍返回 1，没有忽略这些失败。公开解析器样例不等于 14 份客户工作负载。
+
+用户的 `SELECT ... INTO [dbo].[customer_revenue]` 示例也保存为原字节，可直接生成文件：
+
+```bash
+dotnet src/demos/dlineage/bin/Release/net10.0/dlineage.dll \
+  /f samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql /t mssql /o customer_revenue.xml
+dotnet src/demos/dlineage/bin/Release/net10.0/dlineage.dll \
+  /f samples/dlineage/sqlserver-acceptance-20261024/customer-revenue.sql /t mssql /json /o customer_revenue.json
+```
+
+结果包含五个目标列及对应来源。实际 DLL 身份、完整结果和重放方式见[本批验证](../../../tests/dlineage/readme.md#2026-10-24-sql-server-当前开发版验证)及[机器记录](../../../tests/dlineage/evidence/2026-10-24/validation.json)。10 月 21 日的四方言比较保持原 DLL 范围；本批没有运行 Windows CI，也没有修改默认包版本。

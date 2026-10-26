@@ -10,6 +10,7 @@ import difflib
 from decimal import Decimal
 import hashlib
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -19,6 +20,33 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[2]
 SAMPLES = ROOT / "samples" / "dlineage"
 MAIN = "gudusoft.gsqlparser.demos.dlineage.DataFlowAnalyzer"
+
+
+def load_suite(path):
+    """Load pinned original SQL/options without replacing the historical matrix."""
+    suite = json.loads(path.read_text(encoding="utf-8"))
+    if suite.get("schemaVersion") != 1 or not suite.get("cases"):
+        raise ValueError("Expected a nonempty schemaVersion=1 case manifest")
+    cases, names = [], set()
+    for item in suite["cases"]:
+        name = item["name"]
+        if name in names or name.startswith("/") or "\\" in name or any(p in ("", ".", "..") for p in name.split("/")):
+            raise ValueError("Invalid or duplicate case name: " + name)
+        names.add(name)
+        sql = (ROOT / item["sql"]).resolve()
+        if hashlib.sha256(sql.read_bytes()).hexdigest() != item["sqlSha256"]:
+            raise ValueError("Original SQL bytes changed: " + name)
+        flags = item.get("flags", [])
+        if not all(isinstance(flag, str) for flag in flags) or any(flag.lower() in ("/f", "/d", "/t", "/env", "/o") for flag in flags):
+            raise ValueError("Input/output selectors must use manifest fields: " + name)
+        options = ["/f", str(sql), "/t", item.get("vendor", "mssql"), *flags]
+        if item.get("metadata"):
+            metadata = (ROOT / item["metadata"]).resolve()
+            if hashlib.sha256(metadata.read_bytes()).hexdigest() != item["metadataSha256"]:
+                raise ValueError("Original metadata bytes changed: " + name)
+            options += ["/env", str(metadata)]
+        cases.append((name, options))
+    return cases
 
 
 def matrix():
@@ -109,15 +137,22 @@ def main():
     group.add_argument("--java-jar", type=Path, help="standalone Java demo jar")
     group.add_argument("--java-records", type=Path, help="reuse saved Java outputs from an unchanged reference/input set")
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--suite", type=Path, help="additional pinned SQL/options manifest; default historical matrix is unchanged")
+    parser.add_argument("--startup-hook", type=Path, help="verification AssemblyLoad hook for the actual C# parser")
+    parser.add_argument("--expected-parser-sha256")
+    parser.add_argument("--expected-parser-tfm")
+    parser.add_argument("--java-load-log", action="store_true", help="retain actual Java class-loading sources per fresh run")
     parser.add_argument("--case", action="append", help="restrict to named cases")
     args = parser.parse_args()
+    if any((args.startup_hook, args.expected_parser_sha256, args.expected_parser_tfm)) and not all((args.startup_hook, args.expected_parser_sha256, args.expected_parser_tfm)):
+        parser.error("--startup-hook, --expected-parser-sha256 and --expected-parser-tfm must be specified together")
     args.output.mkdir(parents=True, exist_ok=True)
     java = None if args.java_records else (["java", "-cp", args.java_classpath, MAIN] if args.java_classpath else ["java", "-jar", str(args.java_jar.resolve())])
     dotnet = ["dotnet", str(args.dotnet.resolve())]
     def run(case):
         name, options = case
         folder = args.output / name
-        folder.mkdir(exist_ok=True)
+        folder.mkdir(parents=True, exist_ok=True)
         record = {"name": name, "options": options}
         record["inputFiles"] = {options[index + 1]: hashlib.sha256(Path(options[index + 1]).read_bytes()).hexdigest()
                                 for index, option in enumerate(options) if option in ("/f", "/env")}
@@ -135,7 +170,26 @@ def main():
                     raise ValueError("Java reference record hash mismatch: " + name)
                 record["javaReferenceReusedFrom"] = str(source.resolve())
             else:
-                result = subprocess.run([*prefix, *options], cwd=ROOT, capture_output=True, timeout=90)
+                invocation = list(prefix)
+                environment = {}
+                if runtime == "java" and args.java_load_log:
+                    invocation.insert(1, "-Xlog:class+load=info:file=" + str((folder / "java-loads.log").resolve()))
+                if runtime == "dotnet" and args.startup_hook:
+                    parser_path = args.dotnet.resolve().with_name("gudusoft.gsqlparser.dll")
+                    environment = {
+                        "DOTNET_STARTUP_HOOKS": str(args.startup_hook.resolve()),
+                        "GSP_R244_ORIGINAL_LOAD_REPORT": str((folder / "dotnet-loaded.json").resolve()),
+                        "GSP_DLINEAGE_EXPECTED_ASSEMBLY_SHA256": args.expected_parser_sha256,
+                        "GSP_DLINEAGE_EXPECTED_TFM": args.expected_parser_tfm,
+                        "GSP_DLINEAGE_EXPECTED_ASSEMBLY_PATH": str(parser_path),
+                    }
+                record[runtime + "Command"] = [*invocation, *options]
+                result = subprocess.run([*invocation, *options], cwd=ROOT, env={**os.environ, **environment}, capture_output=True, timeout=90)
+                if runtime == "dotnet" and args.startup_hook:
+                    loaded = json.loads((folder / "dotnet-loaded.json").read_text())
+                    if loaded["sha256"] != args.expected_parser_sha256 or loaded["framework"] != args.expected_parser_tfm or Path(loaded["location"]) != parser_path:
+                        raise ValueError("Actual loaded parser differs from the requested artifact: " + name)
+                    record["actualLoadedCore"] = loaded
             (folder / (runtime + ".stdout")).write_bytes(result.stdout)
             (folder / (runtime + ".stderr")).write_bytes(result.stderr)
             record[runtime] = {"exit": result.returncode, "stdoutSha256": hashlib.sha256(result.stdout).hexdigest(), "stderrSha256": hashlib.sha256(result.stderr).hexdigest()}
@@ -155,11 +209,20 @@ def main():
         (folder / "result.json").write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print(f"{name}: raw={record['rawExact']} structured={record['structuredExact']} exits={left.returncode}/{right.returncode}", flush=True)
         return record
-    cases = [case for case in matrix() if not args.case or case[0] in args.case]
+    try:
+        available = load_suite(args.suite) if args.suite else matrix()
+    except (ValueError, KeyError, OSError) as error:
+        parser.error(str(error))
+    unknown = set(args.case or ()) - {name for name, _ in available}
+    if unknown:
+        parser.error("unknown cases: " + ", ".join(sorted(unknown)))
+    cases = [case for case in available if not args.case or case[0] in args.case]
     if not cases: parser.error("no matching cases")
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
         records = list(pool.map(run, cases))
     summary = {"cases": len(records), "rawExact": sum(r["rawExact"] for r in records), "structuredExact": sum(r["structuredExact"] for r in records), "successful": sum(r["successful"] for r in records), "records": records}
+    if args.suite:
+        summary["suite"] = {"path": str(args.suite.resolve()), "sha256": hashlib.sha256(args.suite.read_bytes()).hexdigest()}
     (args.output / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({k: v for k, v in summary.items() if k != "records"}))
     return 0 if all(r["successful"] and r["structuredExact"] for r in records) else 1
