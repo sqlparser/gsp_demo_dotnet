@@ -1,3 +1,5 @@
+# Keep the statistics fixture LF so its token-based line count is stable.
+samples/dlineage/basic.sql text eol=lf
 
 # Original SQL/metadata fixture bytes are pinned by the acceptance manifest.
 samples/dlineage/sqlserver-acceptance-20261024/** -text
